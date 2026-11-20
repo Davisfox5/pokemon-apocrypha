@@ -1,0 +1,928 @@
+{
+ "write": {
+  "exit": 0,
+  "records": [
+   {
+    "slots": 6,
+    "lead_species": 133
+   },
+   {
+    "shot": "entrance-outside"
+   },
+   {
+    "step": "entrance-square",
+    "region": 2,
+    "group": 76,
+    "map": 0,
+    "x": 5,
+    "y": 1,
+    "frlg_layout": 0,
+    "width": 24,
+    "height": 20,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "step": "first-entry",
+    "region": 2,
+    "group": 81,
+    "map": 0,
+    "x": 7,
+    "y": 15,
+    "frlg_layout": 0,
+    "width": 16,
+    "height": 18,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "first_roll": 5
+   },
+   {
+    "shot": "first-visit"
+   },
+   {
+    "step": "exit-to-entrance",
+    "region": 2,
+    "group": 76,
+    "map": 0,
+    "x": 5,
+    "y": 1,
+    "frlg_layout": 0,
+    "width": 24,
+    "height": 20,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "shot": "exit-outside"
+   },
+   {
+    "step": "entrance-square",
+    "region": 2,
+    "group": 76,
+    "map": 0,
+    "x": 5,
+    "y": 1,
+    "frlg_layout": 0,
+    "width": 24,
+    "height": 20,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "step": "forced-entry",
+    "region": 2,
+    "group": 81,
+    "map": 0,
+    "x": 7,
+    "y": 15,
+    "frlg_layout": 0,
+    "width": 16,
+    "height": 18,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "step": "below-content",
+    "region": 2,
+    "group": 81,
+    "map": 0,
+    "x": 7,
+    "y": 8,
+    "frlg_layout": 0,
+    "width": 16,
+    "height": 18,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "shot": "slot0-content"
+   },
+   {
+    "shot": "slot0-battle"
+   },
+   {
+    "slot": 0,
+    "species": 133,
+    "level": 21,
+    "ability_num": 2,
+    "ability": 107,
+    "hidden_ability": 107,
+    "shiny": 0,
+    "gender": 0,
+    "slot_gender": 0
+   },
+   {
+    "step": "back-after-battle",
+    "region": 2,
+    "group": 81,
+    "map": 0,
+    "x": 7,
+    "y": 8,
+    "frlg_layout": 0,
+    "width": 16,
+    "height": 18,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "shot": "slot0-after-battle"
+   },
+   {
+    "step": "exit-after-take",
+    "region": 2,
+    "group": 76,
+    "map": 0,
+    "x": 5,
+    "y": 1,
+    "frlg_layout": 0,
+    "width": 24,
+    "height": 20,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "step": "entrance-square",
+    "region": 2,
+    "group": 76,
+    "map": 0,
+    "x": 5,
+    "y": 1,
+    "frlg_layout": 0,
+    "width": 24,
+    "height": 20,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "step": "empty-entry",
+    "region": 2,
+    "group": 81,
+    "map": 0,
+    "x": 7,
+    "y": 15,
+    "frlg_layout": 0,
+    "width": 16,
+    "height": 18,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "shot": "slot0-empty-revisit"
+   },
+   {
+    "step": "below-content",
+    "region": 2,
+    "group": 81,
+    "map": 0,
+    "x": 7,
+    "y": 8,
+    "frlg_layout": 0,
+    "width": 16,
+    "height": 18,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "step": "exit-empty",
+    "region": 2,
+    "group": 76,
+    "map": 0,
+    "x": 5,
+    "y": 1,
+    "frlg_layout": 0,
+    "width": 24,
+    "height": 20,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "step": "entrance-square",
+    "region": 2,
+    "group": 76,
+    "map": 0,
+    "x": 5,
+    "y": 1,
+    "frlg_layout": 0,
+    "width": 24,
+    "height": 20,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "step": "forced-entry",
+    "region": 2,
+    "group": 81,
+    "map": 0,
+    "x": 7,
+    "y": 15,
+    "frlg_layout": 0,
+    "width": 16,
+    "height": 18,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "step": "below-content",
+    "region": 2,
+    "group": 81,
+    "map": 0,
+    "x": 7,
+    "y": 8,
+    "frlg_layout": 0,
+    "width": 16,
+    "height": 18,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "shot": "slot1-content"
+   },
+   {
+    "shot": "slot1-battle"
+   },
+   {
+    "slot": 1,
+    "species": 187,
+    "level": 25,
+    "ability_num": 2,
+    "ability": 151,
+    "hidden_ability": 151,
+    "shiny": 0,
+    "gender": 0,
+    "slot_gender": 0
+   },
+   {
+    "step": "back-after-battle",
+    "region": 2,
+    "group": 81,
+    "map": 0,
+    "x": 7,
+    "y": 8,
+    "frlg_layout": 0,
+    "width": 16,
+    "height": 18,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "shot": "slot1-after-battle"
+   },
+   {
+    "step": "exit-after-take",
+    "region": 2,
+    "group": 76,
+    "map": 0,
+    "x": 5,
+    "y": 1,
+    "frlg_layout": 0,
+    "width": 24,
+    "height": 20,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "step": "entrance-square",
+    "region": 2,
+    "group": 76,
+    "map": 0,
+    "x": 5,
+    "y": 1,
+    "frlg_layout": 0,
+    "width": 24,
+    "height": 20,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "step": "empty-entry",
+    "region": 2,
+    "group": 81,
+    "map": 0,
+    "x": 7,
+    "y": 15,
+    "frlg_layout": 0,
+    "width": 16,
+    "height": 18,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "shot": "slot1-empty-revisit"
+   },
+   {
+    "step": "below-content",
+    "region": 2,
+    "group": 81,
+    "map": 0,
+    "x": 7,
+    "y": 8,
+    "frlg_layout": 0,
+    "width": 16,
+    "height": 18,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "step": "exit-empty",
+    "region": 2,
+    "group": 76,
+    "map": 0,
+    "x": 5,
+    "y": 1,
+    "frlg_layout": 0,
+    "width": 24,
+    "height": 20,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "step": "entrance-square",
+    "region": 2,
+    "group": 76,
+    "map": 0,
+    "x": 5,
+    "y": 1,
+    "frlg_layout": 0,
+    "width": 24,
+    "height": 20,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "step": "forced-entry",
+    "region": 2,
+    "group": 81,
+    "map": 0,
+    "x": 7,
+    "y": 15,
+    "frlg_layout": 0,
+    "width": 16,
+    "height": 18,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "step": "below-content",
+    "region": 2,
+    "group": 81,
+    "map": 0,
+    "x": 7,
+    "y": 8,
+    "frlg_layout": 0,
+    "width": 16,
+    "height": 18,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "shot": "slot2-content"
+   },
+   {
+    "shot": "slot2-battle"
+   },
+   {
+    "slot": 2,
+    "species": 161,
+    "level": 20,
+    "ability_num": 2,
+    "ability": 119,
+    "hidden_ability": 119,
+    "shiny": 0,
+    "gender": 254,
+    "slot_gender": 2
+   },
+   {
+    "step": "back-after-battle",
+    "region": 2,
+    "group": 81,
+    "map": 0,
+    "x": 7,
+    "y": 8,
+    "frlg_layout": 0,
+    "width": 16,
+    "height": 18,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "shot": "slot2-after-battle"
+   },
+   {
+    "step": "exit-after-take",
+    "region": 2,
+    "group": 76,
+    "map": 0,
+    "x": 5,
+    "y": 1,
+    "frlg_layout": 0,
+    "width": 24,
+    "height": 20,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "step": "entrance-square",
+    "region": 2,
+    "group": 76,
+    "map": 0,
+    "x": 5,
+    "y": 1,
+    "frlg_layout": 0,
+    "width": 24,
+    "height": 20,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "step": "empty-entry",
+    "region": 2,
+    "group": 81,
+    "map": 0,
+    "x": 7,
+    "y": 15,
+    "frlg_layout": 0,
+    "width": 16,
+    "height": 18,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "shot": "slot2-empty-revisit"
+   },
+   {
+    "step": "below-content",
+    "region": 2,
+    "group": 81,
+    "map": 0,
+    "x": 7,
+    "y": 8,
+    "frlg_layout": 0,
+    "width": 16,
+    "height": 18,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "step": "exit-empty",
+    "region": 2,
+    "group": 76,
+    "map": 0,
+    "x": 5,
+    "y": 1,
+    "frlg_layout": 0,
+    "width": 24,
+    "height": 20,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "step": "entrance-square",
+    "region": 2,
+    "group": 76,
+    "map": 0,
+    "x": 5,
+    "y": 1,
+    "frlg_layout": 0,
+    "width": 24,
+    "height": 20,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "step": "forced-entry",
+    "region": 2,
+    "group": 81,
+    "map": 0,
+    "x": 7,
+    "y": 15,
+    "frlg_layout": 0,
+    "width": 16,
+    "height": 18,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "step": "below-content",
+    "region": 2,
+    "group": 81,
+    "map": 0,
+    "x": 7,
+    "y": 8,
+    "frlg_layout": 0,
+    "width": 16,
+    "height": 18,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "shot": "slot3-content"
+   },
+   {
+    "shot": "slot3-pickup"
+   },
+   {
+    "slot": 3,
+    "item": 140,
+    "had_before": 0,
+    "has_after": 1,
+    "state": 255
+   },
+   {
+    "shot": "slot3-after-pickup"
+   },
+   {
+    "step": "exit-after-take",
+    "region": 2,
+    "group": 76,
+    "map": 0,
+    "x": 5,
+    "y": 1,
+    "frlg_layout": 0,
+    "width": 24,
+    "height": 20,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "step": "entrance-square",
+    "region": 2,
+    "group": 76,
+    "map": 0,
+    "x": 5,
+    "y": 1,
+    "frlg_layout": 0,
+    "width": 24,
+    "height": 20,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "step": "empty-entry",
+    "region": 2,
+    "group": 81,
+    "map": 0,
+    "x": 7,
+    "y": 15,
+    "frlg_layout": 0,
+    "width": 16,
+    "height": 18,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "shot": "slot3-empty-revisit"
+   },
+   {
+    "step": "below-content",
+    "region": 2,
+    "group": 81,
+    "map": 0,
+    "x": 7,
+    "y": 8,
+    "frlg_layout": 0,
+    "width": 16,
+    "height": 18,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "step": "exit-empty",
+    "region": 2,
+    "group": 76,
+    "map": 0,
+    "x": 5,
+    "y": 1,
+    "frlg_layout": 0,
+    "width": 24,
+    "height": 20,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "step": "entrance-square",
+    "region": 2,
+    "group": 76,
+    "map": 0,
+    "x": 5,
+    "y": 1,
+    "frlg_layout": 0,
+    "width": 24,
+    "height": 20,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "step": "forced-entry",
+    "region": 2,
+    "group": 81,
+    "map": 0,
+    "x": 7,
+    "y": 15,
+    "frlg_layout": 0,
+    "width": 16,
+    "height": 18,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "step": "below-content",
+    "region": 2,
+    "group": 81,
+    "map": 0,
+    "x": 7,
+    "y": 8,
+    "frlg_layout": 0,
+    "width": 16,
+    "height": 18,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "shot": "slot4-content"
+   },
+   {
+    "shot": "slot4-pickup"
+   },
+   {
+    "slot": 4,
+    "item": 141,
+    "had_before": 0,
+    "has_after": 1,
+    "state": 255
+   },
+   {
+    "shot": "slot4-after-pickup"
+   },
+   {
+    "step": "exit-after-take",
+    "region": 2,
+    "group": 76,
+    "map": 0,
+    "x": 5,
+    "y": 1,
+    "frlg_layout": 0,
+    "width": 24,
+    "height": 20,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "step": "entrance-square",
+    "region": 2,
+    "group": 76,
+    "map": 0,
+    "x": 5,
+    "y": 1,
+    "frlg_layout": 0,
+    "width": 24,
+    "height": 20,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "step": "empty-entry",
+    "region": 2,
+    "group": 81,
+    "map": 0,
+    "x": 7,
+    "y": 15,
+    "frlg_layout": 0,
+    "width": 16,
+    "height": 18,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "shot": "slot4-empty-revisit"
+   },
+   {
+    "step": "below-content",
+    "region": 2,
+    "group": 81,
+    "map": 0,
+    "x": 7,
+    "y": 8,
+    "frlg_layout": 0,
+    "width": 16,
+    "height": 18,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "step": "exit-empty",
+    "region": 2,
+    "group": 76,
+    "map": 0,
+    "x": 5,
+    "y": 1,
+    "frlg_layout": 0,
+    "width": 24,
+    "height": 20,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "step": "entrance-square",
+    "region": 2,
+    "group": 76,
+    "map": 0,
+    "x": 5,
+    "y": 1,
+    "frlg_layout": 0,
+    "width": 24,
+    "height": 20,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "step": "forced-entry",
+    "region": 2,
+    "group": 81,
+    "map": 0,
+    "x": 7,
+    "y": 15,
+    "frlg_layout": 0,
+    "width": 16,
+    "height": 18,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "step": "below-content",
+    "region": 2,
+    "group": 81,
+    "map": 0,
+    "x": 7,
+    "y": 8,
+    "frlg_layout": 0,
+    "width": 16,
+    "height": 18,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "shot": "slot5-content"
+   },
+   {
+    "shot": "slot5-pickup"
+   },
+   {
+    "slot": 5,
+    "item": 218,
+    "had_before": 0,
+    "has_after": 1,
+    "state": 255
+   },
+   {
+    "shot": "slot5-after-pickup"
+   },
+   {
+    "step": "exit-after-take",
+    "region": 2,
+    "group": 76,
+    "map": 0,
+    "x": 5,
+    "y": 1,
+    "frlg_layout": 0,
+    "width": 24,
+    "height": 20,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "step": "entrance-square",
+    "region": 2,
+    "group": 76,
+    "map": 0,
+    "x": 5,
+    "y": 1,
+    "frlg_layout": 0,
+    "width": 24,
+    "height": 20,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "step": "empty-entry",
+    "region": 2,
+    "group": 81,
+    "map": 0,
+    "x": 7,
+    "y": 15,
+    "frlg_layout": 0,
+    "width": 16,
+    "height": 18,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "shot": "slot5-empty-revisit"
+   },
+   {
+    "step": "below-content",
+    "region": 2,
+    "group": 81,
+    "map": 0,
+    "x": 7,
+    "y": 8,
+    "frlg_layout": 0,
+    "width": 16,
+    "height": 18,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "step": "exit-empty",
+    "region": 2,
+    "group": 76,
+    "map": 0,
+    "x": 5,
+    "y": 1,
+    "frlg_layout": 0,
+    "width": 24,
+    "height": 20,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "refill_trials": 4000,
+    "refills": 224,
+    "by_slot": [
+     47,
+     41,
+     48,
+     58,
+     18,
+     12
+    ]
+   },
+   {
+    "squares_walked": 11,
+    "steps_counted": 11
+   },
+   {
+    "save_status": 1
+   }
+  ],
+  "stderr": ""
+ },
+ "read": {
+  "exit": 0,
+  "records": [
+   {
+    "reload_state": 2,
+    "reload_steps": 77
+   },
+   {
+    "step": "reloaded",
+    "region": 2,
+    "group": 76,
+    "map": 0,
+    "x": 11,
+    "y": 10,
+    "frlg_layout": 0,
+    "width": 24,
+    "height": 20,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "shot": "cold-reload"
+   },
+   {
+    "step": "entrance-square",
+    "region": 2,
+    "group": 76,
+    "map": 0,
+    "x": 5,
+    "y": 1,
+    "frlg_layout": 0,
+    "width": 24,
+    "height": 20,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "step": "reloaded-entered",
+    "region": 2,
+    "group": 81,
+    "map": 0,
+    "x": 7,
+    "y": 15,
+    "frlg_layout": 0,
+    "width": 16,
+    "height": 18,
+    "interaction": 0,
+    "mapsec": 210
+   },
+   {
+    "shot": "reloaded-grotto"
+   }
+  ],
+  "stderr": ""
+ },
+ "rom_sha1": "379f4ff1cfa482d10f198dc53dd7fa391f640f52",
+ "passed": true
+}

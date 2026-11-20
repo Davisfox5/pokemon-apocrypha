@@ -1,0 +1,22 @@
+{
+  "_doc": "Hidden Grotto list. Edit this, then run tools/gba/grottoes/grottoes.py generate. See docs/HIDDEN_GROTTOES.md.",
+  "grottoes": [
+    {
+      "index": 0,
+      "id": "GROTTO_MAP_PROOF_JOHTO",
+      "name": "Test grotto on the Johto map-proof field",
+      "test_only": true,
+      "map": "MAP_PROOF_JOHTO",
+      "x": 5,
+      "y": 0,
+      "slots": [
+        {"species": "SPECIES_EEVEE", "level": [20, 25], "gender": "any", "weight": 20},
+        {"species": "SPECIES_HOPPIP", "level": [20, 25], "gender": "any", "weight": 20},
+        {"species": "SPECIES_SENTRET", "level": [20, 25], "gender": "female", "weight": 20},
+        {"item": "ITEM_PEARL", "weight": 25},
+        {"item": "ITEM_BIG_PEARL", "weight": 10},
+        {"item": "ITEM_SHINY_STONE", "weight": 5}
+      ]
+    }
+  ]
+}
