@@ -823,6 +823,9 @@ TREAD_EDGE, TREAD_PX = (88, 80, 48), 30
 TOP_RAIL = [(82, 58, 52), (198, 148, 115), (165, 115, 99), (165, 115, 99), (99, 70, 66), (82, 58, 52)]
 BOTTOM_RAIL = [(82, 58, 52), (165, 115, 99), (198, 148, 115), (165, 115, 99), (99, 70, 66), (82, 58, 52)]
 
+NS_TOP_TRIM = 3   # px: the cliff beside a north-south flight starts 3 px into its row (2 px lawn, 1 px lip);
+                  # the flight's rails and treads start there too (owner, November 20: no half step above the cliff)
+
 def stairs(grid):
     """A straight flight (down a south face) is the east-west flight's rails and plank treads turned a quarter,
     opaque. A flight across a wall is HGSS's, drawn on its diagonal over the cliff it cuts through
@@ -843,8 +846,9 @@ def stairs(grid):
     for x, y, n in rows:
         x0, x1 = x * PX, (x + n) * PX
         first = (x, y - 1) not in starts
-        for Y in range(y * PX, (y + 1) * PX):
-            edge = first and Y == y * PX
+        top = y * PX + (NS_TOP_TRIM if first else 0)      # the flight's first row starts at the cliff's top edge
+        for Y in range(top, (y + 1) * PX):
+            edge = first and Y == top
             for k, c in enumerate(TOP_RAIL):
                 straight[Y, x0 + k, :3] = c
             for k, c in enumerate(BOTTOM_RAIL):
