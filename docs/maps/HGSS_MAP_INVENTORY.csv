@@ -148,13 +148,13 @@ hgss_id,hgss_const,hgss_code,region,mapsec,type,kit,scope,batch,gba_map,status,p
 104,MAP_ROUTE_36_NATIONAL_PARK_GATEHOUSE,MAP_R36R0201,Johto,ROUTE_36,interior,johto-gatehouse,core,D Route 35-Ecruteak,,not started,,,,
 149,MAP_VIOLET_ROUTE_36_GATEHOUSE,MAP_T22R0701,Johto,ROUTE_36,interior,johto-gatehouse,core,D Route 35-Ecruteak,VioletWestGate,in review,#39,claude/routes-30-31-catalog,,
 41,MAP_ROUTE_37,MAP_R37,Johto,ROUTE_37,route,,core,D Route 35-Ecruteak,,not started,,,,
-75,MAP_CIANWOOD,MAP_T24,Johto,CIANWOOD_CITY,city_town,,core,E Route 38-Cianwood,CianwoodCity,in review,#27 #25,claude/cianwood-city codex/cianwood-city-hgss,,two competing PRs: pick one
+75,MAP_CIANWOOD,MAP_T24,Johto,CIANWOOD_CITY,city_town,,core,E Route 38-Cianwood,CianwoodCity,in review,#27,claude/cianwood-city,,owner kept #27 on 2026-11-20; #25 closed as superseded
 139,MAP_CIANWOOD_GYM,MAP_T24GYM0101,Johto,CIANWOOD_CITY,interior,johto-gym,core,E Route 38-Cianwood,,not started,,,,
 232,MAP_CIANWOOD_KIRKS_HOUSE,MAP_T24R0201,Johto,CIANWOOD_CITY,interior,johto-house,core,E Route 38-Cianwood,,not started,,,,
 233,MAP_CIANWOOD_PHARMACY,MAP_T24R0501,Johto,CIANWOOD_CITY,interior,,core,E Route 38-Cianwood,,not started,,,,
 234,MAP_CIANWOOD_CAMERONS_HOUSE,MAP_T24R0601,Johto,CIANWOOD_CITY,interior,johto-house,core,E Route 38-Cianwood,,not started,,,,
 235,MAP_CIANWOOD_CENTRAL_HOUSE,MAP_T24R0701,Johto,CIANWOOD_CITY,interior,johto-house,core,E Route 38-Cianwood,,not started,,,,
-236,MAP_CIANWOOD_POKECENTER_1F,MAP_T24PC0101,Johto,CIANWOOD_CITY,interior,johto-center,core,E Route 38-Cianwood,CianwoodPokemonCenter,in review,#27 #25,claude/cianwood-city codex/cianwood-city-hgss,,
+236,MAP_CIANWOOD_POKECENTER_1F,MAP_T24PC0101,Johto,CIANWOOD_CITY,interior,johto-center,core,E Route 38-Cianwood,CianwoodPokemonCenter,in review,#27,claude/cianwood-city,,owner kept #27 on 2026-11-20; #25 closed as superseded
 241,MAP_CIANWOOD_POKECENTER_B1F,MAP_T24PC0102,Johto,CIANWOOD_CITY,interior,johto-center,optional,E Route 38-Cianwood,,not started,,,,
 385,MAP_CIANWOOD_NORTH_HOUSE,MAP_T24R0801,Johto,CIANWOOD_CITY,interior,johto-house,core,E Route 38-Cianwood,,not started,,,,
 342,MAP_CLIFF_CAVE,MAP_D50R0101,Johto,CLIFF_CAVE,cave,,core,E Route 38-Cianwood,,not started,,,,
