@@ -4,9 +4,12 @@
     python3 tools/gba/maps/inventory/build_inventory.py PHG_CHECKOUT --check    # validate only
     python3 tools/gba/maps/inventory/build_inventory.py PHG_CHECKOUT --check --engine ENGINE_CHECKOUT
 
+Columns: `pr` and `branch` are the game-source PR/branch on Davisfox5/pokeemerald-expansion;
+`hub_pr` is the matching docs/tools/evidence PR on Davisfox5/pokemon-apocrypha.
+
 Rows come from pokeheartgold's own map table (include/constants/maps.h + src/data/map_headers.h).
 Unused, Japanese-only, debug and Wi-Fi placeholder entries are dropped. Regenerating keeps every
-hand-edited column (gba_map, status, pr, branch, accepted, notes, scope) by HGSS constant, so the
+hand-edited column (gba_map, status, pr, hub_pr, branch, accepted, notes, scope) by HGSS constant, so the
 CSV can be edited by hand and regenerated safely.
 
 --check fails on: an unknown status; a map with more than one open PR or branch; a row past
@@ -22,8 +25,8 @@ OUT = ROOT / 'docs/maps/HGSS_MAP_INVENTORY.csv'
 
 STATUSES = ['not started', 'sourcing plan', 'building', 'in review', 'accepted', 'merged']
 COLUMNS = ['hgss_id', 'hgss_const', 'hgss_code', 'region', 'mapsec', 'type', 'kit', 'scope', 'batch',
-           'gba_map', 'status', 'pr', 'branch', 'accepted', 'notes']
-KEEP = ['scope', 'gba_map', 'status', 'pr', 'branch', 'accepted', 'notes']
+           'gba_map', 'status', 'pr', 'hub_pr', 'branch', 'accepted', 'notes']
+KEEP = ['scope', 'gba_map', 'status', 'pr', 'hub_pr', 'branch', 'accepted', 'notes']
 
 SKIP = re.compile(r'UNUSED|FIGHT_AREA|_JP$|^MAP_EVERYWHERE$|^MAP_NOTHING$|WIFI|^MAP_UNION$|^MAP_UNDERGROUND$|BATTLE_PARK')
 
@@ -103,6 +106,8 @@ def check(phg, engine=None):
             errs.append(f'{c}: unknown status {r["status"]!r} (use one of {STATUSES})')
         if r['batch'] == '?':
             errs.append(f'{c}: no batch for mapsec {r["mapsec"]}')
+        if len(r.get('hub_pr', '').split()) > 1:
+            errs.append(f'{c}: more than one open pokemon-apocrypha PR ({r["hub_pr"]})')
         if len([p for p in r['pr'].split() if p]) > 1 or len([b for b in r['branch'].split() if b]) > 1:
             errs.append(f'{c}: more than one open PR/branch ({r["pr"]} {r["branch"]}); pick one and close the rest')
         if STATUSES.index(r['status']) >= STATUSES.index('building') if r['status'] in STATUSES else False:

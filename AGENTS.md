@@ -1,5 +1,23 @@
 # Apocrypha — shared agent rules
 
+## Two repositories: where every change goes (owner decision, 2026-11-20)
+
+This project lives in **two** GitHub repositories. Put each change in the right one, every time.
+
+| Change | Repository and branch |
+| --- | --- |
+| Game source: maps (`data/maps`, `data/layouts`), tilesets, scripts, engine C code, anything the ROM is built from | **`Davisfox5/pokeemerald-expansion`**, based on branch **`apocrypha`** |
+| Everything else: docs, AGENTS.md, DESIGN.md, the map inventory, tools/generators, gate files, review images and evidence | **`Davisfox5/pokemon-apocrypha`** (this repository), branch `main` |
+
+- pokemon-apocrypha is the main project. Its `game/` folder is only a pinned pointer
+  (submodule) to the fork; never edit game source inside `game/` or copy it into this repository.
+- Never put game source in pokemon-apocrypha, and never put docs, tools or evidence on the fork.
+- A map usually needs one PR in each repository. Record both in its inventory row
+  (`pr` = fork PR, `hub_pr` = pokemon-apocrypha PR) and link each PR to the other.
+- The owner chose to keep this split over a single repository (2026-11-20): upstream
+  expansion updates stay a simple merge and Porymap/CI already work on the fork.
+  Do not reopen it.
+
 ## Start here; keep context small
 
 - Production target: **GBA, Gen 3 2D presentation, pokeemerald-expansion**.

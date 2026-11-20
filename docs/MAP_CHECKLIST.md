@@ -6,7 +6,13 @@ passes. This is the order of work; [GBA_MAP_RECONSTRUCTION.md](GBA_MAP_RECONSTRU
 cleanup rules in [AGENTS.md](../AGENTS.md) stay the standard each gate is held to.
 
 The master list is [maps/HGSS_MAP_INVENTORY.csv](maps/HGSS_MAP_INVENTORY.csv): one row per HGSS map,
-generated from pokeheartgold. Statuses: `not started`, `sourcing plan`, `building`, `in review`,
+generated from pokeheartgold.
+
+**Where things go.** Map files, tilesets and scripts: `Davisfox5/pokeemerald-expansion`, branched
+from `apocrypha`. Plans, gate files, inventory, tools and review images: `Davisfox5/pokemon-apocrypha`.
+Never the other way round (see the table at the top of AGENTS.md).
+
+Statuses: `not started`, `sourcing plan`, `building`, `in review`,
 `accepted`, `merged`. Update the row in the same commit that moves the map to a new gate.
 
 ## G0 Claim
@@ -14,7 +20,7 @@ generated from pokeheartgold. Statuses: `not started`, `sourcing plan`, `buildin
 1. Find the map's row. Run `python3 tools/gba/maps/inventory/build_inventory.py PHG --check`.
 2. If the row already has a PR or branch, continue that branch. Never open a second PR for a map.
 3. Work in batch order (the `batch` column) unless the owner asks for a specific map.
-4. Set `status` to `sourcing plan`, fill `branch`, commit.
+4. Set `status` to `sourcing plan`, fill `branch`, commit (in pokemon-apocrypha).
 
 ## G1 Reference
 
@@ -47,8 +53,10 @@ A change of source after approval goes back to the owner before it is used.
 
 ## G3 Build
 
-Build in the shared engine source (`Davisfox5/pokeemerald-expansion`, branched from the current
-`apocrypha`, which holds every merged neighbour). Follow GBA_MAP_RECONSTRUCTION.md steps 2 and 3
+Build in the game source repository, **`Davisfox5/pokeemerald-expansion`**, on a branch from the
+current `apocrypha` (which holds every merged neighbour). Map, layout, tileset and script changes
+go there and only there. The plan, gate file, generator scripts and evidence go to a matching
+branch in pokemon-apocrypha. Record both PRs in the inventory (`pr` and `hub_pr`). Follow GBA_MAP_RECONSTRUCTION.md steps 2 and 3
 square by square. Use only the sources the plan lists.
 
 ## G4 Automated checks
@@ -94,7 +102,8 @@ When the owner accepts, set `status` to `accepted` and fill `accepted` with the 
 
 ## G7 Merge
 
-Merge the accepted map into `apocrypha` right away so the next map builds on it. Close superseded
+Merge the accepted map's fork PR into pokeemerald-expansion's `apocrypha` and its pokemon-apocrypha
+PR into `main`, together, right away so the next map builds on it. Close superseded
 PRs for that map, set `status` to `merged`, clear `branch`, and run the inventory check with
 `--engine` against the merged checkout.
 
