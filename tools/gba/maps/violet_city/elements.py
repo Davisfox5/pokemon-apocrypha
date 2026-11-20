@@ -545,3 +545,36 @@ def flatten(cv):
                 if any(cols <= b for b in b5):
                     low[:] = comp; up[..., 3] = 0; n += 1
     cv.notes.append(f'{n} two-layer quadrants drawn as one')
+
+MERGE_MAX_USE = 300                                  # quadrant uses below which a colour gives way to its twin
+
+def merge_near(cv, keep=()):
+    """Colours one 5-bit step (in one channel) from a more used colour, drawn in few quadrants, take that
+    colour: a step the GBA screen barely shows, and each one merged frees palette slots for the gates. `keep`:
+    colours never merged (the gates' own bank)."""
+    import collections
+    q5 = lambda a: [tuple(int(x) >> 3 for x in p) for p in a]
+    use = collections.Counter()
+    for r in range(0, H * 16, 8):
+        for x in range(0, W * 16, 8):
+            lo = cv.lower[r:r + 8, x:x + 8].reshape(-1, 3); up = cv.upper[r:r + 8, x:x + 8].reshape(-1, 4)
+            for c in set(q5(lo)) | set(q5(up[up[:, 3] > 0][:, :3])):
+                use[c] += 1
+    cs = sorted(use)
+    to = {}
+    for i, a in enumerate(cs):
+        for b in cs[i + 1:]:
+            if sum(abs(p - q) for p, q in zip(a, b)) != 1:
+                continue
+            minor, major = (a, b) if use[a] < use[b] else (b, a)
+            if use[minor] < MERGE_MAX_USE and minor not in keep and minor not in to and major not in to:
+                to[minor] = major
+    for layer in (cv.lower, cv.upper):
+        c5 = layer[..., :3] >> 3
+        for minor, major in to.items():
+            m = (c5 == minor).all(-1)
+            if layer.shape[-1] == 4:
+                m &= layer[..., 3] > 0
+            layer[m, :3] = [v << 3 for v in major]
+    cv.notes.append(f'merge_near: {len(to)} colours one 5-bit step from a more used twin take it')
+    return to

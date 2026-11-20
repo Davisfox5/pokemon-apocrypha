@@ -3,7 +3,7 @@
 
     MGBA_FLAGS='-I... -L... -lmgba ...' python3 tools/gba/maps/violet_city/runtime.py ENGINE OUT
 
-Into the east gate and back out, into the west gate and back out, a walk down the north road, over the
+Into the east gate (both stairs) and the west gate, the gates' walls blocking, a walk down the north road, over the
 north bridge, across the landing and the south bridge to the main street, the lake blocking on foot, the
 hall's front blocking at its door, the back path behind it open, the lawn its old west wing gave back
 walkable, and every door: its opening frames, the interior loaded, back outside below the door on the way out.
@@ -52,9 +52,13 @@ int main(int argc,char**argv){
  c->reset(c);frames(600,0);
  call("MapProof_Boot",0);frames(240,0);observe("new-game");
  // the east gate and back
- go(VIOLET,74,56);at(VIOLET_NUM,74,56,"east-front");shot("east-front");
- step(UP);frames(240,0);observe("east-gate");need(state[2]==EAST_NUM,"into-east-gate");shot("east-gate-inside");
- go(VIOLET,74,57);at(VIOLET_NUM,74,57,"east-front-again");
+ go(VIOLET,72,57);at(VIOLET_NUM,72,57,"east-front");shot("east-front");
+ step(RIGHT);step(RIGHT);frames(240,0);observe("east-gate");need(state[2]==EAST_NUM,"into-east-gate");shot("east-gate-inside");
+ go(VIOLET,72,58);at(VIOLET_NUM,72,58,"east-front-lower");
+ step(RIGHT);step(RIGHT);frames(240,0);observe("east-gate-lower");need(state[2]==EAST_NUM,"into-east-gate-lower");
+ // the gates' blocked cells: the east gate's roof, the tree seal above the west gate
+ go(VIOLET,72,55);step(RIGHT);at(VIOLET_NUM,72,55,"east-gate-wall-blocks");
+ go(VIOLET,7,25);step(LEFT);at(VIOLET_NUM,7,25,"west-gate-wall-blocks");
  // the west gate and back
  go(VIOLET,6,30);at(VIOLET_NUM,6,30,"west-front");shot("west-front");
  step(LEFT);step(LEFT);frames(240,0);observe("west-gate");need(state[2]==WEST_NUM,"into-west-gate");shot("west-gate-inside");
