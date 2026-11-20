@@ -12,8 +12,7 @@ optional, never part of routine startup.
 
 | Task | First read | Expand only when needed |
 | --- | --- | --- |
-| Which HGSS maps exist, their status, what to build next | maps/HGSS_MAP_INVENTORY.csv | MAP_CHECKLIST.md G0; regenerate/check with `tools/gba/maps/inventory/build_inventory.py` |
-| Any map building, reconstruction, extension or refinement — all models | MAP_CHECKLIST.md, then GBA_MAP_RECONSTRUCTION.md | Required original-reference grid, separate material/traversal checks, native visual review; supplements existing Grok rules |
+| Any map building, reconstruction, extension or refinement — all models | GBA_MAP_RECONSTRUCTION.md | Required original-reference grid, separate material/traversal checks, native visual review; supplements existing Grok rules |
 | Outdoor Johto visual refinement / prompt for another Codex instance | GBA_OUTDOOR_REFINEMENT_PROMPT.md | Preserve owner-approved geometry; apply the standing native cleanup rule and original HGSS material/edge review |
 | Violet City interiors (November 3) | ../gba/art/violet-interiors/README.md | HGSS rooms rendered from DS data (`tools/gba/maps/violet_interiors`): Sprout Tower 1F-3F, university, lecture hall, five campus homes; private tileset pair per building; PR #39 |
 | Routes 30 and 31, Mahogany/Route 43 process (October 25) | ../gba/art/route30-catalog/README.md, ../gba/art/route31-catalog/README.md | HGSS only, built like Route 29: one CherrygrovePrimary copy per route, joint pack with shared seam ids (`tools/gba/maps/route30_catalog/pair_pack.py`), Route 30's two north padding rows, Cherrygrove's cliff turned north into Route 30's west wall and the whole town's cleanup (`tools/gba/maps/cherrygrove_town/`, ../gba/art/cherrygrove-town/README.md), engine primary reload and redraw on crossing; tools `tools/gba/maps/route30_catalog/`, `route31_catalog/`; PR #39 (`claude/routes-30-31-catalog`); owner visual review pending |
@@ -25,6 +24,7 @@ optional, never part of routine startup.
 | October 8 HGSS New Bark / Route 31 recreation | ../gba/art/hgss-connections/README.md | Native HGSS cutouts and grid geometry following existing Porymap workflows; preserves Claude routes and the earlier campus proposal |
 | October 8 New Bark campus / Route 31 and Violet entrance | ../gba/art/johto-connections/README.md | Extends Claude's preserved routes, separate campus tileset, bidirectional camera-window checks, native walking/door/save evidence; isolated art preview, campaign scenes pending |
 | Pokégear maps, phone services, broadcasts / latest isolated build | ../gba/art/pokegear-services/README.md | Versioned save extension, service fixtures, atlas provenance, opening regression, incremental pokegear-services.patch; chapter content still pending |
+| Which HGSS maps exist, their status, what to build next | maps/HGSS_MAP_INVENTORY.csv | Per-map gates in MAP_CHECKLIST.md (read before any map work); regenerate/check with `tools/gba/maps/inventory/build_inventory.py` |
 | Remote Claude/Grok setup / fresh clone | GBA_REMOTE_HANDOFF.md | Source presets, public baseline, Linux and macOS build commands |
 | Resume current work / handoff | AGENT_HANDOFF.md | only its next-step references |
 | Modern Pokégear / B/W polish with distinct device identity | ../gba/art/pokegear-modern/README.md | Native visual revision, runtime evidence and still-open app services |
