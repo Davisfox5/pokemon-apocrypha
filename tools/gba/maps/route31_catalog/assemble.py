@@ -286,38 +286,11 @@ def fit_ew(pieces):
     return {k: apply_tones(v, m) for k, v in planks.items()}
 
 
-def stairs(grid):
-    """The Johto stair pieces (stair_pieces.py), placed flight by flight on HGSS's stair cells. A flight with
-    rock above and below it is crossed east-west: each of its columns takes Route 36's plank flight (its top
-    cell with the dark cheek, plank cells, the bottom cell with the brown cheek). Every other flight is
-    climbed north-south: each of its rows takes the earlier Route 30's grey treads (left end, middle, right
-    end)."""
-    p = {k: rgba(STAIR_ART / f'{k}.png') for k in ('ns-left', 'ns-mid', 'ns-right', 'ew-top', 'ew-mid', 'ew-bottom')}
-    p.update(fit_ew({k: v for k, v in p.items() if k.startswith('ew')}))
-    g = lambda x, y: grid[y][x] if 0 <= x < W and 0 <= y < H else '#'
-    art = np.zeros((H * PX, W * PX, 4), np.uint8)
-    placed, seen = [], set()
-    for y0 in range(H):
-        for x0 in range(W):
-            if g(x0, y0) != '^' or (x0, y0) in seen:
-                continue
-            comp, todo = set(), [(x0, y0)]
-            while todo:
-                c = todo.pop()
-                if c in comp or g(*c) != '^':
-                    continue
-                comp.add(c); todo += [(c[0] + dx, c[1] + dy) for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1))]
-            seen |= comp
-            xs, ys = sorted({c[0] for c in comp}), sorted({c[1] for c in comp})
-            ew = all(g(x, ys[0] - 1) == 'R' and g(x, ys[-1] + 1) == 'R' for x in xs)
-            for (x, y) in sorted(comp):
-                if ew:
-                    k = 'ew-top' if y == ys[0] else 'ew-bottom' if y == ys[-1] else 'ew-mid'
-                else:
-                    k = 'ns-left' if x == xs[0] else 'ns-right' if x == xs[-1] else 'ns-mid'
-                art[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX] = p[k]
-                placed.append(dict(cell=[x, y], art=k, flight='east-west' if ew else 'north-south'))
-    return art, placed
+def stairs(grid, ncells):
+    """The Johto standard stairs (tools/gba/maps/johto_stairs.py, owner-locked 2026-11-20) on HGSS's stair
+    cells: north-south flights with a rail each side and plank treads, crossings of a wall on the diagonal."""
+    import johto_stairs as JS
+    return JS.place(grid, W, H, falls=JS.falls_by_ground(grid, W, H, lambda x, y: ncells[y][x]['ground']))
 
 def ledges(grid):
     """L11/L12/L13 on jump-south runs; the same pieces turned a quarter anticlockwise on the jump-east run
@@ -435,7 +408,10 @@ def compose(phg, engine):
     q = ground_quadrants(phg, ncells)
     bottom, mat, tex = paint_ground(q, road)
     d, isrock = Rk.terraces(ncells, FLOOR)
-    bottom, rock_over, piece = Rk.rock_frlg(ncells, d, isrock, bottom, Rk.frlg_pieces(engine), dict(grass=tex[G.GRASS], sand=tex[G.PATH]))
+    # An east-west flight's cells are part of the ridge it crosses: the ridge runs on under it, unbroken.
+    import johto_stairs as JS
+    draw_rock = JS.cliff_under(grid, W, H, d, isrock, ncells)
+    bottom, rock_over, piece = Rk.rock_frlg(ncells, d, draw_rock, bottom, Rk.frlg_pieces(engine), dict(grass=tex[G.GRASS], sand=tex[G.PATH]))
     owner = np.full((H * PX, W * PX), '', object)
     flat = np.zeros((H * PX, W * PX, 4), np.uint8)
     flat_owner = np.full((H * PX, W * PX), '', object)
@@ -459,7 +435,7 @@ def compose(phg, engine):
     pond_art = pond(grid, bottom)
     cave = cave_mouth(phg)
     Image.fromarray(cave).save(LOCAL / 'cave-mouth.png')
-    sa, stair_list = stairs(grid)
+    sa, stair_list = stairs(grid, ncells)
     Image.fromarray(sa).save(LOCAL / 'stairs.png')
     # Terrain belongs to the bottom layer: rock faces, the pond, the cave mouth and the stairs are drawn into
     # the ground, so whatever stands on top (crowns, the gatehouse, signs) never shares a tile with them.
