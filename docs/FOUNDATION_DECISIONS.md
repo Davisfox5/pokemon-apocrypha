@@ -141,10 +141,18 @@ designed with the breeding rules, extending `sBreedingSpecialMoveItemTable` in
 chose Gen 5 breeding, keeping only the later changes now widely expected: Egg
 moves from both parents (Gen 6), ball inheritance (Gen 7) and the 5-IV Destiny
 Knot. Incense is required for baby species again, there is no Day Care Egg-move
-sharing, and Egg cycles use the Gen 5 step count. `P_ABILITY_INHERITANCE` stays
-open until Hidden Ability access is decided. Table:
-[GBA_MECHANICS_AUDIT.md](GBA_MECHANICS_AUDIT.md#egg-moves-and-breeding-reviewed-breeding-approved-2026-11-20-ability-inheritance-open);
+sharing, and Egg cycles use the Gen 5 step count. Ability inheritance is Gen 5
+(approved with Hidden Ability access below). Table:
+[GBA_MECHANICS_AUDIT.md](GBA_MECHANICS_AUDIT.md#egg-moves-and-breeding-reviewed-breeding-approved-2026-11-20);
 egg-move safety: [egg-move-audit.json](../gba/evidence/egg-move-audit.json).
+
+**Hidden Ability access approved 2026-11-20.** Sources: fixed gifts and one-off
+encounters, Hidden Grottoes (B2W2) and DexNav (ORAS) on one standard handheld
+across all regions. No transfers, hordes, SOS chains or raids. Ability Capsule as in
+Gen 6; Ability Patch one-way, regular to Hidden only; both rare. Gen 5 ability
+inheritance. Official nerfs pinned: 5-turn ability weather, Prankster blocked by
+Dark types, Moody without accuracy/evasion. Grottoes and DexNav are approved but not
+built. Detail: [GBA_MECHANICS_AUDIT.md](GBA_MECHANICS_AUDIT.md#hidden-abilities-approved-2026-11-20).
 
 ## Battle exceptions: scope, not a global redesign
 

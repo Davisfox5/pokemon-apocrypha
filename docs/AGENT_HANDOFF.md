@@ -1064,8 +1064,8 @@ Nothing regressed in reachability -- every Fairy-typed species still learns a
 Fairy attack by level-up after M03c -- but the breadth is gone until a tutor
 exists.
 
-Also open after that: Hidden Ability access, `B_UPDATED_MOVE_FLAGS`, and breeding
-together with the reserved move pool.
+Also open after that: `B_UPDATED_MOVE_FLAGS` and the reserved move pool. Breeding
+and Hidden Ability access were decided on 2026-11-20.
 
 **TM capacity is full.** The item enum reserves exactly `ITEM_TM01`-`ITEM_TM100`
 and the list fills all 100. Adding a TM means removing one or renumbering every
@@ -1081,14 +1081,14 @@ Three open threads to raise at the right moment, not bundled into one question:
 - **Move tutors are still Emerald's 30**, and TM placement in the world has not
   started. M04 settled the TM list but none of the 50 new TMs is obtainable in
   play yet.
-- **How the player obtains a Hidden Ability.** Still undecided. M03b pinned
-  several hidden abilities, which does not make them reachable in play.
+- **Hidden Ability access: decided 2026-11-20.** Gifts, Hidden Grottoes and DexNav;
+  rare one-way Ability Patch and Ability Capsule; Gen 5 inheritance; official nerfs
+  pinned. Grottoes and DexNav still have to be built. See `docs/GBA_MECHANICS_AUDIT.md`.
 - **Gym leader and trainer teams.** Weather setters now exist (M03b) and the big
   special attacks hit harder (M03c). No team has been designed around either.
-- **Breeding: settled 2026-11-20 except ability inheritance.** Gen 5 rules plus
+- **Breeding: settled 2026-11-20.** Gen 5 rules plus
   Gen 6 Egg moves, Gen 7 ball inheritance and the 5-IV Destiny Knot; see
-  `docs/GBA_MECHANICS_AUDIT.md`. `P_ABILITY_INHERITANCE` waits on the Hidden
-  Ability access decision. Incense is required for baby species again.
+  `docs/GBA_MECHANICS_AUDIT.md`. Ability inheritance is Gen 5. Incense is required for baby species again.
   **Egg-move data itself is settled and needs no decision:** it is a single file
   with no per-generation option, and a safety review confirmed nothing
   egg-exclusive on this roster is unbalanced. See

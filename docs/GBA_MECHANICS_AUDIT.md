@@ -59,7 +59,7 @@ Recommendations here are proposals, not applied changes.
 | M01 | **Approved 2026-09-11:** Gen 4–5 per-move physical/special split. `B_PHYSICAL_SPECIAL_SPLIT = GEN_5` is applied. | Closed for move categories. Other Gen 4/5 differences remain separate choices; no blanket B2W2 preset approved. |
 | M02 | **Approved 2026-09-11:** Gen 5 scaled rewards, participant division, held-item Exp. Share, trainer bonus; no catch EXP or delayed-evolution bonus. | Applied. Species yields and five-region pacing remain separate work. |
 | M03a | **Approved and applied 2026-09-11:** Gen 5 base stats for the Gen 1-5 roster; Sylveon and retained Mega forms keep canonical later stats. `P_UPDATED_STATS = GEN_5`. | Closed for base stats. Abilities, learnsets, move data and species experience yields are still inherited. |
-| M03b | **Approved and applied 2026-09-11:** Gen 5 ability sets for the Gen 1-5 roster with eighteen owner-chosen exceptions. `P_UPDATED_ABILITIES = GEN_5`. | Closed for which abilities each species has. How the player *obtains* Hidden Abilities is still open. |
+| M03b | **Approved and applied 2026-09-11:** Gen 5 ability sets for the Gen 1-5 roster with eighteen owner-chosen exceptions. `P_UPDATED_ABILITIES = GEN_5`. | Closed for which abilities each species has. How the player obtains Hidden Abilities was approved 2026-11-20; see [Hidden Abilities](#hidden-abilities-approved-2026-11-20). |
 | M03c | **Approved and applied 2026-09-11:** ORAS level-up learnsets and Gen 5 move power, accuracy and PP. `P_LVL_UP_LEARNSETS = GEN_6`, `B_UPDATED_MOVE_DATA = GEN_5`. | Closed for learnsets and move data. `B_UPDATED_MOVE_FLAGS`, species experience yields and breeding revisions are still inherited. The vanilla TM/HM list is a separate open gap. |
 | M03d | **Approved and applied 2026-09-12:** Gen 5 species experience yields. `P_UPDATED_EXP_YIELDS = GEN_5`. No exception pin was needed. | Closed. The Gen 5 experience package is now complete: rules from M02, yields from M03d. |
 | M03e | Species/moves: move flags, EV yields, base friendship, egg groups and breeding revisions remain inherited (base stats, abilities, learnsets, move data and experience yields are settled by M03a-M03d). Roster restrictions do not restrict all moves or abilities. | Use one explicit reference for ordinary species and moves, with a small documented Fairy/Mega supplement. Decide how Hidden Abilities are obtained, and availability of later moves/items; M03c already hit the Fairy-stranding trap once; re-run that check for any move or TM change. |
@@ -69,8 +69,8 @@ Recommendations here are proposals, not applied changes.
 | M06 | Mega rule generation, exact eligible Pokemon and unlock event remain unspecified. Terra/Shadow matchups, moves and type-slot assignments are also unspecified. | Keep existing Mega engine/data; author its late-game item distribution/gates later. Owner supplies custom-type creative choices. Never substitute Terastallization. |
 
 The owner approved M01, M02 and M03a-M03c on 2026-09-11 and M03d on 2026-09-12; all six are
-applied and tested. The TM/HM list, Hidden Ability access, move flags and breeding are the
-remaining open decisions. See the continuation handoff before starting another task.
+applied and tested. The TM/HM list, breeding and Hidden Ability access have since been decided;
+move flags remain the open decision. See the continuation handoff before starting another task.
 
 ## Experience package (M02, approved and applied)
 
@@ -149,8 +149,54 @@ not read the pinned `GENGAR_ABILITIES` macro.
 
 Two consequences to carry forward. The weather setters change battle pacing, and
 gym leader and trainer teams have not been designed around them. Several pinned
-abilities are Hidden Abilities, and **how the player obtains a Hidden Ability is
-still an open question** -- pinning one does not make it reachable in play.
+abilities are Hidden Abilities. How the player obtains them was approved on
+2026-11-20; see [Hidden Abilities](#hidden-abilities-approved-2026-11-20).
+
+## Hidden Abilities (approved 2026-11-20)
+
+Owner decisions, 2026-11-20. Before this, every species had its Hidden Ability
+slot filled but nothing in play handed one out.
+
+**Sources of Hidden Ability Pokemon**
+
+| Source | Origin | Status |
+| --- | --- | --- |
+| Fixed gifts and one-off encounters | Gen 5 | Approved. `givemon` already takes `abilityNum` (2 = Hidden). Each needs a map script and a save flag, placed with map and story work. |
+| Hidden Grottoes | Gen 5 (B2W2) | Approved, not built. Needs a new mechanic: set spots that refill with a Hidden Ability Pokemon after a step count, a flag/var per spot. |
+| DexNav | Gen 6 (ORAS) | Approved, not built here. In the engine but off (`DEXNAV_ENABLED FALSE`, M05). Owner direction: a DexNav app on the handheld the player gets at the start, one standard device across every region, made by Silph (owner's creative direction; Johto's device is currently the Pokegear). Needs a grass-rustle animation, since wild Pokemon do not walk the overworld. |
+| Dream World, Dream Radar | Gen 5 | Excluded: no trading or transfer feature is planned. |
+| Hordes, SOS chains, Max Raids, Tera Raids, Friend Safari | Gen 6-9 | Excluded by the owner. |
+
+**Items**
+
+- **Ability Capsule** (Gen 6 rule, engine unchanged): swaps between the two regular
+  abilities; it cannot give or remove a Hidden Ability.
+- **Ability Patch, one-way.** Regular to Hidden only. A Pokemon that already has its
+  Hidden Ability gets "It won't have any effect." Engine change in
+  `src/party_menu.c` `ItemUseCB_AbilityPatch` (upstream Gen 9 behaviour is two-way).
+- Both are rare: very few placed, decided with the item economy.
+
+**Breeding.** `P_ABILITY_INHERITANCE = GEN_5`; see the breeding table below.
+
+**Balance.** The owner asked for the official nerfs to strong Hidden Abilities,
+applied even without player-versus-player battles. Pinned in
+`include/config/battle.h` (behaviour already matched the inherited latest-gen
+values; pinning stops a future `GEN_LATEST` change moving them):
+
+| Setting | Value | Effect |
+| --- | --- | --- |
+| `B_ABILITY_WEATHER` | `GEN_6` | Drizzle, Drought, Sand Stream and Snow Warning weather lasts 5 turns (8 with the matching rock), not the whole battle as in Gen 5. |
+| `B_PRANKSTER_DARK_TYPES` | `GEN_7` | Prankster-boosted status moves fail on Dark types. |
+| `B_MOODY_ACC_EVASION` | `GEN_8` | Moody cannot raise accuracy or evasion. |
+
+Speed Boost, Regenerator and Chlorophyll were never changed by an official game.
+Chlorophyll is limited indirectly by 5-turn sun. Any custom change to those is a
+separate owner decision.
+
+Applied in `Davisfox5/pokeemerald-expansion` branch `apocrypha` at `92e70deb`. ROM builds;
+`test/daycare.c` (38) and the Drizzle, Drought, Sand Stream, Snow Warning, Prankster and
+Moody test files pass. The one-way Ability Patch has no automated test and was not
+played in an emulator.
 
 ## Species experience yields (M03d, approved and applied)
 
@@ -226,7 +272,7 @@ Voice, Draining Kiss and Fairy Wind are plain literals.
 open choice. Setting it to `GEN_5` would, among other things, stop sound moves
 bypassing Substitute.
 
-## Egg moves and breeding (reviewed; breeding approved 2026-11-20, ability inheritance OPEN)
+## Egg moves and breeding (reviewed; breeding approved 2026-11-20)
 
 **Egg moves are preserved and were never a choice.** `src/data/pokemon/egg_moves.h`
 is a single file included unconditionally; the expansion offers no per-generation
@@ -276,7 +322,7 @@ breeding, keeping only the later changes now widely treated as standard. Set in
 | `P_EGG_MOVE_TRANSFER` | `GEN_5` | No Day Care Egg-move sharing and no Mirror Herb effect. |
 | `P_EGG_CYCLE_LENGTH` | `GEN_5` | 257 steps per Egg cycle (Gen 8+ halved it to 128). |
 | `P_NIDORAN_M_DITTO_BREED` | `GEN_5` | Nidoran-M or Volbeat with Ditto can produce the female counterpart. Same as before. |
-| `P_ABILITY_INHERITANCE` | `GEN_LATEST` | **Still OPEN.** Tied to how players get Hidden Abilities. Gen 5 setting: only a female bred with a male passes, 80% for regular and Hidden. Gen 6+: Ditto pairs pass too, Hidden at 60%. |
+| `P_ABILITY_INHERITANCE` | `GEN_5` | Approved 2026-11-20 with Hidden Ability access. Only a female bred with a male passes her ability, 80% for regular and Hidden alike. Ditto pairs pass nothing, so males and genderless Pokemon cannot hand down a Hidden Ability. |
 
 Because Incense is required again, the Incense items keep their breeding role;
 place them in the world accordingly. Applied in `Davisfox5/pokeemerald-expansion` branch `apocrypha` at `73f8b8f8`; ROM builds and all 12 `(Daycare)` tests pass.

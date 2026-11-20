@@ -155,11 +155,11 @@ are pinned, including the owner-approved Gen 4–5 per-move physical/special spl
 The Gen 5 experience package (rules and yields), Gen 5 species base stats with
 canonical Sylveon/Mega exceptions, Gen 5 ability sets with eighteen owner-chosen
 exceptions, ORAS level-up learnsets and Gen 5 move data are approved, applied and
-verified. The open decisions are the TM/HM list, Hidden Ability access, move flags
-and breeding.
-Three gaps stay open and must not be assumed away: how the player obtains a Hidden
-Ability; move tutors, still Emerald's 30 and expandable only through map script
-data; and breeding/inheritance rules, all still at inherited Gen 9 defaults.
+verified. Breeding and Hidden Ability access were decided on 2026-11-20 (see
+`docs/GBA_MECHANICS_AUDIT.md`); move flags remain open.
+One gap stays open and must not be assumed away: move tutors, still Emerald's 30
+and expandable only through map script data. Hidden Grottoes and DexNav are
+approved Hidden Ability sources but not built yet.
 The move economy is tiered by owner design: TMs are the generic toolkit and
 signature moves belong to origin-locked regional tutors. Read
 `docs/MOVE_ECONOMY.md` before touching TMs, tutors or move distribution. The TM list is settled at 100 single-use TMs, **rebalanced on 2026-09-13** across the eighteen types: Johto, Kanto and Hoenn carry nineteen each so that three Fairy TMs can close the list, since every offensive Fairy move is Gen 6 or later and no region could stock one. Dragon went from one attacking TM to three and Normal from ten to seven. The HM list is now **11**: the vanilla
