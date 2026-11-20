@@ -351,8 +351,12 @@ def pack(engine):
     key = hashlib.sha256(repr((sorted(sorted(c) for c in maximal), [sorted(held[b]) for b in vb])).encode()).hexdigest()
     cache = OUT / 'banks-cache.json'
     packed = None
-    if cache.exists() and json.loads(cache.read_text()).get('key') == key:   # the same colour sets: the same banks
-        packed = [set(map(tuple, b)) for b in json.loads(cache.read_text())['banks']]
+    if cache.exists():
+        cached = [set(map(tuple, b)) for b in json.loads(cache.read_text())['banks']]
+        if json.loads(cache.read_text()).get('key') == key:   # the same colour sets: the same banks
+            packed = cached
+        elif all(held[b] <= cached[i] for i, b in enumerate(vb)) and all(any(c <= bk for bk in cached) for c in maximal):
+            packed = cached                               # an art change whose colour sets the cached banks still hold
     for seed in range(8 if packed is None else 0):
         packed = pack_sets(maximal, 13, init=[set(held[b]) for b in vb], tries=400, seed=seed)
         if packed is not None:

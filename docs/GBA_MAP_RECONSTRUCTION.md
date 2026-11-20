@@ -99,7 +99,9 @@ rendering: `rock_frlg` in [`rock.py`](../tools/gba/maps/route32_native/rock.py).
    owner-accepted, locked Route 45 does, with the catalog's current pieces
    (`johto-common/scenery` S01-S05 on `codex/violet-city`), not stair pieces cut
    from earlier map iterations: a flight down a south face is S01, S02... S03 across
-   its row. A flight across a wall is the original's flight drawn as one clean unit
+   its row (Route 32, owner request 2026-11-20: its north-south flight instead
+   takes the east-west flight's style turned a quarter, a rail down each side and
+   the plank treads across between them). A flight across a wall is the original's flight drawn as one clean unit
    over the cliff it cuts through (the cliff drawn on unbroken beneath it): a top
    rail, the treads and a bottom rail as straight parallel bands on the original's
    diagonal, each the full width of its column, in the original's plank stripes and

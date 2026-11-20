@@ -824,8 +824,8 @@ TOP_RAIL = [(82, 58, 52), (198, 148, 115), (165, 115, 99), (165, 115, 99), (99, 
 BOTTOM_RAIL = [(82, 58, 52), (165, 115, 99), (198, 148, 115), (165, 115, 99), (99, 70, 66), (82, 58, 52)]
 
 def stairs(grid):
-    """A straight flight (down a south face) is the catalog's S01, S02 ... S02, S03 across its row, opaque, as
-    Route 45 draws it. A flight across a wall is HGSS's, drawn on its diagonal over the cliff it cuts through
+    """A straight flight (down a south face) is the east-west flight's rails and plank treads turned a quarter,
+    opaque. A flight across a wall is HGSS's, drawn on its diagonal over the cliff it cuts through
     (upper layer): rails and treads as straight parallel bands, a wider flight stacked one row per column so the
     bands run on unbroken. Returns (straight bottom art, diagonal upper art, placements)."""
     straight = np.zeros((H * PX, W * PX, 4), np.uint8)
@@ -833,12 +833,26 @@ def stairs(grid):
     placed = []
     fl = stair_flights(grid)
     columns = [f for f in fl if f[0] == 'column']
-    for kind, x, y, n, face in fl:
-        if kind == 'row':
-            for k in range(n):
-                name = 'S01' if k == 0 else 'S03' if k == n - 1 else 'S02'
-                straight[y * PX:(y + 1) * PX, (x + k) * PX:(x + k + 1) * PX] = rgba(SHARED / f'stairs/{name}.png')
-                placed.append(dict(cell=[x + k, y], art=name, flight='north-south'))
+    # A straight flight (down a south face) in the east-west flight's style, turned a quarter (owner, November 20):
+    # a west rail, the treads and an east rail as straight bands down the flight, the treads HGSS's plank stripes
+    # across it (one stripe row per pixel row, counted down the map so stacked rows run on unbroken), the dark
+    # tread edge on the flight's first row only. The west rail reads outside-in as the top rail does, the east
+    # rail inside-out as the bottom rail does.
+    rows = [(x, y, n) for kind, x, y, n, face in fl if kind == 'row']
+    starts = {(x, y) for x, y, n in rows}
+    for x, y, n in rows:
+        x0, x1 = x * PX, (x + n) * PX
+        first = (x, y - 1) not in starts
+        for Y in range(y * PX, (y + 1) * PX):
+            edge = first and Y == y * PX
+            for k, c in enumerate(TOP_RAIL):
+                straight[Y, x0 + k, :3] = c
+            for k, c in enumerate(BOTTOM_RAIL):
+                straight[Y, x1 - len(BOTTOM_RAIL) + k, :3] = c
+            straight[Y, x0 + len(TOP_RAIL):x1 - len(BOTTOM_RAIL), :3] = TREAD_EDGE if edge else TREAD_STRIPES[Y % len(TREAD_STRIPES)]
+            straight[Y, x0:x1, 3] = 255
+        for k in range(n):
+            placed.append(dict(cell=[x + k, y], art='HGSS flight, rails and treads straight down', flight='north-south'))
     # Each flight across a wall: HGSS's flight, drawn as one clean unit over every column it crosses: a top rail,
     # the treads and a bottom rail, straight parallel bands on HGSS's diagonal (one pixel down per pixel toward
     # the low side, so a stacked column one row lower continues the same lines), each the full width of its
