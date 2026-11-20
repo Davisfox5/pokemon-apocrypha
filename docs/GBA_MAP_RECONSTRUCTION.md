@@ -96,19 +96,22 @@ rendering: `rock_frlg` in [`rock.py`](../tools/gba/maps/route32_native/rock.py).
    and never sits at or below the sea. A flight of stairs is cut through a wall and
    takes that wall's levels: row by row (the rock either side) for a north-south
    flight, column by column (the rock above and below) for an east-west one, so the
-   faces beside it run straight through to the treads. Draw stairs as the
-   owner-accepted, locked Route 45 does, with the catalog's current pieces
-   (`johto-common/scenery` S01-S05 on `codex/violet-city`), not stair pieces cut
-   from earlier map iterations: a flight down a south face is S01, S02... S03 across
-   its row (Route 32, owner request 2026-11-20: its north-south flight instead
-   takes the east-west flight's style turned a quarter, a rail down each side and
-   the plank treads across between them). A flight across a wall is the original's flight drawn as one clean unit
+   faces beside it run straight through to the treads. **Draw every Johto flight
+   with the standard stair kit** (owner-locked 2026-11-20, from Route 32):
+   `tools/gba/maps/johto_stairs.py`, pieces and preview in
+   `gba/art/johto-common/stairs/`. Assemblers call its `north_south()` and
+   `east_west()` with the map phase; do not use S01-S05 or stair pieces cut from
+   earlier map iterations (accepted maps already drawn with S01-S05, such as
+   Route 45, stay as they are unless the owner asks). A flight down a south face (north-south) is a west rail,
+   HGSS's plank treads and an east rail straight down the flight, its first row
+   starting level with the cliff top beside it (3 px into the cell, no half step
+   above): two rows for a full flight, the first row alone for a half flight (one
+   level of steps). A flight across a wall (east-west) is drawn as one clean unit
    over the cliff it cuts through (the cliff drawn on unbroken beneath it): a top
-   rail, the treads and a bottom rail as straight parallel bands on the original's
-   diagonal, each the full width of its column, in the original's plank stripes and
-   the rock ramp. A flight wider than one column stacks, each lower column one row
-   further south, so the bands run on unbroken. Lifting the original's rail pixels
-   over Gen 3 rock leaves noise; the catalog's S04/S05 leave a gap and have no rails.
+   rail, the treads and a bottom rail as parallel bands on the diagonal, each the
+   full width of its column; one column is a half flight, two columns (the lower
+   one a row further south so the bands run on unbroken) a full flight. A flight
+   falling west is the exact mirror of one falling east.
 3. **Make every level wrap all the way round.** A rock cell stands at most one
    level above any of its eight neighbours, so a drop of k levels is k nested rims
    and each rim continues round every corner at the same level until it meets

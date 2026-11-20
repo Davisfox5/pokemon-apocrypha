@@ -816,15 +816,7 @@ def stair_flights(grid):
                 out += [('row', xs[0], y, len(xs), 'S') for y in ys]
     return out
 
-# HGSS Route 32's flight in the route's palette (sampled from it converted): its plank stripes across a column,
-# the treads' dark top edge, and its rails top to bottom (outline, light edge, body, shade, outline).
-TREAD_STRIPES = [(152, 144, 120), (168, 168, 144), (168, 168, 144), (152, 144, 120), (88, 80, 48)]
-TREAD_EDGE, TREAD_PX = (88, 80, 48), 30
-TOP_RAIL = [(82, 58, 52), (198, 148, 115), (165, 115, 99), (165, 115, 99), (99, 70, 66), (82, 58, 52)]
-BOTTOM_RAIL = [(82, 58, 52), (165, 115, 99), (198, 148, 115), (165, 115, 99), (99, 70, 66), (82, 58, 52)]
-
-NS_TOP_TRIM = 3   # px: the cliff beside a north-south flight starts 3 px into its row (2 px lawn, 1 px lip);
-                  # the flight's rails and treads start there too (owner, November 20: no half step above the cliff)
+import johto_stairs as JS                            # noqa: E402  the Johto standard stairs (owner-locked)
 
 def stairs(grid):
     """A straight flight (down a south face) is the east-west flight's rails and plank treads turned a quarter,
@@ -844,17 +836,7 @@ def stairs(grid):
     rows = [(x, y, n) for kind, x, y, n, face in fl if kind == 'row']
     starts = {(x, y) for x, y, n in rows}
     for x, y, n in rows:
-        x0, x1 = x * PX, (x + n) * PX
-        first = (x, y - 1) not in starts
-        top = y * PX + (NS_TOP_TRIM if first else 0)      # the flight's first row starts at the cliff's top edge
-        for Y in range(top, (y + 1) * PX):
-            edge = first and Y == top
-            for k, c in enumerate(TOP_RAIL):
-                straight[Y, x0 + k, :3] = c
-            for k, c in enumerate(BOTTOM_RAIL):
-                straight[Y, x1 - len(BOTTOM_RAIL) + k, :3] = c
-            straight[Y, x0 + len(TOP_RAIL):x1 - len(BOTTOM_RAIL), :3] = TREAD_EDGE if edge else TREAD_STRIPES[Y % len(TREAD_STRIPES)]
-            straight[Y, x0:x1, 3] = 255
+        JS.north_south(straight, x * PX, (x + n) * PX, y * PX, (y + 1) * PX, (x, y - 1) not in starts)
         for k in range(n):
             placed.append(dict(cell=[x + k, y], art='HGSS flight, rails and treads straight down', flight='north-south'))
     # Each flight across a wall: HGSS's flight, drawn as one clean unit over every column it crosses: a top rail,
@@ -863,15 +845,7 @@ def stairs(grid):
     # column. Colours: HGSS's plank stripes (the lifted flight's own, per pixel across) and its rails in the rock
     # ramp. Above the top rail and below the bottom rail the cliff shows, behind each rail's dark outline.
     for kind, x, y, n, face in columns:
-        for xx in range(PX):
-            dy = xx if face == 'E' else PX - 1 - xx
-            top = y * PX + dy                               # first tread row in this pixel column
-            bands = [(top - len(TOP_RAIL) + k, c) for k, c in enumerate(TOP_RAIL)]
-            bands += [(top + k, TREAD_EDGE if k == 0 else TREAD_STRIPES[(x * PX + xx) % len(TREAD_STRIPES)]) for k in range(TREAD_PX)]
-            bands += [(top + TREAD_PX + k, c) for k, c in enumerate(BOTTOM_RAIL)]
-            for Y, c in bands:
-                if 0 <= Y < H * PX:
-                    diagonal[Y, x * PX + xx, :3] = c; diagonal[Y, x * PX + xx, 3] = 255
+        JS.east_west(diagonal, x * PX, y * PX, face, phase=x * PX)
         placed.append(dict(cell=[x, y], rows=n, art='HGSS flight, rails and treads on the diagonal', flight='east-west'))
     Image.fromarray(np.maximum(straight, diagonal)).save(LOCAL / 'stairs.png')
     return straight, diagonal, placed
