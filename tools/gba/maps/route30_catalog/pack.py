@@ -223,12 +223,19 @@ def visible_cherrygrove(engine, trav=None):
                     out.add(int(cg[cy, cx]) & 1023)
     return out                                       # the new art cells are mirror arts (cherrygrove_arts)
 
+# Owner review of #39: the houses are Cherrygrove's 4-cell house model, narrower than HGSS's; HGSS house cells
+# the new sprite leaves as open lawn are walkable (the Apricorn house's west roof cell; Mr. Pokemon's west
+# column is shut in by his fence and mailbox, so it stays as HGSS has it).
+HOUSE_LAWN = [(14, 67)]
+
 def prepare(engine):
     """Layers, traversal, layer types, the band placed by id and the banks it pins (the joint pack and
     the single pack share this)."""
     z = np.load(SRC / 'assemble/layers.npz', allow_pickle=True)
     ground, flat, top, owner = z['ground'], z['flat'], z['objects'], z['owner'].astype(object)
     grid = [list(l.split()[1]) for l in (SRC / 'trace/material-grid.txt').read_text().splitlines() if l[:3].isdigit()]
+    for x, y in HOUSE_LAWN:
+        grid[y][x] = 'g'
     cells = json.loads((SRC / 'trace/ledger.json').read_text())['cells']
     trav = traversal(engine, grid, cells)
     above = above_player(trav, top, owner)

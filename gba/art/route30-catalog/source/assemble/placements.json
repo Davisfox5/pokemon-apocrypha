@@ -348,19 +348,6 @@
    "base": 127
   },
   {
-   "name": "mr_pokemon_house",
-   "master": "local-art/buildings/mr_pokemon_house.png (HGSS model 53 at C06's angle)",
-   "xy": [
-    444,
-    68
-   ],
-   "door": [
-    29,
-    8
-   ],
-   "base": 142
-  },
-  {
    "name": "tree_19",
    "master": "local-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
    "xy": [
@@ -413,6 +400,19 @@
    ],
    "cell": [
     27,
+    8
+   ],
+   "base": 143
+  },
+  {
+   "name": "mr_pokemon_house",
+   "master": "gba/art/route30-catalog/source/local-art/buildings/mr_pokemon_gen3.png (Cherrygrove's house model)",
+   "xy": [
+    448,
+    64
+   ],
+   "door": [
+    29,
     8
    ],
    "base": 143
@@ -3411,19 +3411,6 @@
    "base": 1087
   },
   {
-   "name": "apricorn_house",
-   "master": "local-art/buildings/apricorn_house.png (HGSS model 37 at C06's angle)",
-   "xy": [
-    239,
-    1046
-   ],
-   "door": [
-    16,
-    69
-   ],
-   "base": 1118
-  },
-  {
    "name": "tree_247",
    "master": "local-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
    "xy": [
@@ -3477,6 +3464,19 @@
    "xy": [
     217,
     1109
+   ],
+   "base": 1119
+  },
+  {
+   "name": "apricorn_house",
+   "master": "gba/art/claude-cherrygrove/source/house.png (Cherrygrove's house model)",
+   "xy": [
+    240,
+    1040
+   ],
+   "door": [
+    16,
+    69
    ],
    "base": 1119
   },

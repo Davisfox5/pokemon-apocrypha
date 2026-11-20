@@ -63,6 +63,10 @@ FLOOR = 1                           # HGSS height of Route 30's lowest walkable 
 FLAT_RUN = 2 * PX                   # the painter's edge wave fades out over this many px towards a straight kit run
 JOIN_Q = 2                          # quadrant rows of HGSS's road that step onto Cherrygrove's road columns (one cell)
 SIGN_ART = {32: 'P14', 34: 'P16'}   # model 30 is Mr. Pokemon's mailbox (HGSS's readable sign there), cut with his house
+# Owner review of #39: both houses are drawn on Cherrygrove's house model (its pitch, angle and cell grid): the
+# Apricorn house is that house as is, Mr. Pokemon's its Gen 3 recolour with his chimney (mr_pokemon_gen3.py).
+CHERRYGROVE_HOUSE = {'apricorn_house': ROOT / 'gba/art/claude-cherrygrove/source/house.png',
+                     'mr_pokemon_house': ROOT / 'gba/art/route30-catalog/source/local-art/buildings/mr_pokemon_gen3.png'}
 HOUSE_PARTS = {'mr_pokemon_house': (1, 2, 3), 'apricorn_house': (6, 7)}   # hgss-render building indices (house, door, mailbox): the shadow's box
 
 def sha(p): return hashlib.sha256(Path(p).read_bytes()).hexdigest()
@@ -425,9 +429,17 @@ def houses(shadow, grid):
         dark = np.zeros((y1 - y0 + 16, x1 - x0, 4), np.uint8)
         sel = (gnd[y0:y1 + 16, x0:x1].sum(-1) + 24 < ter[y0:y1 + 16, x0:x1].sum(-1))
         dark[sel, :3] = shadow; dark[sel, 3] = 255
-        art = rgba(LOCAL / f'buildings/{name}.png')
         hx0, hx1 = x0 // PX + COL0, (x1 - 1) // PX + COL0           # the door cell inside this house's columns
         dx, dy = next(d for d in doors if hx0 <= d[0] <= hx1)
+        if name in CHERRYGROVE_HOUSE:
+            # On Cherrygrove's house model, placed as Cherrygrove places it
+            # (cell-aligned, the door in its second column, the sprite's bottom on the door row) with no
+            # contact shadow, as in Cherrygrove.
+            art = rgba(CHERRYGROVE_HOUSE[name])
+            out.append(dict(name=name, master=str(CHERRYGROVE_HOUSE[name].relative_to(ROOT)) + " (Cherrygrove's house model)",
+                            art=art, xy=[(dx - 1) * PX, (dy + 1) * PX - art.shape[0]], door=[dx, dy]))
+            continue
+        art = rgba(LOCAL / f'buildings/{name}.png')
         c0, c1 = info[name]['door_columns']
         xy = [dx * PX + PX // 2 - (c0 + c1) // 2, (dy + 1) * PX - art.shape[0]]
         top = dy * PX - (y0 + ROW0 * PX)                             # HGSS's taller house cast shadow beside its roof:
