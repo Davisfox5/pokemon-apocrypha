@@ -36,7 +36,7 @@
     "mapsec": 210
    },
    {
-    "first_roll": 5
+    "first_roll": 4
    },
    {
     "shot": "first-visit"
@@ -245,12 +245,12 @@
    {
     "slot": 1,
     "species": 187,
-    "level": 25,
+    "level": 24,
     "ability_num": 2,
     "ability": 151,
     "hidden_ability": 151,
     "shiny": 0,
-    "gender": 0,
+    "gender": 254,
     "slot_gender": 0
    },
    {
@@ -848,14 +848,14 @@
    },
    {
     "refill_trials": 4000,
-    "refills": 224,
+    "refills": 202,
     "by_slot": [
+     51,
+     37,
      47,
-     41,
-     48,
-     58,
-     18,
-     12
+     43,
+     15,
+     9
     ]
    },
    {
@@ -923,6 +923,6 @@
   ],
   "stderr": ""
  },
- "rom_sha1": "379f4ff1cfa482d10f198dc53dd7fa391f640f52",
+ "rom_sha1": "5e47cfe0131b3b08aeca48a62c14b441a8d8ab65",
  "passed": true
 }

@@ -75,7 +75,9 @@ visit rolls content, forces every slot in turn (each Pokémon: sprite, battle, s
 range, ability slot 2 equal to the species' Hidden Ability, not shiny, female when the slot says
 so, grotto empty after running; each item: ball, pickup, empty), revisits empty, measures the
 refill rate over 4000 simulated 256-step wraps, checks walking advances the counter, saves, and
-cold-reloads the save. Evidence: `gba/evidence/hidden-grottoes/`.
+cold-reloads the save. Evidence: `gba/evidence/hidden-grottoes/` (`results.json` is from the build
+merged with DexNav, fork PR #58). Porymap 6.3.1 renders the interior identically to the native
+decode (`porymap-HiddenGrotto.png`, 0 differing pixels).
 
 `tools/gba/grottoes/interior.py ENGINE` regenerates the interior layout (stock Emerald trees and
 flowers from General/Petalburg, no new tiles or palettes).
