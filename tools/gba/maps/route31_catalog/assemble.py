@@ -50,6 +50,9 @@ POND = {f'pond/pond-15-{k}.png': ('claude/route-43', f'gba/art/route-43/source/s
 TREE_BOX = (896, 80, 928, 128)      # Cherrygrove's standalone tree (cells 56-57, 5-7)
 FLOOR = 3                           # HGSS height of Route 31's main floor (the pond sits below it)
 SIGN_ART = {32: 'P14', 31: 'P13'}
+# Owner review of #39: the lawn strip under the gatehouse read as open ground, so one more row of trees on
+# the woods' own 2-row lattice seals it (roots on the gatehouse's blocked south row; collision unchanged).
+GATE_SEAL_ROOTS = [(0, 16), (2, 16), (4, 16)]
 GATE_ORIGIN = (0, 9)                # G02 is 7x7 cells; its stairs (column 6, rows 4-5) stand on HGSS's gate warps (6,13)/(6,14)
 FLOWER_TONES, LIGHT_TONES = 6, 3
 
@@ -403,7 +406,7 @@ def compose(phg, engine):
     ncells = native_cells(cells)
     events = json.loads((SRC / 'hgss-events.json').read_text())
     rinfo = json.loads((SRC / 'hgss/hgss-render.json').read_text())
-    roots = [tuple(r) for r in json.loads((TRACE / 'trees.json').read_text())['roots']]
+    roots = [tuple(r) for r in json.loads((TRACE / 'trees.json').read_text())['roots']] + GATE_SEAL_ROOTS
     road = road_texture(engine)
     q = ground_quadrants(phg, ncells)
     bottom, mat, tex = paint_ground(q, road)

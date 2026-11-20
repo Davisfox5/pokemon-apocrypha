@@ -1547,6 +1547,45 @@
    "base": 255
   },
   {
+   "name": "tree_243",
+   "master": "local-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    240
+   ],
+   "root": [
+    0,
+    16
+   ],
+   "base": 287
+  },
+  {
+   "name": "tree_244",
+   "master": "local-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    32,
+    240
+   ],
+   "root": [
+    2,
+    16
+   ],
+   "base": 287
+  },
+  {
+   "name": "tree_245",
+   "master": "local-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    64,
+    240
+   ],
+   "root": [
+    4,
+    16
+   ],
+   "base": 287
+  },
+  {
    "name": "tree_116",
    "master": "local-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
    "xy": [
