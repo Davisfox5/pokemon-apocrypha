@@ -1,0 +1,20 @@
+{
+ "porymap": "6.3.1",
+ "method": "Porymap's own Project::loadMap and Layout::render (tools/gba/maps/route29_catalog/porymap_probe.cpp), compared in RGB555",
+ "maps": {
+  "JohtoRoute32": {
+   "size": [
+    656,
+    2656
+   ],
+   "differing_pixels": 0
+  },
+  "VioletCity": {
+   "size": [
+    1280,
+    1152
+   ],
+   "differing_pixels": 0
+  }
+ }
+}

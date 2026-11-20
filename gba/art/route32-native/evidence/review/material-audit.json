@@ -1,0 +1,1062 @@
+{
+ "cells": 5120,
+ "summary": {
+  "MISMATCH: F": 4,
+  "MISMATCH: O": 44,
+  "MISMATCH: R": 1,
+  "MISMATCH: ^": 1,
+  "MISMATCH: ~": 17,
+  "declared: gatehouse base row: lawn, solid as HGSS": 6,
+  "match: .": 996,
+  "match: B": 127,
+  "match: C": 1,
+  "match: D": 1,
+  "match: E": 7,
+  "match: F": 1375,
+  "match: G": 417,
+  "match: H": 49,
+  "match: J": 2,
+  "match: L": 8,
+  "match: O": 20,
+  "match: R": 1329,
+  "match: X": 56,
+  "match: ^": 11,
+  "match: s": 3,
+  "match: w": 2,
+  "match: ~": 643
+ },
+ "mismatches": [
+  {
+   "hgss": [
+    10,
+    68
+   ],
+   "native": [
+    10,
+    74
+   ],
+   "label": "^",
+   "native_code": "R",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": [
+    "stairs"
+   ]
+  },
+  {
+   "hgss": [
+    25,
+    70
+   ],
+   "native": [
+    25,
+    76
+   ],
+   "label": "~",
+   "native_code": "R",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    10,
+    71
+   ],
+   "native": [
+    10,
+    77
+   ],
+   "label": "R",
+   "native_code": "^",
+   "native_foot": "open",
+   "native_behavior": "MB_NORMAL",
+   "art": [
+    "stairs"
+   ]
+  },
+  {
+   "hgss": [
+    25,
+    71
+   ],
+   "native": [
+    25,
+    77
+   ],
+   "label": "~",
+   "native_code": "R",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    25,
+    72
+   ],
+   "native": [
+    25,
+    78
+   ],
+   "label": "~",
+   "native_code": "R",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    30,
+    72
+   ],
+   "native": [
+    30,
+    78
+   ],
+   "label": "O",
+   "native_code": "O",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    31,
+    72
+   ],
+   "native": [
+    31,
+    78
+   ],
+   "label": "O",
+   "native_code": "O",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    25,
+    73
+   ],
+   "native": [
+    25,
+    79
+   ],
+   "label": "~",
+   "native_code": "R",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    31,
+    73
+   ],
+   "native": [
+    31,
+    79
+   ],
+   "label": "O",
+   "native_code": "O",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    24,
+    74
+   ],
+   "native": [
+    24,
+    80
+   ],
+   "label": "O",
+   "native_code": "O",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    25,
+    74
+   ],
+   "native": [
+    25,
+    80
+   ],
+   "label": "O",
+   "native_code": "O",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    26,
+    75
+   ],
+   "native": [
+    26,
+    81
+   ],
+   "label": "O",
+   "native_code": "O",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    27,
+    75
+   ],
+   "native": [
+    27,
+    81
+   ],
+   "label": "O",
+   "native_code": "O",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    27,
+    76
+   ],
+   "native": [
+    27,
+    82
+   ],
+   "label": "O",
+   "native_code": "O",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    26,
+    77
+   ],
+   "native": [
+    26,
+    83
+   ],
+   "label": "O",
+   "native_code": "O",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    27,
+    77
+   ],
+   "native": [
+    27,
+    83
+   ],
+   "label": "O",
+   "native_code": "O",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    27,
+    78
+   ],
+   "native": [
+    27,
+    84
+   ],
+   "label": "O",
+   "native_code": "O",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    26,
+    79
+   ],
+   "native": [
+    26,
+    85
+   ],
+   "label": "O",
+   "native_code": "O",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    27,
+    79
+   ],
+   "native": [
+    27,
+    85
+   ],
+   "label": "O",
+   "native_code": "O",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    27,
+    80
+   ],
+   "native": [
+    27,
+    86
+   ],
+   "label": "O",
+   "native_code": "O",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    26,
+    81
+   ],
+   "native": [
+    26,
+    87
+   ],
+   "label": "O",
+   "native_code": "O",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    27,
+    81
+   ],
+   "native": [
+    27,
+    87
+   ],
+   "label": "O",
+   "native_code": "O",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    27,
+    82
+   ],
+   "native": [
+    27,
+    88
+   ],
+   "label": "O",
+   "native_code": "O",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": [
+    "viaduct"
+   ]
+  },
+  {
+   "hgss": [
+    26,
+    83
+   ],
+   "native": [
+    26,
+    89
+   ],
+   "label": "O",
+   "native_code": "O",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": [
+    "viaduct"
+   ]
+  },
+  {
+   "hgss": [
+    27,
+    83
+   ],
+   "native": [
+    27,
+    89
+   ],
+   "label": "O",
+   "native_code": "O",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": [
+    "viaduct"
+   ]
+  },
+  {
+   "hgss": [
+    27,
+    84
+   ],
+   "native": [
+    27,
+    90
+   ],
+   "label": "O",
+   "native_code": "O",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": [
+    "viaduct"
+   ]
+  },
+  {
+   "hgss": [
+    26,
+    85
+   ],
+   "native": [
+    26,
+    91
+   ],
+   "label": "O",
+   "native_code": "O",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": [
+    "viaduct"
+   ]
+  },
+  {
+   "hgss": [
+    27,
+    85
+   ],
+   "native": [
+    27,
+    91
+   ],
+   "label": "O",
+   "native_code": "O",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": [
+    "viaduct"
+   ]
+  },
+  {
+   "hgss": [
+    27,
+    86
+   ],
+   "native": [
+    27,
+    92
+   ],
+   "label": "O",
+   "native_code": "O",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": [
+    "viaduct"
+   ]
+  },
+  {
+   "hgss": [
+    26,
+    87
+   ],
+   "native": [
+    26,
+    93
+   ],
+   "label": "O",
+   "native_code": "O",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": [
+    "viaduct"
+   ]
+  },
+  {
+   "hgss": [
+    27,
+    87
+   ],
+   "native": [
+    27,
+    93
+   ],
+   "label": "O",
+   "native_code": "O",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": [
+    "viaduct"
+   ]
+  },
+  {
+   "hgss": [
+    27,
+    88
+   ],
+   "native": [
+    27,
+    94
+   ],
+   "label": "O",
+   "native_code": "O",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    28,
+    88
+   ],
+   "native": [
+    28,
+    94
+   ],
+   "label": "~",
+   "native_code": "R",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    29,
+    88
+   ],
+   "native": [
+    29,
+    94
+   ],
+   "label": "~",
+   "native_code": "R",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    29,
+    89
+   ],
+   "native": [
+    29,
+    95
+   ],
+   "label": "~",
+   "native_code": "R",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    25,
+    90
+   ],
+   "native": [
+    25,
+    96
+   ],
+   "label": "O",
+   "native_code": "O",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    26,
+    90
+   ],
+   "native": [
+    26,
+    96
+   ],
+   "label": "O",
+   "native_code": "O",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    29,
+    90
+   ],
+   "native": [
+    29,
+    96
+   ],
+   "label": "~",
+   "native_code": "R",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    30,
+    90
+   ],
+   "native": [
+    30,
+    96
+   ],
+   "label": "~",
+   "native_code": "R",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    31,
+    90
+   ],
+   "native": [
+    31,
+    96
+   ],
+   "label": "~",
+   "native_code": "R",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    26,
+    91
+   ],
+   "native": [
+    26,
+    97
+   ],
+   "label": "O",
+   "native_code": "O",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    27,
+    91
+   ],
+   "native": [
+    27,
+    97
+   ],
+   "label": "~",
+   "native_code": "R",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    28,
+    91
+   ],
+   "native": [
+    28,
+    97
+   ],
+   "label": "~",
+   "native_code": "R",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    29,
+    91
+   ],
+   "native": [
+    29,
+    97
+   ],
+   "label": "~",
+   "native_code": "R",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    30,
+    91
+   ],
+   "native": [
+    30,
+    97
+   ],
+   "label": "~",
+   "native_code": "R",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    31,
+    91
+   ],
+   "native": [
+    31,
+    97
+   ],
+   "label": "~",
+   "native_code": "R",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    25,
+    92
+   ],
+   "native": [
+    25,
+    98
+   ],
+   "label": "O",
+   "native_code": "O",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    26,
+    92
+   ],
+   "native": [
+    26,
+    98
+   ],
+   "label": "O",
+   "native_code": "O",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    27,
+    93
+   ],
+   "native": [
+    27,
+    99
+   ],
+   "label": "O",
+   "native_code": "O",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    28,
+    93
+   ],
+   "native": [
+    28,
+    99
+   ],
+   "label": "O",
+   "native_code": "O",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    28,
+    96
+   ],
+   "native": [
+    28,
+    102
+   ],
+   "label": "~",
+   "native_code": "R",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    28,
+    97
+   ],
+   "native": [
+    28,
+    103
+   ],
+   "label": "~",
+   "native_code": "R",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    26,
+    98
+   ],
+   "native": [
+    26,
+    104
+   ],
+   "label": "O",
+   "native_code": "O",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    27,
+    98
+   ],
+   "native": [
+    27,
+    104
+   ],
+   "label": "O",
+   "native_code": "O",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    27,
+    99
+   ],
+   "native": [
+    27,
+    105
+   ],
+   "label": "O",
+   "native_code": "O",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    27,
+    100
+   ],
+   "native": [
+    27,
+    106
+   ],
+   "label": "O",
+   "native_code": "O",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    28,
+    100
+   ],
+   "native": [
+    28,
+    106
+   ],
+   "label": "O",
+   "native_code": "O",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    25,
+    101
+   ],
+   "native": [
+    25,
+    107
+   ],
+   "label": "O",
+   "native_code": "O",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    26,
+    101
+   ],
+   "native": [
+    26,
+    107
+   ],
+   "label": "O",
+   "native_code": "O",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    28,
+    101
+   ],
+   "native": [
+    28,
+    107
+   ],
+   "label": "O",
+   "native_code": "O",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    26,
+    102
+   ],
+   "native": [
+    26,
+    108
+   ],
+   "label": "O",
+   "native_code": "O",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    25,
+    103
+   ],
+   "native": [
+    25,
+    109
+   ],
+   "label": "O",
+   "native_code": "O",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    26,
+    104
+   ],
+   "native": [
+    26,
+    110
+   ],
+   "label": "O",
+   "native_code": "O",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    23,
+    127
+   ],
+   "native": [
+    23,
+    133
+   ],
+   "label": "F",
+   "native_code": "o",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    24,
+    127
+   ],
+   "native": [
+    24,
+    133
+   ],
+   "label": "F",
+   "native_code": "o",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    25,
+    127
+   ],
+   "native": [
+    25,
+    133
+   ],
+   "label": "F",
+   "native_code": "o",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  },
+  {
+   "hgss": [
+    26,
+    127
+   ],
+   "native": [
+    26,
+    133
+   ],
+   "label": "F",
+   "native_code": "o",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  }
+ ],
+ "declared_adaptations": {
+  "HGSS's Ruins of Alph gatehouse doorway": 2,
+  "non-animated door: no door animation is registered for these tilesets": 1,
+  "HGSS's Union Cave mouth": 1
+ }
+}

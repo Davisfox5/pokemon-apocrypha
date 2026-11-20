@@ -1,0 +1,367 @@
+{
+  "source": {
+    "repository": "pret/pokeheartgold",
+    "revision": "9d8b7591f09b65804da2fb2dfd56f320633e0d36",
+    "files": [
+      "files/fielddata/eventdata/zone_event/033_R32.json",
+      "files/fielddata/mapmatrix/map_matrix/map_matrix_0000_EVERYWHERE.bin",
+      "files/fielddata/script/scr_seq/scr_seq_0232_R32.s",
+      "files/msgdata/msg/msg_0380_R32.gmm"
+    ],
+    "note": "Decoded event data. Terrain/collision (land_data) is not in the repository."
+  },
+  "matrix": {
+    "chunks": [
+      {
+        "x": 14,
+        "z": 9,
+        "land_data": 25
+      },
+      {
+        "x": 14,
+        "z": 10,
+        "land_data": 26
+      },
+      {
+        "x": 14,
+        "z": 11,
+        "land_data": 27
+      },
+      {
+        "x": 14,
+        "z": 12,
+        "land_data": 28
+      },
+      {
+        "x": 14,
+        "z": 13,
+        "land_data": 29
+      }
+    ],
+    "origin": [
+      448,
+      288
+    ],
+    "size": [
+      32,
+      160
+    ],
+    "neighbour_headers": {
+      "west": [
+        113
+      ],
+      "east": [],
+      "north": [
+        73
+      ],
+      "south": [
+        37
+      ]
+    }
+  },
+  "warps": [
+    {
+      "index": 0,
+      "cell": [
+        6,
+        5
+      ],
+      "dest": "MAP_ROUTE_32_RUINS_OF_ALPH_GATEHOUSE",
+      "anchor": 0
+    },
+    {
+      "index": 1,
+      "cell": [
+        6,
+        6
+      ],
+      "dest": "MAP_ROUTE_32_RUINS_OF_ALPH_GATEHOUSE",
+      "anchor": 0
+    },
+    {
+      "index": 2,
+      "cell": [
+        14,
+        142
+      ],
+      "dest": "MAP_UNION_CAVE_1F",
+      "anchor": 0
+    },
+    {
+      "index": 3,
+      "cell": [
+        20,
+        130
+      ],
+      "dest": "MAP_ROUTE_32_POKECENTER_1F",
+      "anchor": 0
+    }
+  ],
+  "signs": [
+    {
+      "cell": [
+        15,
+        3
+      ],
+      "script": "scr_seq_R32_006",
+      "bg_type": 1,
+      "text": "Ruins of Alph East Entrance"
+    },
+    {
+      "cell": [
+        21,
+        12
+      ],
+      "script": "scr_seq_R32_007",
+      "bg_type": 1,
+      "text": "Rt. 32 South to Azalea Town"
+    },
+    {
+      "cell": [
+        19,
+        149
+      ],
+      "script": "scr_seq_R32_008",
+      "bg_type": 1,
+      "text": "Union Cave ahead"
+    },
+    {
+      "cell": [
+        27,
+        89
+      ],
+      "script": "std_hiddenitem_r32_heart_scale",
+      "bg_type": 2,
+      "text": ""
+    },
+    {
+      "cell": [
+        12,
+        144
+      ],
+      "script": "std_hiddenitem_r32_great_ball",
+      "bg_type": 2,
+      "text": ""
+    },
+    {
+      "cell": [
+        11,
+        21
+      ],
+      "script": "std_hiddenitem_r32_super_potion",
+      "bg_type": 2,
+      "text": ""
+    }
+  ],
+  "objects": [
+    {
+      "id": "obj_R32_gsbigman",
+      "sprite": "SPRITE_GSBIGMAN",
+      "cell": [
+        23,
+        24
+      ],
+      "facing": 3,
+      "movement": 17,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R32_gsmiddleman1",
+      "sprite": "SPRITE_GSMIDDLEMAN1",
+      "cell": [
+        29,
+        17
+      ],
+      "facing": 2,
+      "movement": 16,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R32_tree",
+      "sprite": "SPRITE_TREE",
+      "cell": [
+        14,
+        32
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_MAPTEMP_010"
+    },
+    {
+      "id": "obj_R32_gsboy2",
+      "sprite": "SPRITE_GSBOY2",
+      "cell": [
+        22,
+        41
+      ],
+      "facing": 0,
+      "movement": 14,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R32_picnicgirl_2",
+      "sprite": "SPRITE_PICNICGIRL_2",
+      "cell": [
+        18,
+        54
+      ],
+      "facing": 2,
+      "movement": 16,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R32_fishing_2",
+      "sprite": "SPRITE_FISHING_2",
+      "cell": [
+        13,
+        86
+      ],
+      "facing": 2,
+      "movement": 16,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R32_fishing_2_2",
+      "sprite": "SPRITE_FISHING_2",
+      "cell": [
+        15,
+        88
+      ],
+      "facing": 1,
+      "movement": 15,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R32_fishing_2_3",
+      "sprite": "SPRITE_FISHING_2",
+      "cell": [
+        20,
+        99
+      ],
+      "facing": 0,
+      "movement": 14,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R32_campboy_2",
+      "sprite": "SPRITE_CAMPBOY_2",
+      "cell": [
+        4,
+        97
+      ],
+      "facing": 0,
+      "movement": 14,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R32_gsboy2_2",
+      "sprite": "SPRITE_GSBOY2",
+      "cell": [
+        12,
+        115
+      ],
+      "facing": 0,
+      "movement": 18,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R32_gsbigman_2",
+      "sprite": "SPRITE_GSBIGMAN",
+      "cell": [
+        14,
+        128
+      ],
+      "facing": 2,
+      "movement": 5,
+      "flag": "FLAG_UNK_1AA"
+    },
+    {
+      "id": "obj_R32_gsman2",
+      "sprite": "SPRITE_GSMAN2",
+      "cell": [
+        20,
+        145
+      ],
+      "facing": 0,
+      "movement": 14,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R32_monstarball",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        8,
+        49
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_R32_REPEL"
+    },
+    {
+      "id": "obj_R32_monstarball_2",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        11,
+        94
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_R32_GREAT_BALL"
+    },
+    {
+      "id": "obj_R32_gsgirl1",
+      "sprite": "SPRITE_GSGIRL1",
+      "cell": [
+        23,
+        121
+      ],
+      "facing": 2,
+      "movement": 16,
+      "flag": "FLAG_UNK_208"
+    },
+    {
+      "id": "obj_R32_breakrock",
+      "sprite": "SPRITE_BREAKROCK",
+      "cell": [
+        23,
+        151
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_MAPTEMP_010"
+    },
+    {
+      "id": "obj_R32_monstarball_3",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        3,
+        113
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_R32_TM09"
+    },
+    {
+      "id": "obj_R32_monstarball_4",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        27,
+        151
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_R32_SHELL_BELL"
+    },
+    {
+      "id": "obj_R32_gsmiddleman1_2",
+      "sprite": "SPRITE_GSMIDDLEMAN1",
+      "cell": [
+        20,
+        111
+      ],
+      "facing": 0,
+      "movement": 14,
+      "flag": "FLAG_HIDE_CAMERON"
+    }
+  ]
+}
