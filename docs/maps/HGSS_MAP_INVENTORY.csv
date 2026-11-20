@@ -170,7 +170,7 @@ hgss_id,hgss_const,hgss_code,region,mapsec,type,kit,scope,batch,gba_map,status,p
 224,MAP_OLIVINE_LIGHTHOUSE_5F,MAP_D27R0106,Johto,LIGHTHOUSE,cave,johto-house,core,E Route 38-Cianwood,,not started,,,,
 225,MAP_OLIVINE_LIGHTHOUSE_LIGHT_ROOM,MAP_D27R0107,Johto,LIGHTHOUSE,cave,johto-house,core,E Route 38-Cianwood,,not started,,,,
 446,MAP_OLIVINE_LIGHTHOUSE_ELEVATOR,MAP_D27R0108,Johto,LIGHTHOUSE,interior,johto-house,core,E Route 38-Cianwood,,not started,,,,
-77,MAP_OLIVINE,MAP_T26,Johto,OLIVINE_CITY,city_town,,core,E Route 38-Cianwood,OlivineCity,in review,#29 #21 #23,claude/olivine-city codex/olivine-city codex/olivine-goldenrod-playbook-20261019,,"three competing PRs (JohtoOlivineCity, OlivineCity01-13, OlivineCity): pick one"
+77,MAP_OLIVINE,MAP_T26,Johto,OLIVINE_CITY,city_town,,core,E Route 38-Cianwood,OlivineCity,in review,#29,claude/olivine-city,,owner kept #29 on 2026-11-20; #21 and #23 closed as superseded
 138,MAP_OLIVINE_GYM,MAP_T26GYM0101,Johto,OLIVINE_CITY,interior,johto-gym,core,E Route 38-Cianwood,,not started,,,,
 226,MAP_OLIVINE_POKECENTER_1F,MAP_T26PC0101,Johto,OLIVINE_CITY,interior,johto-center,core,E Route 38-Cianwood,OlivinePokemonCenter,in review,#29,claude/olivine-city,,
 227,MAP_OLIVINE_POKEMART,MAP_T26FS0101,Johto,OLIVINE_CITY,interior,johto-mart,core,E Route 38-Cianwood,OlivineMart,in review,#29,claude/olivine-city,,
