@@ -181,9 +181,9 @@ hgss_id,hgss_const,hgss_code,region,mapsec,type,kit,scope,batch,gba_map,status,p
 240,MAP_SS_AQUA_OLIVINE_PORT_INTERIOR,MAP_P01R0101,Johto,OLIVINE_CITY,interior,,core,E Route 38-Cianwood,,not started,,,,
 330,MAP_SS_AQUA_OLIVINE_PORT_EXTERIOR,MAP_P01R0102,Johto,OLIVINE_CITY,city_town,,core,E Route 38-Cianwood,,not started,,,,
 367,MAP_OLIVINE_POKECENTER_B1F,MAP_T26PC0102,Johto,OLIVINE_CITY,interior,johto-center,optional,E Route 38-Cianwood,,not started,,,,
-42,MAP_ROUTE_38,MAP_R38,Johto,ROUTE_38,route,,core,E Route 38-Cianwood,JohtoRoute38,in review,#44 #24 #36 #41,codex/routes3839-complete codex/route38-39-terrain codex/route38-39-rebuild codex/route38-39-hgss-native,,four competing PRs: pick one
+42,MAP_ROUTE_38,MAP_R38,Johto,ROUTE_38,route,,core,E Route 38-Cianwood,JohtoRoute38,in review,#44,codex/routes3839-complete,,owner kept #44 on 2026-11-20; #24 #36 #41 closed as superseded
 172,MAP_ROUTE_38_ECRUTEAK_GATEHOUSE,MAP_R38R0101,Johto,ROUTE_38,interior,johto-gatehouse,core,E Route 38-Cianwood,,not started,,,,
-43,MAP_ROUTE_39,MAP_R39,Johto,ROUTE_39,route,,core,E Route 38-Cianwood,JohtoRoute39,in review,#44 #24 #36 #41,codex/routes3839-complete codex/route38-39-terrain codex/route38-39-rebuild codex/route38-39-hgss-native,,four competing PRs: pick one
+43,MAP_ROUTE_39,MAP_R39,Johto,ROUTE_39,route,,core,E Route 38-Cianwood,JohtoRoute39,in review,#44,codex/routes3839-complete,,owner kept #44 on 2026-11-20; #24 #36 #41 closed as superseded
 214,MAP_ROUTE_39_MOOMOO_FARM_HOUSE,MAP_R39R0101,Johto,ROUTE_39,interior,johto-house,core,E Route 38-Cianwood,,not started,,,,
 215,MAP_ROUTE_39_MOOMOO_FARM_STABLE,MAP_R39R0201,Johto,ROUTE_39,interior,,core,E Route 38-Cianwood,,not started,,,,
 94,MAP_ROUTE_40,MAP_W40,Johto,ROUTE_40,route,,core,E Route 38-Cianwood,,not started,,,,
