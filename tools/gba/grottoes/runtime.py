@@ -29,10 +29,12 @@ extern const u16 sMapProofMaps[];
 const int kvals[] = {
   __builtin_offsetof(struct SaveBlock3, hiddenGrottoes), __builtin_offsetof(struct SaveBlock3, hiddenGrottoSteps),
   sizeof(struct Pokemon), MON_DATA_ABILITY_NUM, MON_DATA_SPECIES, MON_DATA_LEVEL, MON_DATA_IS_SHINY,
-  MAP_GROUP(MAP_HIDDEN_GROTTO), MAP_NUM(MAP_HIDDEN_GROTTO), MAP_GROUP(MAP_PROOF_JOHTO), MAP_NUM(MAP_PROOF_JOHTO), ITEM_PEARL };
+  MAP_GROUP(MAP_HIDDEN_GROTTO), MAP_NUM(MAP_HIDDEN_GROTTO), MAP_GROUP(MAP_HIDDEN_GROTTO_TEST_WOODS), MAP_NUM(MAP_HIDDEN_GROTTO_TEST_WOODS), ITEM_PEARL,
+  MAP_NUM(MAP_HIDDEN_GROTTO_BLOSSOM), MAP_NUM(MAP_HIDDEN_GROTTO_WINDING) };
 '''
 KNAMES = ['K_SB3_GROTTOES', 'K_SB3_STEPS', 'K_MON_SIZE', 'K_MD_ABILITY_NUM', 'K_MD_SPECIES', 'K_MD_LEVEL',
-          'K_MD_IS_SHINY', 'K_GROTTO_GROUP', 'K_GROTTO_NUM', 'K_PROOF_GROUP', 'K_PROOF_NUM', 'K_ITEM_PEARL']
+          'K_MD_IS_SHINY', 'K_GROTTO_GROUP', 'K_GROTTO_NUM', 'K_PROOF_GROUP', 'K_PROOF_NUM', 'K_ITEM_PEARL',
+          'K_BLOSSOM_NUM', 'K_WINDING_NUM']
 
 
 def constants(engine: Path, tmp: Path):
@@ -43,11 +45,11 @@ def constants(engine: Path, tmp: Path):
     subprocess.run(['arm-none-eabi-objcopy', '-O', 'binary', '-j', '.rodata', str(obj), str(raw)], check=True)
     vals = struct.unpack(f'<{len(KNAMES)}i', raw.read_bytes()[:4 * len(KNAMES)])
     k = dict(zip(KNAMES, vals))
-    # MapProof_Enter takes an index into sMapProofMaps; MAP_PROOF_JOHTO is the list's last entry.
+    # MapProof_Enter takes an index into sMapProofMaps; the grotto test woods are the list's last entry.
     text = (engine / 'src/apocrypha_map_proof.c').read_text()
     body = text[text.index('sMapProofMaps[] = {') + 19:]; body = body[:body.index('}')]
     entries = [e.strip() for e in body.split(',')]
-    k['K_PROOF_INDEX'] = entries.index('MAP_PROOF_JOHTO')
+    k['K_PROOF_INDEX'] = entries.index('MAP_HIDDEN_GROTTO_TEST_WOODS')
     return k
 
 

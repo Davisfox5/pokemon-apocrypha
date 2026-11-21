@@ -2,11 +2,12 @@
 //
 //   grotto_runtime ROM SYMBOLS OUT write|read
 //
-// write: new game; the test entrance on the Johto map-proof field; the first visit rolls content;
+// write: new game; the test woods (three big-tree entrances, one per interior); the first visit rolls content;
 //        a forced Pokémon slot shows its overworld sprite, starts a wild battle with the Hidden
 //        Ability, empties after fleeing; a forced item slot shows an item ball and is picked up;
 //        the refill rate over 4000 simulated 256-step wraps; walking advances the step counter;
-//        the exit returns to the entrance; ordinary save.
+//        the exit returns to the entrance; the blossom and winding interiors open from their own
+//        entrances and lead back to them; ordinary save.
 // read:  cold reload of that save; the grotto state and step counter survive.
 #define main unused_map_runtime_main
 #include "RUNTIME_C"
@@ -14,7 +15,14 @@
 
 static const char *out;
 static unsigned SB3_GROTTOES, SB3_STEPS, MON_SIZE, MD_ABILITY_NUM, MD_SPECIES, MD_LEVEL, MD_IS_SHINY;
-static unsigned GROTTO_GROUP, GROTTO_NUM, PROOF_GROUP, PROOF_NUM, PROOF_INDEX, ITEM_PEARL;
+static unsigned GROTTO_GROUP, GROTTO_NUM, PROOF_GROUP, PROOF_NUM, PROOF_INDEX, ITEM_PEARL, BLOSSOM_NUM, WINDING_NUM;
+// Test woods: entrance gaps at x = 4, 15, 26 (warp on row 9, open field from row 12). Interiors: arrival
+// (15,18), exit below it; the round hollow's content stands at (15,12).
+#define ENT_Y 9
+#define FIELD_Y 12
+#define ARRIVE_X 15
+#define ARRIVE_Y 18
+#define CONTENT_STEPS 5
 enum { A = 1, B = 2, RIGHT = 16, LEFT = 32, UP = 64, DOWN = 128 };
 
 static unsigned callN(const char *name, unsigned a0, unsigned a1, unsigned a2)
@@ -40,23 +48,29 @@ static void set_state(unsigned v) { c->busWrite8(c, sb3() + SB3_GROTTOES, v); ne
 static unsigned enemy(void) { return sym("gParties") + 1 * 6 * MON_SIZE; }
 static unsigned slot_rom(unsigned n) { return c->busRead32(c, sym("gHiddenGrottoes") + 8) + 8 * n; }
 static unsigned slot_count(void) { return c->busRead8(c, sym("gHiddenGrottoes") + 4); }
+static unsigned state_of(unsigned id) { return c->busRead8(c, sb3() + SB3_GROTTOES + id); }
 static void at(unsigned g, unsigned m, unsigned x, unsigned y, const char *tag) { observe(tag); need(state[1] == g && state[2] == m && state[3] == x && state[4] == y, tag); }
 
-// From the entrance square below the hole, walk in.
-static void enter(const char *tag)
+// From the field below an entrance gap, walk up through the gap into the hollow.
+static void enter_at(unsigned ex, unsigned num, const char *tag, const char *gapshot)
 {
-    call("MapProof_Enter", PROOF_INDEX | (5u << 8) | (1u << 16)); frames(300, 0); wait_field(60);
-    at(PROOF_GROUP, PROOF_NUM, 5, 1, "entrance-square");
+    call("MapProof_Enter", PROOF_INDEX | (ex << 8) | ((unsigned)FIELD_Y << 16)); frames(300, 0); wait_field(60);
+    at(PROOF_GROUP, PROOF_NUM, ex, FIELD_Y, "entrance-square");
+    step(UP); step(UP);
+    at(PROOF_GROUP, PROOF_NUM, ex, ENT_Y + 1, "in-the-gap");
+    if (gapshot) shot(gapshot);
     step(UP); frames(200, 0); wait_field(60);
-    at(GROTTO_GROUP, GROTTO_NUM, 7, 15, tag);
+    at(GROTTO_GROUP, num, ARRIVE_X, ARRIVE_Y, tag);
 }
-// Walk up to stand below the content at (7,7), facing it.
-static void approach(void) { for (int i = 0; i < 7; i++) step(UP); at(GROTTO_GROUP, GROTTO_NUM, 7, 8, "below-content"); }
-static void leave(const char *tag)
+static void enter(const char *tag) { enter_at(4, GROTTO_NUM, tag, NULL); }
+// Walk up to stand below the content, facing it.
+static void approach(void) { for (int i = 0; i < CONTENT_STEPS; i++) step(UP); at(GROTTO_GROUP, GROTTO_NUM, ARRIVE_X, ARRIVE_Y - CONTENT_STEPS, "below-content"); }
+static void leave_to(unsigned ex, const char *tag)
 {
     step(DOWN); frames(260, 0); wait_field(60);
-    observe(tag); need(state[1] == PROOF_GROUP && state[2] == PROOF_NUM && state[3] == 5 && state[4] == 1, tag);
+    observe(tag); need(state[1] == PROOF_GROUP && state[2] == PROOF_NUM && state[3] == ex && state[4] == ENT_Y + 1, tag);   // the door exit steps the player out into the gap
 }
+static void leave(const char *tag) { leave_to(4, tag); }
 
 int main(int argc, char **argv)
 {
@@ -69,7 +83,7 @@ int main(int argc, char **argv)
     SB3_GROTTOES = sym("K_SB3_GROTTOES"); SB3_STEPS = sym("K_SB3_STEPS"); MON_SIZE = sym("K_MON_SIZE");
     MD_ABILITY_NUM = sym("K_MD_ABILITY_NUM"); MD_SPECIES = sym("K_MD_SPECIES"); MD_LEVEL = sym("K_MD_LEVEL"); MD_IS_SHINY = sym("K_MD_IS_SHINY");
     GROTTO_GROUP = sym("K_GROTTO_GROUP"); GROTTO_NUM = sym("K_GROTTO_NUM"); PROOF_GROUP = sym("K_PROOF_GROUP"); PROOF_NUM = sym("K_PROOF_NUM");
-    PROOF_INDEX = sym("K_PROOF_INDEX"); ITEM_PEARL = sym("K_ITEM_PEARL");
+    PROOF_INDEX = sym("K_PROOF_INDEX"); ITEM_PEARL = sym("K_ITEM_PEARL"); BLOSSOM_NUM = sym("K_BLOSSOM_NUM"); WINDING_NUM = sym("K_WINDING_NUM");
 
     struct mLogger log = {.log = quiet}; mLogSetDefaultLogger(&log);
     c = mCoreFind(argv[1]); if (!c || !c->init(c)) return 4;
@@ -105,8 +119,8 @@ int main(int argc, char **argv)
 
     // A new save: the grotto is unvisited (counts as full) until the first entry rolls it.
     need(grotto_state() == 0, "unvisited-at-start");
-    call("MapProof_Enter", PROOF_INDEX | (5u << 8) | (1u << 16)); frames(300, 0); wait_field(60); shot("entrance-outside");
-    enter("first-entry");
+    call("MapProof_Enter", PROOF_INDEX | (15u << 8) | (14u << 16)); frames(300, 0); wait_field(60); shot("entrance-outside");
+    enter_at(4, GROTTO_NUM, "first-entry", "entrance-in-gap");
     unsigned first = grotto_state(); printf("{\"first_roll\":%u}\n", first);
     need(first >= 1 && first <= slot_count(), "first-visit-rolls");
     frames(30, 0); shot("first-visit");
@@ -138,7 +152,7 @@ int main(int argc, char **argv)
             // Run: Fight/Bag/Pokémon/Run, Run is bottom right.
             for (int i = 0; i < 30 && !overworld(); i++) { tap(RIGHT); tap(DOWN); frames(1, A); frames(90, 0); frames(1, B); frames(30, 0); }
             frames(240, 0); wait_field(80);
-            at(GROTTO_GROUP, GROTTO_NUM, 7, 8, "back-after-battle");
+            at(GROTTO_GROUP, GROTTO_NUM, ARRIVE_X, ARRIVE_Y - CONTENT_STEPS, "back-after-battle");
             sprintf(t, "slot%u-after-battle", n); shot(t);
         }
         else
@@ -154,14 +168,28 @@ int main(int argc, char **argv)
             sprintf(t, "slot%u-after-pickup", n); shot(t);
         }
         // Empty grotto on the next visit: nothing to talk to.
-        for (int i = 0; i < 7; i++) step(DOWN);
+        for (int i = 0; i < CONTENT_STEPS; i++) step(DOWN);
         leave("exit-after-take");
         enter("empty-entry"); frames(30, 0);
         sprintf(t, "slot%u-empty-revisit", n); shot(t);
         approach(); frames(1, A); frames(60, 0); need(overworld() && !locked(), "empty-nothing-to-talk-to");
-        for (int i = 0; i < 7; i++) step(DOWN);
+        for (int i = 0; i < CONTENT_STEPS; i++) step(DOWN);
         leave("exit-empty");
     }
+
+    // The other two interiors: each entrance leads to its own interior, rolls its own grotto, and
+    // the exit returns to that entrance.
+    need(state_of(1) == 0 && state_of(2) == 0, "others-unvisited");
+    enter_at(15, BLOSSOM_NUM, "blossom-entry", NULL); frames(30, 0); shot("blossom-interior");
+    need(state_of(1) == 1 && state_of(0) != 0, "blossom-rolled-its-own-grotto");
+    leave_to(15, "blossom-exit");
+    enter_at(26, WINDING_NUM, "winding-entry", NULL); frames(30, 0); shot("winding-interior");
+    need(state_of(2) == 1, "winding-rolled-its-own-grotto");
+    for (int i = 0; i < 3; i++) step(UP);
+    frames(20, 0); shot("winding-path");
+    for (int i = 0; i < 3; i++) step(DOWN);
+    leave_to(26, "winding-exit");
+    printf("{\"blossom_state\":%u,\"winding_state\":%u}\n", state_of(1), state_of(2));
 
     // Refill rate: 4000 wraps of the 256-step counter with the grotto empty.
     unsigned fills = 0, counts[16] = {0};
@@ -182,7 +210,7 @@ int main(int argc, char **argv)
     need(grotto_state() == 0xFF, "no-refill-before-256");
 
     // Walking advances the counter.
-    call("MapProof_Enter", PROOF_INDEX | (10u << 8) | (10u << 16)); frames(300, 0); wait_field(60);
+    call("MapProof_Enter", PROOF_INDEX | (8u << 8) | (14u << 16)); frames(300, 0); wait_field(60);
     c->busWrite8(c, sb3() + SB3_STEPS, 0); moves = 0;
     for (int i = 0; i < 6; i++) step(RIGHT);
     for (int i = 0; i < 6; i++) step(LEFT);

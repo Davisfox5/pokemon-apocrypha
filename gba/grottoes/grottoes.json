@@ -3,19 +3,90 @@
   "grottoes": [
     {
       "index": 0,
-      "id": "GROTTO_MAP_PROOF_JOHTO",
-      "name": "Test grotto on the Johto map-proof field",
+      "id": "GROTTO_TEST_WOODS_HOLLOW",
+      "name": "Test grotto: round hollow",
       "test_only": true,
-      "map": "MAP_PROOF_JOHTO",
-      "x": 5,
-      "y": 0,
+      "map": "MAP_HIDDEN_GROTTO_TEST_WOODS",
+      "x": 4,
+      "y": 9,
+      "interior": "MAP_HIDDEN_GROTTO",
       "slots": [
-        {"species": "SPECIES_EEVEE", "level": [20, 25], "gender": "any", "weight": 20},
-        {"species": "SPECIES_HOPPIP", "level": [20, 25], "gender": "any", "weight": 20},
-        {"species": "SPECIES_SENTRET", "level": [20, 25], "gender": "female", "weight": 20},
-        {"item": "ITEM_PEARL", "weight": 25},
-        {"item": "ITEM_BIG_PEARL", "weight": 10},
-        {"item": "ITEM_SHINY_STONE", "weight": 5}
+        {
+          "species": "SPECIES_EEVEE",
+          "level": [
+            20,
+            25
+          ],
+          "gender": "any",
+          "weight": 20
+        },
+        {
+          "species": "SPECIES_HOPPIP",
+          "level": [
+            20,
+            25
+          ],
+          "gender": "any",
+          "weight": 20
+        },
+        {
+          "species": "SPECIES_SENTRET",
+          "level": [
+            20,
+            25
+          ],
+          "gender": "female",
+          "weight": 20
+        },
+        {
+          "item": "ITEM_PEARL",
+          "weight": 25
+        },
+        {
+          "item": "ITEM_BIG_PEARL",
+          "weight": 10
+        },
+        {
+          "item": "ITEM_SHINY_STONE",
+          "weight": 5
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "id": "GROTTO_TEST_WOODS_BLOSSOM",
+      "name": "Test grotto: blossom ring",
+      "test_only": true,
+      "map": "MAP_HIDDEN_GROTTO_TEST_WOODS",
+      "x": 15,
+      "y": 9,
+      "interior": "MAP_HIDDEN_GROTTO_BLOSSOM",
+      "slots": [
+        {
+          "species": "SPECIES_HOPPIP",
+          "level": [
+            20,
+            25
+          ],
+          "gender": "any",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "id": "GROTTO_TEST_WOODS_WINDING",
+      "name": "Test grotto: winding path",
+      "test_only": true,
+      "map": "MAP_HIDDEN_GROTTO_TEST_WOODS",
+      "x": 26,
+      "y": 9,
+      "interior": "MAP_HIDDEN_GROTTO_WINDING",
+      "slots": [
+        {
+          "item": "ITEM_PEARL",
+          "weight": 1
+        }
       ]
     }
   ]

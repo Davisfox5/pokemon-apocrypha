@@ -17,7 +17,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]
 SPEC = ROOT / 'gba/grottoes/grottoes.json'
-GROTTO_MAP = 'MAP_HIDDEN_GROTTO'
+# Interior maps an entrance can lead to (src/hidden_grotto.c sGrottoInteriors; art from johto_art.py).
+INTERIORS = {'MAP_HIDDEN_GROTTO': 'round hollow', 'MAP_HIDDEN_GROTTO_BLOSSOM': 'blossom ring',
+             'MAP_HIDDEN_GROTTO_WINDING': 'winding path'}
 GENDERS = {'any': 'GROTTO_GENDER_ANY', 'male': 'GROTTO_GENDER_MALE', 'female': 'GROTTO_GENDER_FEMALE'}
 # Behaviors that warp the player when stepped on (cave mouths, doors).
 ENTRANCE_BEHAVIORS = {'MB_NON_ANIMATED_DOOR', 'MB_ANIMATED_DOOR', 'MB_DEEP_SOUTH_WARP', 'MB_WATER_DOOR',
@@ -117,8 +119,13 @@ def validate(spec, eng, check_entrances=True):
     errors = []
     cap = eng.capacity()
     maps, items, species = eng.maps(), eng.items(), eng.species()
-    if GROTTO_MAP not in maps:
-        errors.append(f'{GROTTO_MAP} is missing from the engine')
+    for interior in INTERIORS:
+        if interior not in maps:
+            errors.append(f'{interior} is missing from the engine')
+    hidden_c = eng.text('src/hidden_grotto.c')
+    for interior in INTERIORS:
+        if interior not in hidden_c:
+            errors.append(f'{interior} is not listed in sGrottoInteriors (src/hidden_grotto.c)')
     ids, indexes = set(), set()
     for g in spec['grottoes']:
         tag = g.get('id', '?')
@@ -135,6 +142,8 @@ def validate(spec, eng, check_entrances=True):
         indexes.add(i)
         if g.get('map') not in maps:
             errors.append(f'{tag}: unknown map {g.get("map")}')
+        if g.get('interior') not in INTERIORS:
+            errors.append(f'{tag}: interior must be one of {", ".join(sorted(INTERIORS))}')
         slots = g.get('slots', [])
         if not 1 <= len(slots) <= 254:
             errors.append(f'{tag}: needs 1..254 slots')
@@ -173,8 +182,8 @@ def check_entrance(g, eng):
     hit = [w for w in warps if w['x'] == g['x'] and w['y'] == g['y']]
     if not hit:
         errors.append(f'{tag}: no warp on {g["map"]} at ({g["x"]},{g["y"]}); run "place"')
-    elif hit[0]['dest_map'] != GROTTO_MAP or str(hit[0]['dest_warp_id']) != '0':
-        errors.append(f'{tag}: the warp at ({g["x"]},{g["y"]}) must go to {GROTTO_MAP} warp 0')
+    elif hit[0]['dest_map'] != g.get('interior') or str(hit[0]['dest_warp_id']) != '0':
+        errors.append(f'{tag}: the warp at ({g["x"]},{g["y"]}) must go to {g.get("interior")} warp 0')
     b = eng.behavior_at(path, g['x'], g['y'])
     if b is None:
         errors.append(f'{tag}: could not read the entrance metatile behavior')
@@ -228,13 +237,13 @@ def main(argv):
         if any(w['x'] == g['x'] and w['y'] == g['y'] for w in warps):
             print(f'{g["map"]} already has a warp at ({g["x"]},{g["y"]})')
         else:
-            warps.append({'x': g['x'], 'y': g['y'], 'elevation': 0, 'dest_map': GROTTO_MAP, 'dest_warp_id': '0'})
+            warps.append({'x': g['x'], 'y': g['y'], 'elevation': 0, 'dest_map': g['interior'], 'dest_warp_id': '0'})
             m['warp_events'] = warps
             path.write_text(json.dumps(m, indent=2, ensure_ascii=False) + '\n')
             print(f'added the grotto warp to {path}')
         b = eng.behavior_at(path, g['x'], g['y'])
         if b not in ENTRANCE_BEHAVIORS:
-            print(f'note: the entrance tile is {b}; draw an entrance metatile whose behavior warps when stepped on')
+            print(f'note: the entrance tile is {b}; draw the big-tree entrance there (johto_art.py, E/G cells)')
         return 0
     errors = validate(spec, eng, check_entrances=(argv[1] == 'check'))
     if errors:
