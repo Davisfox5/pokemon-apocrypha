@@ -190,8 +190,18 @@ values; pinning stops a future `GEN_LATEST` change moving them):
 | `B_MOODY_ACC_EVASION` | `GEN_8` | Moody cannot raise accuracy or evasion. |
 
 Speed Boost, Regenerator and Chlorophyll were never changed by an official game.
-Chlorophyll is limited indirectly by 5-turn sun. Any custom change to those is a
-separate owner decision.
+Chlorophyll is limited indirectly by 5-turn sun and is left as is. The owner chose
+two custom nerfs on 2026-11-20 (`include/config/battle.h`), which apply to every
+holder, trainers included:
+
+| Setting | Value | Effect |
+| --- | --- | --- |
+| `B_SPEED_BOOST_MAX_STAGE` | `3` | Speed Boost stops at +3 Speed (official: +6). Other boosts can still go higher. |
+| `B_REGENERATOR_HEAL_DIVISOR` | `4` | Regenerator heals 1/4 of max HP on switching out (official: 1/3). AI switching uses the same amount. |
+
+Applied at `9d468c69`. Speed Boost and Regenerator tests pass, including a new cap test.
+Three AI tests in `ai_switching.c` and `ai.c` fail with and without this change; they
+predate it.
 
 Applied in `Davisfox5/pokeemerald-expansion` branch `apocrypha` at `92e70deb`. ROM builds;
 `test/daycare.c` (38) and the Drizzle, Drought, Sand Stream, Snow Warning, Prankster and
