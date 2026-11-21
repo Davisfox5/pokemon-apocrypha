@@ -37,7 +37,9 @@ In the same plan file, a table with one line per element: ground, paths, tall gr
 cliff faces, ledges, water and shore, stairs (axis and direction), railings and fences, bridges,
 buildings, doors, signs, and for interiors every wall, floor and furniture piece.
 
-Each line names exactly one source:
+Each line names exactly one source. Trees, ridges, cliffs, stairs, tall grass and ponds
+already have a standard: [maps/JOHTO_ELEMENT_STANDARDS.md](maps/JOHTO_ELEMENT_STANDARDS.md).
+
 
 - **Regional kit** (already approved; see below)
 - **Accepted map** (name the map and its metatile ids)
@@ -57,7 +59,8 @@ Build in the game source repository, **`Davisfox5/pokeemerald-expansion`**, on a
 current `apocrypha` (which holds every merged neighbour). Map, layout, tileset and script changes
 go there and only there. The plan, gate file, generator scripts and evidence go to a matching
 branch in pokemon-apocrypha. Record both PRs in the inventory (`pr` and `hub_pr`). Follow GBA_MAP_RECONSTRUCTION.md steps 2 and 3
-square by square. Use only the sources the plan lists.
+square by square. Use only the sources the plan lists. Never draw over existing content: see
+"Never draw over what is already there" in AGENTS.md (owner rule, 2026-11-20).
 
 ## G4 Automated checks
 
@@ -91,6 +94,9 @@ Before the owner sees anything, produce and inspect:
    ledge end, door, building footprint, cliff corner and shoreline corner.
 3. Headless gameplay frames crossing each connection and using each warp, both directions.
 4. Every solid-black cell the gate listed, confirmed deliberate or fixed.
+5. An old-vs-new diff of every changed cell: each changed pixel belongs to the element being
+   changed (no tree, prop, shadow or neighbouring ground drawn over), and every patch edge
+   (grass, water, path) is softened into its surroundings.
 
 Fix what you find and rerun G4. Write the list of what was checked and fixed into the plan file.
 
