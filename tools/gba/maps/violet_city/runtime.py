@@ -3,7 +3,7 @@
 
     MGBA_FLAGS='-I... -L... -lmgba ...' python3 tools/gba/maps/violet_city/runtime.py ENGINE OUT
 
-Into the east gate (both stairs) and the west gate, the gates' walls blocking, a walk down the north road, over the
+Into the east gate and back out, into the west gate and back out, a walk down the north road, over the
 north bridge, across the landing and the south bridge to the main street, the lake blocking on foot, the
 hall's front blocking at its door, the back path behind it open, the lawn its old west wing gave back
 walkable, and every door: its opening frames, the interior loaded, back outside below the door on the way out.
@@ -52,19 +52,15 @@ int main(int argc,char**argv){
  c->reset(c);frames(600,0);
  call("MapProof_Boot",0);frames(240,0);observe("new-game");
  // the east gate and back
- go(VIOLET,72,57);at(VIOLET_NUM,72,57,"east-front");shot("east-front");
- step(RIGHT);step(RIGHT);frames(240,0);observe("east-gate");need(state[2]==EAST_NUM,"into-east-gate");shot("east-gate-inside");
- need(state[3]<=2&&state[4]==5,"east-gate-lands-by-its-west-exit");   // HGSS's plan: exits in the side walls
+ go(VIOLET,74,56);at(VIOLET_NUM,74,56,"east-front");shot("east-front");
+ step(UP);frames(240,0);observe("east-gate");need(state[2]==EAST_NUM,"into-east-gate");shot("east-gate-inside");
+ need(state[3]<=2&&state[4]==5,"east-gate-lands-by-its-west-exit");   // HGSS plan: exits in the side walls
  step(LEFT);step(LEFT);frames(240,0);observe("east-gate-west-exit");need(state[2]==VIOLET_NUM,"east-gate-west-exit-to-violet");
- go(VIOLET,72,58);at(VIOLET_NUM,72,58,"east-front-lower");
- step(RIGHT);step(RIGHT);frames(240,0);observe("east-gate-lower");need(state[2]==EAST_NUM,"into-east-gate-lower");
- // the gates' blocked cells: the east gate's roof, the tree seal above the west gate
- go(VIOLET,72,55);step(RIGHT);at(VIOLET_NUM,72,55,"east-gate-wall-blocks");
- go(VIOLET,7,25);step(LEFT);at(VIOLET_NUM,7,25,"west-gate-wall-blocks");
+ go(VIOLET,74,57);at(VIOLET_NUM,74,57,"east-front-again");
  // the west gate and back
  go(VIOLET,6,30);at(VIOLET_NUM,6,30,"west-front");shot("west-front");
  step(LEFT);step(LEFT);frames(240,0);observe("west-gate");need(state[2]==WEST_NUM,"into-west-gate");shot("west-gate-inside");
- need(state[3]>=10&&state[4]==5,"west-gate-lands-by-its-east-exit");   // (the second step in walks one cell)
+ need(state[3]>=10&&state[4]==5,"west-gate-lands-by-its-east-exit");
  step(RIGHT);step(RIGHT);frames(240,0);observe("west-gate-east-exit");need(state[2]==VIOLET_NUM,"west-gate-east-exit-to-violet");
  // the north road, both bridges and the landing, south to the main street
  go(VIOLET,39,13);at(VIOLET_NUM,39,13,"north-road");shot("north-road");
@@ -84,7 +80,8 @@ DOOR_TESTS c->deinit(c);return 0;
 
 def generate():
     import doors as D
-    tests = ''.join(f' door({d["cell"][0]},{d["cell"][1]},"{d["name"]}");\n' for d in D.DOORS)
+    tests = ''.join(f' door({d["cell"][0]},{d["cell"][1]},"{d["name"]}");\n' for d in D.DOORS
+                    if d['name'] != 'EastGate')   # the Johto gate's exits are its side walls; checked above
     src = TEMPLATE.replace('RUNTIME_C', str(ROOT / 'tools/gba/maps/runtime.c')).replace('DOOR_TESTS', tests)
     return src.replace('#define RIGHT 16\n', f'#define RIGHT 16\n#define VIOLET {VIOLET}\n#define VIOLET_NUM {VIOLET}\n#define EAST_NUM {EAST_GATE}\n#define WEST_NUM {WEST_GATE}\n', 1)
 

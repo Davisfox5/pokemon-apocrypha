@@ -50,13 +50,6 @@ POND = {f'pond/pond-15-{k}.png': ('claude/route-43', f'gba/art/route-43/source/s
 TREE_BOX = (896, 80, 928, 128)      # Cherrygrove's standalone tree (cells 56-57, 5-7)
 FLOOR = 3                           # HGSS height of Route 31's main floor (the pond sits below it)
 SIGN_ART = {32: 'P14', 31: 'P13'}
-# Owner review of #39: the lawn strip under the gatehouse read as open ground, so one more row of trees on
-# the woods' own 2-row lattice seals it (roots on the gatehouse's blocked south row; collision unchanged).
-# Second pass (owner: never draw over what is there): those trees sit SEAL_DROP px lower than the lattice, so
-# their crown tips start one pixel under the gatehouse's base (G02's last opaque row is 105, map y 249) instead
-# of over it. The woods' next row stands in front of them as the lattice's rows do.
-GATE_SEAL_ROOTS = [(0, 16), (2, 16), (4, 16)]
-SEAL_DROP = 10
 GATE_ORIGIN = (0, 9)                # G02 is 7x7 cells; its stairs (column 6, rows 4-5) stand on HGSS's gate warps (6,13)/(6,14)
 FLOWER_TONES, LIGHT_TONES = 6, 3
 
@@ -293,11 +286,38 @@ def fit_ew(pieces):
     return {k: apply_tones(v, m) for k, v in planks.items()}
 
 
-def stairs(grid, ncells):
-    """The Johto standard stairs (tools/gba/maps/johto_stairs.py, owner-locked 2026-11-20) on HGSS's stair
-    cells: north-south flights with a rail each side and plank treads, crossings of a wall on the diagonal."""
-    import johto_stairs as JS
-    return JS.place(grid, W, H, falls=JS.falls_by_ground(grid, W, H, lambda x, y: ncells[y][x]['ground']))
+def stairs(grid):
+    """The Johto stair pieces (stair_pieces.py), placed flight by flight on HGSS's stair cells. A flight with
+    rock above and below it is crossed east-west: each of its columns takes Route 36's plank flight (its top
+    cell with the dark cheek, plank cells, the bottom cell with the brown cheek). Every other flight is
+    climbed north-south: each of its rows takes the earlier Route 30's grey treads (left end, middle, right
+    end)."""
+    p = {k: rgba(STAIR_ART / f'{k}.png') for k in ('ns-left', 'ns-mid', 'ns-right', 'ew-top', 'ew-mid', 'ew-bottom')}
+    p.update(fit_ew({k: v for k, v in p.items() if k.startswith('ew')}))
+    g = lambda x, y: grid[y][x] if 0 <= x < W and 0 <= y < H else '#'
+    art = np.zeros((H * PX, W * PX, 4), np.uint8)
+    placed, seen = [], set()
+    for y0 in range(H):
+        for x0 in range(W):
+            if g(x0, y0) != '^' or (x0, y0) in seen:
+                continue
+            comp, todo = set(), [(x0, y0)]
+            while todo:
+                c = todo.pop()
+                if c in comp or g(*c) != '^':
+                    continue
+                comp.add(c); todo += [(c[0] + dx, c[1] + dy) for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1))]
+            seen |= comp
+            xs, ys = sorted({c[0] for c in comp}), sorted({c[1] for c in comp})
+            ew = all(g(x, ys[0] - 1) == 'R' and g(x, ys[-1] + 1) == 'R' for x in xs)
+            for (x, y) in sorted(comp):
+                if ew:
+                    k = 'ew-top' if y == ys[0] else 'ew-bottom' if y == ys[-1] else 'ew-mid'
+                else:
+                    k = 'ns-left' if x == xs[0] else 'ns-right' if x == xs[-1] else 'ns-mid'
+                art[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX] = p[k]
+                placed.append(dict(cell=[x, y], art=k, flight='east-west' if ew else 'north-south'))
+    return art, placed
 
 def ledges(grid):
     """L11/L12/L13 on jump-south runs; the same pieces turned a quarter anticlockwise on the jump-east run
@@ -410,16 +430,12 @@ def compose(phg, engine):
     ncells = native_cells(cells)
     events = json.loads((SRC / 'hgss-events.json').read_text())
     rinfo = json.loads((SRC / 'hgss/hgss-render.json').read_text())
-    roots = [tuple(r) for r in json.loads((TRACE / 'trees.json').read_text())['roots']] + GATE_SEAL_ROOTS
-    seal = set(GATE_SEAL_ROOTS)
+    roots = [tuple(r) for r in json.loads((TRACE / 'trees.json').read_text())['roots']]
     road = road_texture(engine)
     q = ground_quadrants(phg, ncells)
     bottom, mat, tex = paint_ground(q, road)
     d, isrock = Rk.terraces(ncells, FLOOR)
-    # An east-west flight's cells are part of the ridge it crosses: the ridge runs on under it, unbroken.
-    import johto_stairs as JS
-    draw_rock = JS.cliff_under(grid, W, H, d, isrock, ncells)
-    bottom, rock_over, piece = Rk.rock_frlg(ncells, d, draw_rock, bottom, Rk.frlg_pieces(engine), dict(grass=tex[G.GRASS], sand=tex[G.PATH]))
+    bottom, rock_over, piece = Rk.rock_frlg(ncells, d, isrock, bottom, Rk.frlg_pieces(engine), dict(grass=tex[G.GRASS], sand=tex[G.PATH]))
     owner = np.full((H * PX, W * PX), '', object)
     flat = np.zeros((H * PX, W * PX, 4), np.uint8)
     flat_owner = np.full((H * PX, W * PX), '', object)
@@ -443,7 +459,7 @@ def compose(phg, engine):
     pond_art = pond(grid, bottom)
     cave = cave_mouth(phg)
     Image.fromarray(cave).save(LOCAL / 'cave-mouth.png')
-    sa, stair_list = stairs(grid, ncells)
+    sa, stair_list = stairs(grid)
     Image.fromarray(sa).save(LOCAL / 'stairs.png')
     # Terrain belongs to the bottom layer: rock faces, the pond, the cave mouth and the stairs are drawn into
     # the ground, so whatever stands on top (crowns, the gatehouse, signs) never shares a tile with them.
@@ -463,7 +479,7 @@ def compose(phg, engine):
     lay(la, 'ledge')
     top = np.zeros((H * PX, W * PX, 4), np.uint8)
     tree = cherry_tree(engine, tex[G.GRASS])
-    objs = [dict(name=f'tree_{i}', master='local-art/cherrygrove-tree-with-shadow.png (T01 + shadow)', xy=[x * PX, (y - 1) * PX + (SEAL_DROP if (x, y) in seal else 0)], art=tree, root=[x, y])
+    objs = [dict(name=f'tree_{i}', master='local-art/cherrygrove-tree-with-shadow.png (T01 + shadow)', xy=[x * PX, (y - 1) * PX], art=tree, root=[x, y])
             for i, (x, y) in enumerate(roots)]
     gx, gy = GATE_ORIGIN
     objs.append(dict(name='gate_violet', master='shared-art/G02.png', xy=[gx * PX, gy * PX], art=rgba(SHARED / 'G02.png')))

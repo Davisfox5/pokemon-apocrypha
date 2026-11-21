@@ -256,26 +256,6 @@ CODES = {'g': 'lawn', 'd': 'dirt road', 'f': 'lawn with flowers', 'l': 'light la
          'P': "Cherrygrove's north forest band (its metatiles, south padding)", 'p': "Cherrygrove's road in the band"}
 # Rows 0-1 (north padding) repeat HGSS row 0, its stairs as road.
 
-# Owner review of #39, second pass ("never draw over what is there"): Mr. Pokemon's house on Cherrygrove's house
-# model is a cell taller and the model's door sits in its second column, so on HGSS's footprint (rows 5-8, door
-# (29, 8)) its roof and chimney stood on the cliff face above and its east eave on the trees at column 32. The
-# house moves a row south and a column west (rows 6-9, door (28, 9)), clear of both; his mailbox moves to
-# (26, 10), clear of his fence's foot (assemble.FENCE_TRIM shortens the fence's top rail to its corner post).
-MR_POKEMON_OLD = dict(cells=[(x, y) for x in range(27, 32) for y in range(5, 9)], mailbox=(27, 8))
-MR_POKEMON_NEW = dict(cells=[(x, y) for x in range(27, 32) for y in range(6, 10)], door=(28, 9), mailbox=(26, 10))
-
-def adapt(grid):
-    """The material grid with the owner's adaptations (a copy)."""
-    g = [list(r) for r in grid]
-    for x, y in sorted(set(MR_POKEMON_OLD['cells']) | {MR_POKEMON_OLD['mailbox']}):
-        assert g[y][x] in 'HDs', (x, y, g[y][x])
-        g[y][x] = 'g'
-    for x, y in MR_POKEMON_NEW['cells']:
-        g[y][x] = 'H'
-    x, y = MR_POKEMON_NEW['door']; g[y][x] = 'D'
-    x, y = MR_POKEMON_NEW['mailbox']; g[y][x] = 's'
-    return g
-
 def material_grid(cells, woods, roots, events):
     rooted = {(x + dx, y + dy) for x, y in roots for dx in (0, 1) for dy in (0, 1)}
     crowns = {(x + dx, y - 1) for x, y in roots for dx in (0, 1)} - rooted

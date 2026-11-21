@@ -46,10 +46,7 @@ MAP, LAYOUT, MAP_ID = 'JohtoRoute32', 'LAYOUT_JOHTO_ROUTE32', 'MAP_JOHTO_ROUTE32
 CENTER, UPSTAIRS = 'Route32PokemonCenter', 'Route32CenterUpstairs'
 PRI_NAME, PRI_SYM = 'route32', 'Route32Primary'
 TS_NAME, TS_SYM = 'route32_hgss', 'Route32Hgss'
-def violet_banks(V, pins):
-    """The banks Violet's pinned metatiles draw in (Violet's packer may move them): Route 32 takes Violet's
-    palettes there."""
-    return tuple(sorted({e >> 12 for m in pins for e in V.meta[m] if e}))
+VIOLET_BANKS = (0, 1, 3, 11)         # the banks Violet's pinned metatiles draw in: Route 32 takes Violet's palettes there
 VIOLET_SEEN_ROWS = range(66, 72)     # Violet rows a player on Route 32's padding can see
 COVERED, NORMAL = 1, 0
 # The two 21-colour masters (G02, C06) are drawn across both layers where the player never walks in front of
@@ -235,55 +232,6 @@ def prepare(engine):
     return dict(ground=ground, flat=flat, top=top, owner=owner, grid=grid, cells=cells, trav=trav, above=above, V=V,
                 want=want, placed=placed, pins=pinned_ids(V))
 
-def anneal_sets(sets, fixed, nbanks=13, secs=240, seeds=range(8), cap=15):
-    """Simulated annealing for the colour sets the greedy packer gives up on: each set goes to one bank, the
-    first len(fixed) banks start holding Violet's colours, and the cost is the colours over `cap` summed over
-    the banks. Returns the banks (sets of colours) or None. Found Route 32's layout in under 4 minutes where
-    the greedy packer and the exact program did not, after Violet's palettes moved (#39 review, second pass)."""
-    import random, math, time
-    from collections import Counter
-    sets = [frozenset(c) for c in sets]
-    for seed in seeds:
-        rnd = random.Random(seed)
-        a = [rnd.randrange(nbanks) for _ in sets]
-        cnt = [Counter() for _ in range(nbanks)]
-        for b, f in enumerate(fixed):
-            for c in f:
-                cnt[b][c] += 1 << 20                 # Violet's colours never leave their bank
-        for i, st in enumerate(sets):
-            for c in st:
-                cnt[a[i]][c] += 1
-        cost = lambda b: max(0, len(cnt[b]) - cap)
-        total, T, t0 = sum(cost(b) for b in range(nbanks)), 2.0, time.time()
-        while total and time.time() - t0 < secs:
-            i, nb = rnd.randrange(len(sets)), rnd.randrange(nbanks)
-            ob = a[i]
-            if nb == ob:
-                continue
-            before = cost(ob) + cost(nb)
-            for c in sets[i]:
-                cnt[ob][c] -= 1
-                if not cnt[ob][c]:
-                    del cnt[ob][c]
-                cnt[nb][c] += 1
-            d = cost(ob) + cost(nb) - before
-            if d <= 0 or rnd.random() < math.exp(-d / T):
-                a[i] = nb; total += d
-            else:
-                for c in sets[i]:
-                    cnt[nb][c] -= 1
-                    if not cnt[nb][c]:
-                        del cnt[nb][c]
-                    cnt[ob][c] += 1
-            T = max(0.3, T * 0.999995)
-        if not total:
-            out = [set(f) for f in fixed] + [set() for _ in range(nbanks - len(fixed))]
-            for i, st in enumerate(sets):
-                out[a[i]] |= st
-            assert all(len(b) <= cap for b in out)
-            return out
-    return None
-
 def pack(engine):
     OUT.mkdir(parents=True, exist_ok=True); OEV.mkdir(parents=True, exist_ok=True)
     d = prepare(engine)
@@ -299,7 +247,6 @@ def pack(engine):
         lookup[ix.tobytes()] = len(tiles); tiles.append(ix.copy())
         return len(tiles) - 1, 0
     # ---- Violet's pinned metatiles: Violet's tiles (index maps), Violet's banks and palettes.
-    VIOLET_BANKS = violet_banks(V, pins)
     fixed_pal = {b: V.pals[b][1:16] for b in VIOLET_BANKS}
     pin_defs = {}
     for m in pins:
@@ -418,9 +365,7 @@ def pack(engine):
         loose = pack_sets(maximal, 60, init=[set(held[b]) for b in vb], tries=50)
         import pickle; (OUT / 'sets-debug.pkl').write_bytes(pickle.dumps(dict(maximal=maximal, held=held, loose=loose)))
         raise SystemExit(f'greedy packer gave up on {len(maximal)} sets, needs {len(loose)} (the exact program runs without --greedy-only)')
-    if packed is None and '--greedy-only' not in sys.argv:   # the greedy packer gave up: anneal
-        packed = anneal_sets(maximal, [held[b] for b in vb])
-    if packed is None:                                    # still none: Route 43's exact program
+    if packed is None:                                    # the greedy packer gave up: Route 43's exact program
         sets_ = list(maximal) + [frozenset(held[b]) for b in vb]
         pins = [(len(maximal) + i, i) for i in range(len(vb))]   # Violet's sets in their own banks
         res = milp_sets(sets_, 13, fixed=pins, time_limit=3600)

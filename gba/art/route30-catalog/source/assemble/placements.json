@@ -141,6 +141,96 @@
    "base": 95
   },
   {
+   "name": "fence_3",
+   "master": "local-art/fences.png",
+   "xy": [
+    433,
+    85
+   ],
+   "base": 95
+  },
+  {
+   "name": "fence_4",
+   "master": "local-art/fences.png",
+   "xy": [
+    441,
+    85
+   ],
+   "base": 95
+  },
+  {
+   "name": "fence_5",
+   "master": "local-art/fences.png",
+   "xy": [
+    449,
+    85
+   ],
+   "base": 95
+  },
+  {
+   "name": "fence_6",
+   "master": "local-art/fences.png",
+   "xy": [
+    457,
+    85
+   ],
+   "base": 95
+  },
+  {
+   "name": "fence_7",
+   "master": "local-art/fences.png",
+   "xy": [
+    465,
+    85
+   ],
+   "base": 95
+  },
+  {
+   "name": "fence_8",
+   "master": "local-art/fences.png",
+   "xy": [
+    473,
+    85
+   ],
+   "base": 95
+  },
+  {
+   "name": "fence_9",
+   "master": "local-art/fences.png",
+   "xy": [
+    481,
+    85
+   ],
+   "base": 95
+  },
+  {
+   "name": "fence_10",
+   "master": "local-art/fences.png",
+   "xy": [
+    489,
+    85
+   ],
+   "base": 95
+  },
+  {
+   "name": "fence_11",
+   "master": "local-art/fences.png",
+   "xy": [
+    497,
+    85
+   ],
+   "base": 95
+  },
+  {
+   "name": "fence_12",
+   "master": "local-art/fences.png",
+   "xy": [
+    505,
+    85
+   ],
+   "base": 95
+  },
+  {
    "name": "tree_10",
    "master": "local-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
    "xy": [
@@ -258,6 +348,19 @@
    "base": 127
   },
   {
+   "name": "mr_pokemon_house",
+   "master": "local-art/buildings/mr_pokemon_house.png (HGSS model 53 at C06's angle)",
+   "xy": [
+    444,
+    68
+   ],
+   "door": [
+    29,
+    8
+   ],
+   "base": 142
+  },
+  {
    "name": "tree_19",
    "master": "local-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
    "xy": [
@@ -293,11 +396,24 @@
    "base": 143
   },
   {
-   "name": "fence_3",
+   "name": "fence_13",
    "master": "local-art/fences.png",
    "xy": [
     425,
     133
+   ],
+   "base": 143
+  },
+  {
+   "name": "mailbox",
+   "master": "local-art/buildings/mailbox.png (HGSS model 30 at C06's angle)",
+   "xy": [
+    434,
+    116
+   ],
+   "cell": [
+    27,
+    8
    ],
    "base": 143
   },
@@ -378,32 +494,6 @@
     8
    ],
    "base": 159
-  },
-  {
-   "name": "mr_pokemon_house",
-   "master": "gba/art/route30-catalog/source/local-art/buildings/mr_pokemon_gen3.png (Cherrygrove's house model)",
-   "xy": [
-    432,
-    80
-   ],
-   "door": [
-    28,
-    9
-   ],
-   "base": 159
-  },
-  {
-   "name": "mailbox",
-   "master": "local-art/buildings/mailbox.png (HGSS model 30 at C06's angle)",
-   "xy": [
-    418,
-    148
-   ],
-   "cell": [
-    26,
-    10
-   ],
-   "base": 175
   },
   {
    "name": "tree_27",
@@ -3242,7 +3332,7 @@
    "base": 1087
   },
   {
-   "name": "fence_5",
+   "name": "fence_15",
    "master": "local-art/fences.png",
    "xy": [
     217,
@@ -3251,7 +3341,7 @@
    "base": 1087
   },
   {
-   "name": "fence_6",
+   "name": "fence_16",
    "master": "local-art/fences.png",
    "xy": [
     225,
@@ -3260,7 +3350,7 @@
    "base": 1087
   },
   {
-   "name": "fence_7",
+   "name": "fence_17",
    "master": "local-art/fences.png",
    "xy": [
     233,
@@ -3321,6 +3411,19 @@
    "base": 1087
   },
   {
+   "name": "apricorn_house",
+   "master": "local-art/buildings/apricorn_house.png (HGSS model 37 at C06's angle)",
+   "xy": [
+    239,
+    1046
+   ],
+   "door": [
+    16,
+    69
+   ],
+   "base": 1118
+  },
+  {
    "name": "tree_247",
    "master": "local-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
    "xy": [
@@ -3360,7 +3463,7 @@
    "base": 1119
   },
   {
-   "name": "fence_4",
+   "name": "fence_14",
    "master": "local-art/fences.png",
    "xy": [
     209,
@@ -3369,24 +3472,11 @@
    "base": 1119
   },
   {
-   "name": "fence_8",
+   "name": "fence_18",
    "master": "local-art/fences.png",
    "xy": [
     217,
     1109
-   ],
-   "base": 1119
-  },
-  {
-   "name": "apricorn_house",
-   "master": "gba/art/claude-cherrygrove/source/house.png (Cherrygrove's house model)",
-   "xy": [
-    240,
-    1040
-   ],
-   "door": [
-    16,
-    69
    ],
    "base": 1119
   },
@@ -5834,23 +5924,7 @@
     11,
     2
    ],
-   "art": "johto_stairs north-south top",
-   "flight": "north-south"
-  },
-  {
-   "cell": [
-    12,
-    2
-   ],
-   "art": "johto_stairs north-south top",
-   "flight": "north-south"
-  },
-  {
-   "cell": [
-    13,
-    2
-   ],
-   "art": "johto_stairs north-south top",
+   "art": "ns-left",
    "flight": "north-south"
   },
   {
@@ -5858,7 +5932,15 @@
     11,
     3
    ],
-   "art": "johto_stairs north-south",
+   "art": "ns-left",
+   "flight": "north-south"
+  },
+  {
+   "cell": [
+    12,
+    2
+   ],
+   "art": "ns-mid",
    "flight": "north-south"
   },
   {
@@ -5866,7 +5948,15 @@
     12,
     3
    ],
-   "art": "johto_stairs north-south",
+   "art": "ns-mid",
+   "flight": "north-south"
+  },
+  {
+   "cell": [
+    13,
+    2
+   ],
+   "art": "ns-right",
    "flight": "north-south"
   },
   {
@@ -5874,7 +5964,7 @@
     13,
     3
    ],
-   "art": "johto_stairs north-south",
+   "art": "ns-right",
    "flight": "north-south"
   },
   {
@@ -5882,7 +5972,7 @@
     17,
     9
    ],
-   "art": "johto_stairs east-west falling E",
+   "art": "ew-top",
    "flight": "east-west"
   },
   {
@@ -5890,7 +5980,7 @@
     17,
     10
    ],
-   "art": "johto_stairs east-west falling E",
+   "art": "ew-bottom",
    "flight": "east-west"
   },
   {
@@ -5898,7 +5988,7 @@
     11,
     37
    ],
-   "art": "johto_stairs north-south top",
+   "art": "ns-left",
    "flight": "north-south"
   },
   {
@@ -5906,7 +5996,7 @@
     12,
     37
    ],
-   "art": "johto_stairs north-south top",
+   "art": "ns-mid",
    "flight": "north-south"
   },
   {
@@ -5914,7 +6004,7 @@
     13,
     37
    ],
-   "art": "johto_stairs north-south top",
+   "art": "ns-right",
    "flight": "north-south"
   },
   {
@@ -5922,7 +6012,7 @@
     8,
     82
    ],
-   "art": "johto_stairs north-south top",
+   "art": "ns-left",
    "flight": "north-south"
   },
   {
@@ -5930,7 +6020,7 @@
     9,
     82
    ],
-   "art": "johto_stairs north-south top",
+   "art": "ns-mid",
    "flight": "north-south"
   },
   {
@@ -5938,7 +6028,7 @@
     10,
     82
    ],
-   "art": "johto_stairs north-south top",
+   "art": "ns-mid",
    "flight": "north-south"
   },
   {
@@ -5946,7 +6036,7 @@
     11,
     82
    ],
-   "art": "johto_stairs north-south top",
+   "art": "ns-right",
    "flight": "north-south"
   },
   {
@@ -5954,7 +6044,7 @@
     19,
     82
    ],
-   "art": "johto_stairs north-south top",
+   "art": "ns-left",
    "flight": "north-south"
   },
   {
@@ -5962,7 +6052,7 @@
     20,
     82
    ],
-   "art": "johto_stairs north-south top",
+   "art": "ns-mid",
    "flight": "north-south"
   },
   {
@@ -5970,7 +6060,7 @@
     21,
     82
    ],
-   "art": "johto_stairs north-south top",
+   "art": "ns-mid",
    "flight": "north-south"
   },
   {
@@ -5978,7 +6068,7 @@
     22,
     82
    ],
-   "art": "johto_stairs north-south top",
+   "art": "ns-right",
    "flight": "north-south"
   }
  ],

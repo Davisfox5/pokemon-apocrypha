@@ -705,10 +705,6 @@ def woods_mask(town):
 # woods south of it pair on odd columns (x39 up). Each part keeps its own pairs, so no tree moves sideways,
 # and both take the arm's row phase, so the south woods' top crowns overlap the arm's trunks.
 ARM = (range(68, W), range(20, 33))
-# The south woods under the houses (owner review of #39): their top row of trees overlapped the path by a cell,
-# so it goes. The path's dirt row (32) stays, the woods' old top row becomes a walkable lawn row, and the trees
-# start a lattice step lower.
-SOUTH_LAWN = (range(47, 68), 33)
 
 def forests(cv):
     """Every woods block not already on the lattice takes the route's tree lattice: 2x2 roots every two
@@ -745,25 +741,15 @@ def forests(cv):
             for x in range(x0, x1 + 1, 2):
                 rows = sorted(set(py[(px == x) | (px == x + 1)].tolist()))
                 top, bot = rows[0], rows[-1]
-                if top == SOUTH_LAWN[1] and x in SOUTH_LAWN[0]:
-                    top += 1
                 y = bot - 1 if (bot - 1) % 2 == phase else bot
                 assert y + 1 <= bot or bot == H - 1, ('a trunk below the woods', i, x, bot)
-                # A leftover column (one cell between this part's last pair and the next part's first): a tree a
-                # whole cell west, standing behind the pair before it (drawn first in its row), so the woods close
-                # with no lawn strip, every crown it touches stays whole in front of it, and it stays inside this
-                # part (half a cell west would run into the next part's cells, which are not redrawn, and be cut).
-                behind = single and x == x1 and x1 > x0
-                at = x - 1 if behind else x
+                at = x - 0.5 if single and x == x1 else x    # a leftover column: the tree straddles it, half a cell each way
                 while y >= top:                      # the last root sits on the top row or the row below it
-                    cv.trees.append((at, y, 'b' if take_blossom(pink, claimed, x, y) else 'g', behind))
+                    cv.trees.append((at, y, 'b' if take_blossom(pink, claimed, x, y) else 'g'))
                     y -= 2
         for y, x in zip(ys, xs):
             cv.put_ground(x, y, lawn_at(lawn, x, y))
             cv.changed.add((x, y))
-            if y == SOUTH_LAWN[1] and x in SOUTH_LAWN[0]:
-                cv.put_ground(x, y, lawn_at(G.textures()[G.GRASS], x, y))
-                cv.traverse[(int(x), int(y))] = (0, 3, B.MB_NORMAL)
         cv.notes.append(f'woods block {i}: x{xs.min()}-{xs.max()} rows {ys.min()}-{ys.max()}, roots on '
                         f'{"odd" if phase else "even"} rows{", the east arm keeping its even column pairs" if has_arm else ""}')
 
@@ -787,10 +773,10 @@ def take_blossom(pink, claimed, x, yr):
 
 def draw_trees(cv, sprites):
     cv.canopy = set()                                 # cells a crown covers (the texture folds stay inside them)
-    for x, y, k, *_ in sorted(cv.trees, key=lambda t: (t[1], not (t[3:] and t[3]), t[0])):
+    for x, y, k in sorted(cv.trees, key=lambda t: (t[1], t[0])):
         over(cv.top, sprites[k], int(round(x * 16)), (y - 1 - R0) * 16)
         cv.canopy |= {(int(x) + dx, y + dy) for dx in range(3 if x != int(x) else 2) for dy in (-1, 0)}
-    for x, y, k, *_ in cv.trees:                      # a crown over the cell above a block: drawn anew, above the player
+    for x, y, k in cv.trees:                          # a crown over the cell above a block: drawn anew, above the player
         for dx in ((0, 1) if x == int(x) else (0, 1, 2)):
             c = (int(x) + dx, y - 1)
             if 0 <= c[0] < W and 0 <= c[1] < H and c not in cv.kit:
