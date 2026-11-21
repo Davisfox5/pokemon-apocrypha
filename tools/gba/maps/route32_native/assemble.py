@@ -12,7 +12,7 @@ de5d8cfb). Shared art is copied byte for byte into source/shared-art/ with its h
               layer one terrace, the soft grass fringe where a rock top meets grass at its height
   trees       the Cherrygrove tree (T01 with the town's contact shadow, Route 30's local cut) on
               non-overlapping 2x2 roots
-  tall grass  the Johto standard (standards/johto_layers.grass_art) on every HGSS tall-grass cell
+  tall grass  the catalog set G00-G15 by neighbour mask on every HGSS tall-grass cell (round patch edges)
   ledges      L11/L12/L13 on the jump-south runs, turned a quarter for the jump-east run (Route 29's)
   stairs      the Johto stair pieces (Route 30's stair_pieces.py output), in HGSS's own direction (its decoded
               height slope): grey treads on north-south flights, Route 36's plank flight on east-west ones
@@ -1099,13 +1099,17 @@ def compose(phg, engine):
         flat[a] = art[a]; flat_owner[a] = name
     light, flw = light_lawn(phg), flowers(phg)
     flw, light = local(flw, FLOWER_TONES), local(light, LIGHT_TONES)
-    # Tall grass: the Johto standard (owner-approved 2026-11-21, docs/maps/JOHTO_ELEMENT_STANDARDS.md), rounded
-    # patch corners and a wavy edge; carved pixels are transparent, so the lawn (or the beach edge) shows.
-    sys.path.insert(0, str(HERE.parent / 'standards'))
-    import johto_layers as JL
-    gcells = np.array([[ch == 'G' for ch in row] for row in grid])
-    tg = JL.grass_art(gcells); n_g15 = int(gcells.sum())
-    g15 = tg[np.kron(gcells, np.ones((PX, PX), bool)) & (tg[..., 3] > 0)][None]   # the grass's colours (pack families)
+    # Tall grass: the catalog's 16-piece set by neighbour mask (8 north, 4 south, 2 west, 1 east), so each patch
+    # rounds off on every side that is not tall grass and the lawn (or the beach edge at the water) shows round it.
+    gset = tall_grass_set()
+    g15 = gset[15]
+    tall = lambda x, y: not (0 <= x < W and 0 <= y < H) or grid[y][x] == 'G'
+    tg = np.zeros_like(flat); n_g15 = 0
+    for y in range(H):
+        for x in range(W):
+            if grid[y][x] == 'G':
+                m = 8 * tall(x, y - 1) + 4 * tall(x, y + 1) + 2 * tall(x - 1, y) + tall(x + 1, y)
+                tg[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX] = gset[m]; n_g15 += 1
     la, ledge_list = ledges(grid)
     # Stairs: S01-S03 straight (Route 45's); a flight across a wall HGSS's own, stacked, in the route's palette.
     sa, sdiag, stair_list = stairs(grid)

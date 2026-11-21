@@ -16,13 +16,10 @@ import numpy as np
 from PIL import Image
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-sys.path.insert(1, str(Path(__file__).resolve().parents[1] / 'standards'))
-import johto_layers as JL                            # noqa: E402
 import base as B                                     # noqa: E402
 import elements as E                                 # noqa: E402
 
 def compose(engine):
-    JL.ENGINE = engine
     town = B.Town(engine)
     cv = E.Canvas(town)
     E.north_edge(cv, engine)
