@@ -44,6 +44,8 @@ import reference as Rf                               # noqa: E402
 from reference import W, H, PX, COL0, ROW0, HW, HH, PAD0, XPHASE, YPHASE   # noqa: E402
 import rock as Rk                                    # noqa: E402
 from claude_cherrygrove import ground as G           # noqa: E402
+sys.path.insert(0, str(HERE.parent / 'standards'))
+import johto_layers as JL                            # noqa: E402
 
 ROOT = HERE.parents[3]
 ART = ROOT / 'gba/art/route30-catalog'
@@ -603,40 +605,20 @@ def smooth_noise(h, w, step, rng):
     bot = g[y0 + 1, x0] * (1 - fx) + g[y0 + 1, x0 + 1] * fx
     return top * (1 - fy) + bot * fy
 
-def pond(grid, ground):
-    """HGSS's water cells as natural ponds (Route 43's pond(), the owner's review there): Route 30's
-    HGSS freshwater texture, a rough bank in Route 30's own rim tones; the shore sits about two pixels
-    inside the water cells, so the Surf boundary stays the cell edge."""
-    from scipy.ndimage import distance_transform_edt, gaussian_filter
-    rng = np.random.default_rng(POND_SEED)
-    water = np.repeat(np.repeat(np.array([[ch == '~' for ch in row] for row in grid]), PX, 0), PX, 1)
-    h, w = water.shape
-    soft = gaussian_filter(water.astype(float), 5, mode='nearest') > 0.5
-    d = distance_transform_edt(soft) - distance_transform_edt(~soft)
-    shore = d - 2 + 2.6 * smooth_noise(h, w, 14, rng) + 1.2 * smooth_noise(h, w, 6, rng) + 0.5 * smooth_noise(h, w, 3, rng)
-    tuft = smooth_noise(h, w, 3, rng) + 0.5 * rng.uniform(-1, 1, (h, w))
-    broken = smooth_noise(h, w, 5, rng)
+def pond(grid, ground, lawn):
+    """The Johto standard pond (owner-approved 2026-11-21, docs/maps/JOHTO_ELEMENT_STANDARDS.md): Route 30's
+    HGSS freshwater texture (pond-15) inside Emerald's pond border set, with Emerald's 2 px lip on the lawn
+    below. Only Route 30's own rows: the band below is Cherrygrove's (its pond is drawn there)."""
+    water = np.array([[ch == '~' for ch in row] for row in grid])
+    water[PAD0:] = False
+    water = JL.ponds(water)
     tex = np.concatenate([np.concatenate([rgba(SHARED / f'pond/pond-15-{r * 2 + c}.png')[..., :3] for c in (0, 1)], 1)
                           for r in (0, 1)], 0)
-    ys, xs = np.mgrid[0:h, 0:w]
-    art = np.zeros((h, w, 4), np.uint8)
-    def put(m, col):
-        art[m, :3] = col; art[m, 3] = 255
-    near = d > -6
-    near[PAD0 * PX:] = False                              # the band below is Cherrygrove's own
-    deep = tex[ys % 32, xs % 32]
-    put(near & (shore >= 4.5), deep[near & (shore >= 4.5)])
-    put(near & (shore >= 3.2) & (shore < 4.5) & (broken > -0.35), SHALLOW)
-    m = near & (shore >= 3.2) & (shore < 4.5) & (broken <= -0.35); put(m, deep[m])
-    put(near & (shore >= 2.2) & (shore < 3.2), BANK)
-    mud = near & (shore >= 0.3) & (shore < 2.2)
-    put(mud, MUD)
-    put(mud & (tuft > 0.75), GRASS_EDGE)
-    put(mud & (tuft < -0.95), BANK)
-    put(near & (shore >= -0.6) & (shore < 0.3), GRASS_DARK)
-    art[(art[..., 3] > 0) & (art[..., :3] == ground[..., :3]).all(-1), 3] = 0
-    centre = water & (ys % PX == PX // 2) & (xs % PX == PX // 2)
-    assert (shore[centre] >= 3.2).all(), 'a water cell centre is not open water'
+    ys, xs = np.mgrid[0:water.shape[0] * PX, 0:water.shape[1] * PX]
+    art = JL.pond_art(water, tex[ys % 32, xs % 32])
+    lip = JL.pond_lip(water, ground, lawn)
+    a = lip[..., 3] > 0
+    art[a] = lip[a]
     Image.fromarray(art).save(LOCAL / 'pond.png')
     return art
 
@@ -692,14 +674,12 @@ def compose(phg, engine):
         a = art[..., 3] > 0
         flat[a] = art[a]; flat_owner[a] = name
     light, flw = light_lawn(phg), flowers(phg)
-    pond_art = pond(grid, bottom)
+    pond_art = pond(grid, bottom, {tuple(int(v) for v in c) for c in tex[G.GRASS].reshape(-1, 3)})
     local_flat = dict(light_lawn=light, flowers=flw)
-    g15 = rgba(SHARED / 'G15.png')
-    tg = np.zeros_like(flat); n_g15 = 0
-    for y in range(H):
-        for x in range(W):
-            if grid[y][x] == 'G':
-                tg[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX] = g15; n_g15 += 1
+    # Tall grass: the Johto standard (owner-approved 2026-11-21, docs/maps/JOHTO_ELEMENT_STANDARDS.md), rounded
+    # patch corners and a wavy edge; carved pixels are transparent, so the ground drawn under them shows.
+    gcells = np.array([[ch == 'G' for ch in row] for row in grid])
+    tg = JL.grass_art(gcells); n_g15 = int(gcells.sum())
     la, ledge_list = ledges(grid)
     sa, stair_list = stairs(grid, ncells)
     Image.fromarray(sa).save(LOCAL / 'stairs.png')
@@ -787,6 +767,7 @@ def compose(phg, engine):
                 stairs=stair_list, n_g15=n_g15, q=q, runs=runs, band=band_ids, terrace=d, rock_piece=piece)
 
 def main(phg, catalog, engine):
+    JL.ENGINE = engine
     for d in (OUT, OEV, LOCAL, SHARED):
         d.mkdir(parents=True, exist_ok=True)
     stage_shared(catalog)

@@ -238,12 +238,12 @@ POND_SEED = 29
 POND_BANK = 12                                       # the town's free secondary palette: the pond's tones
 
 def pond(cv):
-    """The pond as Route 30's ponds are (Route 43's pond(): Route 30's HGSS freshwater texture, a rough mud
-    and grass bank, the shore about two pixels inside the water cells so the Surf boundary stays the cell
-    edge). The old stone rim is lawn again first. The forest's lawn row above (placed by id) and the Center
-    stay as they are; the bank forms below that row as if land stood there."""
+    """The Johto standard pond (owner-approved 2026-11-21, docs/maps/JOHTO_ELEMENT_STANDARDS.md): Route 30's
+    HGSS freshwater texture inside Emerald's pond border set, Emerald's 2 px lip on the lawn below. The old
+    stone rim is lawn again first. The forest's lawn row above (placed by id) and the Center stay as they are."""
     import assemble as As
-    from scipy.ndimage import distance_transform_edt, gaussian_filter
+    import johto_layers as JL
+    from scipy.ndimage import distance_transform_edt
     town = cv.town
     wet = np.zeros((H, W), bool)
     for r in range(0, 10):
@@ -251,43 +251,28 @@ def pond(cv):
             wet[r, x] = town.attr(int(town.words[r, x]) & 1023) & 0xFF == B.WATER_MB
     rs, xs = np.nonzero(wet)
     rows, cols = range(rs.min(), rs.max() + 2), range(xs.min() - 1, xs.max() + 2)
-    win = np.s_[(rows.start - R0) * 16:(rows.stop - R0) * 16, cols.start * 16:cols.stop * 16]
-    water = np.repeat(np.repeat(wet[rows.start - 1:rows.stop, cols.start:cols.stop], 16, 0), 16, 1)   # a land row above
-    rng = np.random.default_rng(POND_SEED)
+    sub = wet[rows.start:rows.stop, cols.start:cols.stop]
+    water = np.repeat(np.repeat(sub, 16, 0), 16, 1)
     h, w = water.shape
-    soft = gaussian_filter(water.astype(float), 5, mode='nearest') > 0.5
-    d = distance_transform_edt(soft) - distance_transform_edt(~soft)
-    shore = d - 2 + 2.6 * As.smooth_noise(h, w, 14, rng) + 1.2 * As.smooth_noise(h, w, 6, rng) + 0.5 * As.smooth_noise(h, w, 3, rng)
-    tuft = As.smooth_noise(h, w, 3, rng) + 0.5 * rng.uniform(-1, 1, (h, w))
-    broken = As.smooth_noise(h, w, 5, rng)
     tex = np.concatenate([np.concatenate([As.rgba(As.SHARED / f'pond/pond-15-{r * 2 + c}.png')[..., :3] for c in (0, 1)], 1)
                           for r in (0, 1)], 0)
     ys, xs_ = np.mgrid[0:h, 0:w]
-    yy, xx = ys + (rows.start - 1) * 16, xs_ + cols.start * 16                   # town pixels
+    yy, xx = ys + rows.start * 16, xs_ + cols.start * 16                         # town pixels
     lawn = G.textures()[G.GRASS][yy % 32, xx % 32]
-    img = town.img[(rows.start - 1) * 16:rows.stop * 16, cols.start * 16:cols.stop * 16]
-    art = np.where(((distance_transform_edt(~water) <= 13) | water)[..., None], lawn, img).astype(np.uint8)   # the rim, lawn again
-    def put(m, col):
-        art[m] = col
-    deep = tex[ys % 32, xs_ % 32]
-    near = d > -6
-    put(near & (shore >= 4.5), deep[near & (shore >= 4.5)])
-    put(near & (shore >= 3.2) & (shore < 4.5) & (broken > -0.35), As.SHALLOW)
-    m = near & (shore >= 3.2) & (shore < 4.5) & (broken <= -0.35); art[m] = deep[m]
-    put(near & (shore >= 2.2) & (shore < 3.2), As.BANK)
-    mud = near & (shore >= 0.3) & (shore < 2.2)
-    put(mud, As.MUD)
-    put(mud & (tuft > 0.75), As.GRASS_EDGE)
-    put(mud & (tuft < -0.95), As.BANK)
-    put(near & (shore >= -0.6) & (shore < 0.3), As.GRASS_DARK)
-    centre = water & (ys % 16 == 8) & (xs_ % 16 == 8)
-    assert (shore[centre] >= 3.2).all(), 'a water cell centre is not open water'
+    img = town.img[rows.start * 16:rows.stop * 16, cols.start * 16:cols.stop * 16]
+    near = distance_transform_edt(~water) <= 13
+    art = np.where((near | water)[..., None], lawn, img).astype(np.uint8)       # the old rim, lawn again
     # A cell holding other art away from the pond (the Center's edge) keeps its pixels but the old rim's,
     # which take the plain lawn tone, so the cell's own bank still fits it.
-    tones = {tuple(c) for c in G.textures()[G.GRASS].reshape(-1, 3)} | {As.GRASS_EDGE, As.GRASS_DARK}
-    is_lawn = np.array([[tuple(p) in tones for p in row] for row in img])
-    other = ~is_lawn & (distance_transform_edt(~water) > 13) & ~water
-    art, other, lawn = art[16:], other[16:], lawn[16:]   # drop the land row above
+    tones = {tuple(int(v) for v in c) for c in G.textures()[G.GRASS].reshape(-1, 3)} | {As.GRASS_EDGE, As.GRASS_DARK}
+    is_lawn = np.array([[tuple(int(v) for v in p) in tones for p in row] for row in img])
+    other = ~is_lawn & ~near & ~water
+    # Emerald's pieces in the water cells (the land row above them counts as land: they take the top border).
+    pa = JL.pond_art(np.pad(sub, ((1, 0), (0, 0)))[:, :], np.pad(tex[ys % 32, xs_ % 32], ((16, 0), (0, 0), (0, 0))), shade_tones=2)[16:]   # one bank: lawn, water, rim
+    lip = JL.pond_lip(sub, art, tones)
+    for layer in (pa, lip):
+        a = layer[..., 3] > 0
+        art[a] = layer[a][:, :3]
     cols5 = set()
     for r in rows:
         for x in cols:
@@ -295,13 +280,13 @@ def pond(cv):
             a = art[sl]
             if other[sl].any():                      # the old rim only, in the plain lawn tone
                 a = town.img[r * 16:(r + 1) * 16, x * 16:(x + 1) * 16].copy()
-                rim = ~np.array([[tuple(p) in tones for p in row] for row in a]) & ~other[sl]
+                rim = ~np.array([[tuple(int(v) for v in p) in tones for p in row] for row in a]) & ~other[sl]
                 a[rim] = As.GRASS_EDGE
             else:
                 cols5 |= {tuple(int(v) >> 3 for v in c) for c in a.reshape(-1, 3)}
             if (a != town.img[r * 16:(r + 1) * 16, x * 16:(x + 1) * 16]).any():
                 cv.put_ground(x, r, a); cv.changed.add((x, r))
-    assert len(cols5) <= 15, ('the pond needs more than one bank', len(cols5))
+    assert len(cols5) <= 15, ('the pond needs more than one bank', len(cols5), sorted(cols5))
     cv.pals[POND_BANK] = sorted(tuple(v << 3 for v in c) for c in cols5)
     cv.notes.append(f'pond: water x{cols.start + 1}-{cols.stop - 2} rows {rows.start}-{rows.stop - 2}, {len(cols5)} tones in bank {POND_BANK}')
 
