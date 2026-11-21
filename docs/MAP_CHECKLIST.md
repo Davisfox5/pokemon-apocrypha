@@ -37,7 +37,9 @@ In the same plan file, a table with one line per element: ground, paths, tall gr
 cliff faces, ledges, water and shore, stairs (axis and direction), railings and fences, bridges,
 buildings, doors, signs, and for interiors every wall, floor and furniture piece.
 
-Each line names exactly one source:
+Each line names exactly one source. Trees, ridges, cliffs, stairs, tall grass and ponds
+already have a standard: [maps/JOHTO_ELEMENT_STANDARDS.md](maps/JOHTO_ELEMENT_STANDARDS.md).
+
 
 - **Regional kit** (already approved; see below)
 - **Accepted map** (name the map and its metatile ids)
