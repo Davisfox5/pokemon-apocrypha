@@ -1,6 +1,8 @@
 """Johto standard tall grass (owner-approved 2026-11-21).
 
-The tile is a hand-drawn 16x16 (G3) in four greens. Patches get rounded convex corners
+The tile is a hand-drawn 16x16 (G3) in four greens. The new grass covers exactly the area the
+old grass was drawn in (not whole cells), so margins, path borders and shore lips that share a
+grass cell are kept as they were. Patches get rounded convex corners
 (radius 7 px opening) and a wavy 1-2 px dark edge on the sides and bottom; the top row
 shows blade tips over the ground. Carved-out pixels always show the map's plain grass ground,
 never path, sand or other neighbouring colours (owner, 2026-11-21).
@@ -64,13 +66,23 @@ def restyle(engine,name,tile=None,R=7):
     OLD=np.unique(np.concatenate([np.asarray(ts.render(v).convert('RGB')).reshape(-1,3) for v,_ in olds]),axis=0).astype(int)
     # ground texture: most common walkable non-grass metatile
     col=(raw>>10)&3
+    KEEPREF=None
     def greenish(v):
         a = np.asarray(ts.render(int(v)).convert('RGB')).reshape(-1, 3).mean(0)
         return a[1] > a[0] * 1.15 and a[1] > a[2]
     gm=next(v for v,_ in Counter(int(v) for v,c,t in zip(g.flat,col.flat,tg.flat) if c==0 and not t).most_common() if greenish(v))
     ground=np.asarray(ts.render(gm).convert('RGB')).astype(int)
-    M=np.kron(tg,np.ones((16,16),bool))
-    pad=8; Mp=np.pad(M,pad)
+    KEEPREF=np.unique(np.concatenate([OLD,ground.reshape(-1,3)]),axis=0)
+    # The new grass covers exactly where the old grass was drawn, not whole cells: pixels in
+    # grass cells whose colour is an old-grass colour (not ground), closed to fill highlights.
+    # Margins the old cells left (ground, path borders, shore lips) stay as they were.
+    gd=ground.reshape(-1,3)
+    OLDG=np.array([c for c in OLD if np.abs(gd-c).sum(-1).min()>12]) if len(OLD) else OLD
+    cells=np.kron(tg,np.ones((16,16),bool))
+    isg=cells & (np.abs(img[:,:,None,:]-OLDG[None,None]).sum(-1).min(-1)<=12)
+    pad=8
+    M=morph(morph(np.pad(isg,pad),3,'dilate'),3,'erode')[pad:-pad,pad:-pad] & cells
+    Mp=np.pad(M,pad)
     Mr=morph(morph(Mp,R,'erode'),R,'dilate')[pad:-pad,pad:-pad]   # opening: rounds convex corners
     H,W=M.shape; yy,xx=np.mgrid[0:H,0:W]
     # wavy side/bottom edges: erode by 1 or 2 px following a tuft rhythm
@@ -91,17 +103,21 @@ def restyle(engine,name,tile=None,R=7):
             sl=(slice(y*16,y*16+16),slice(x*16,x*16+16))
             mid=int(g[y,x]); topl,tm=render_layer(ts,mid,1,bg=False)
             # carved pixels show plain grass ground only (owner 2026-11-21: never path or sand colours)
-            gnd=ground
-            ground_=gnd
-            cell=np.where(keep[sl][...,None],tex[sl],ground_)
+            ground_=ground
+            cell=np.where(keep[sl][...,None],tex[sl],np.where(M[sl][...,None],ground_,img[sl]))
             # top edge: only blade tips over ground in the first rows of the patch
-            t=top[sl]; tips=(t<=4)&((tex[sl]==DARK).all(-1))
+            t=top[sl]; tips=(t>=1)&(t<=4)&((tex[sl]==DARK).all(-1))&keep[sl]
             cell[tips]=ground_[tips]
             ol=outline[sl]&~(t<=4)&~(tex[sl]==np.array(P['L'])).all(-1)
             cell[ol]=DARK
             # keep anything in the original top layer that isn't old grass (tree canopies etc.)
             foreign=tm & (np.abs(topl[:,:,None,:]-OLD[None,None]).sum(-1).min(-1)>12)
             cell=np.where(foreign[...,None],topl,cell)
+            # keep every original pixel that is not old grass or plain ground (path borders, flowers,
+            # shore lips sharing the cell): only the grass itself is replaced
+            orig=img[sl]
+            other=np.abs(orig[:,:,None,:]-KEEPREF[None,None]).sum(-1).min(-1)>12
+            cell=np.where(other[...,None],orig,cell)
             out[sl]=cell
     return img.astype(np.uint8),out.astype(np.uint8),tg
 

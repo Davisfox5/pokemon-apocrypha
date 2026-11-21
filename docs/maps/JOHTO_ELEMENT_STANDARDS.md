@@ -11,7 +11,7 @@ keep canopies, props, shadows and neighbouring ground, and diff old vs new befor
 | Low ridges (forest, grassland) | thin one-tile dirt ridge, square corners (Routes 36/31) | accepted map: JohtoRoute36 |
 | Mountain cliffs | big tan rock faces (Routes 32, 42-46; Route 31 mountain) | accepted maps |
 | Stairs | Route 32 kit: `tools/gba/maps/johto_stairs.py` | locked 2026-11-20 |
-| Tall grass | hand-drawn G3 tile, rounded patch corners, wavy 1-2 px side/bottom edge, blade tips on top; carved edge pixels are plain grass ground only, never path/sand colours | `tools/gba/maps/standards/johto_tall_grass.py`, `gba/art/johto-common/standards/tall_grass_tile.png` |
+| Tall grass | hand-drawn G3 tile, rounded patch corners, wavy 1-2 px side/bottom edge, blade tips on top; carved edge pixels are plain grass ground only, never path/sand colours; the grass fills only the old grass outline, so path borders and margins in the same cells stay | `tools/gba/maps/standards/johto_tall_grass.py`, `gba/art/johto-common/standards/tall_grass_tile.png` |
 | Ponds and small pools | the map's light HGSS water inside Emerald's pond border set (rim, shadow band top/left, 2 px lip on the land below) | `tools/gba/maps/standards/johto_pond.py` |
 | Sea, rivers off the map edge | unchanged (deep blue sea); no pond border | |
 | Large lakes (Lake of Rage) | case by case: border likely, water texture decided per map | ask the owner |
