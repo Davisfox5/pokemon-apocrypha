@@ -53,18 +53,10 @@ class Engine:
     def __init__(self, path: Path):
         self.p = path
         self.layouts = {l['id']: l for l in json.loads((path / 'data/layouts/layouts.json').read_text())['layouts'] if 'id' in l}
-        # gTileset_X -> .tiles symbol (headers.h) -> tiles.png path (graphics.h or src/graphics.c)
-        tiles_path = {}
-        for f in (path / 'src/data/tilesets/graphics.h', path / 'src/graphics.c'):
-            if f.exists():
-                for m in re.finditer(r'(gTilesetTiles_\w+)\[\]\s*=\s*INC\w+\("data/tilesets/(\w+)/(\w+)/tiles\.png"', f.read_text()):
-                    tiles_path[m.group(1)] = (m.group(2), m.group(3))
+        g = (path / 'src/data/tilesets/graphics.h').read_text()
         self.sym_dir = {}
-        hdr = (path / 'src/data/tilesets/headers.h').read_text()
-        for m in re.finditer(r'const struct Tileset (gTileset_\w+)\s*=\s*\{(.*?)\};', hdr, re.S):
-            t = re.search(r'\.tiles\s*=\s*(gTilesetTiles_\w+)', m.group(2))
-            if t and t.group(1) in tiles_path:
-                self.sym_dir[m.group(1)] = tiles_path[t.group(1)]
+        for m in re.finditer(r'gTilesetTiles_(\w+)\[\]\s*=\s*INCGFX_U32\("data/tilesets/(\w+)/(\w+)/tiles\.png"', g):
+            self.sym_dir['gTileset_' + m.group(1)] = (m.group(2), m.group(3))
         self._ts = {}
         self.maps = {}
         for d in (path / 'data/maps').iterdir():
@@ -303,17 +295,7 @@ def check_walk(eng, m, gate, phg):
 def native_image(eng, m):
     lay = eng.layouts[m['layout']]
     g = eng.grid(lay)
-    ts = eng.tileset(lay)
-    out = Image.new('RGB', (g.shape[1] * 16, g.shape[0] * 16))
-    cache = {}
-    for (y, x), v in np.ndenumerate(g & 1023):
-        v = int(v)
-        if v not in cache:
-            part, idx = (1, v - 512) if v >= 512 else (0, v)
-            # a metatile id past the end of its tileset draws magenta (the glitch check reports it)
-            cache[v] = ts.render(v) if idx < len(ts.blocks[part]) else Image.new('RGB', (16, 16), (255, 0, 255))
-        out.paste(cache[v], (x * 16, y * 16))
-    return out
+    return eng.tileset(lay).map_image([int(v) for v in g.flat], g.shape[1]).convert('RGB')
 
 def check_porymap(eng, m, pdir):
     if not pdir:

@@ -18,24 +18,6 @@ This project lives in **two** GitHub repositories. Put each change in the right 
   expansion updates stay a simple merge and Porymap/CI already work on the fork.
   Do not reopen it.
 
-## Never draw over what is already there (owner rule, 2026-11-20)
-
-Hard rule for every map, mockup, standard and fix. The owner should never have to repeat it.
-
-- Changing one element (water, tall grass, a border, a path, a building) changes only
-  that element. Every cell it touches keeps everything else that was in it: tree
-  canopies and trunks, overhangs, shadows, props, signs, ledges, cliff edges, and the
-  ground of the neighbouring material.
-- Work per layer. Put the new art on the layer it belongs to and keep the other layer's
-  tiles. A cell that holds two things (water under a tree canopy, grass beside a path)
-  gets a metatile built from both, never the new piece pasted over the whole cell.
-- Area elements (tall grass, water, paths, sand) end in soft edge and corner pieces that
-  blend into the ground around them. No square cut-offs where a patch meets grass,
-  trees or dirt.
-- Before showing anything, compare old and new cell by cell: every pixel that changed
-  must belong to the element being changed. Anything else that moved is a defect.
-  This applies to mockups as much as to built maps.
-
 ## Start here; keep context small
 
 - Production target: **GBA, Gen 3 2D presentation, pokeemerald-expansion**.
