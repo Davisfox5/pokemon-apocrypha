@@ -58,6 +58,7 @@ optional, never part of routine startup.
 | Rejected HGSS Cherrygrove reconstruction / historical only | ../gba/art/johto-v4/README.md | Owner rejected repurposed art direction; preserve evidence, do not resume or build on this version |
 | Five-region character scale / previous visual preview | ../gba/art/regional-scale-v1/README.md | Smaller custom cast; walking Hoenn, Kanto, Johto, Sinnoh and Unova samples; original vs reduced pixels; verified ROM/save and incremental patch |
 | Custom Gold, Silver and Kestra / cleanup preview | ../gba/art/johto-cast-v1/README.md | Native cleanup, all three placed with residents; actual sprite-pixel direction checks; latest playable package and additive source patch |
+| Hidden Grottoes: placing a grotto, its contents, the refill rule | HIDDEN_GROTTOES.md | `gba/grottoes/grottoes.json`, `tools/gba/grottoes/`; engine `src/hidden_grotto.c` on the fork |
 | Battle rules, experience, evolution, conveniences | GBA_MECHANICS_AUDIT.md | FOUNDATION_DECISIONS.md; one relevant config/source file; machine inventory only for a specific lookup |
 | Scope or mechanic exception | FOUNDATION_DECISIONS.md | relevant DESIGN.md gym or progression section |
 | Map, tile, character production | AGENT_WORKFLOW.md | DESIGN.md regional identity and the specific location/character; artwork-library/README.md only for an asset lookup |

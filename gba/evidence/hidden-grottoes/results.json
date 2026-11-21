@@ -1,0 +1,1230 @@
+{
+ "write": {
+  "exit": 0,
+  "records": [
+   {
+    "slots": 6,
+    "lead_species": 133
+   },
+   {
+    "shot": "entrance-outside"
+   },
+   {
+    "step": "entrance-square",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 4,
+    "y": 12,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "in-the-gap",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 4,
+    "y": 10,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "shot": "entrance-in-gap"
+   },
+   {
+    "step": "first-entry",
+    "region": 3,
+    "group": 81,
+    "map": 0,
+    "x": 15,
+    "y": 18,
+    "frlg_layout": 0,
+    "width": 32,
+    "height": 26,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "first_roll": 5
+   },
+   {
+    "shot": "first-visit"
+   },
+   {
+    "step": "exit-to-entrance",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 4,
+    "y": 10,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "shot": "exit-outside"
+   },
+   {
+    "step": "entrance-square",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 4,
+    "y": 12,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "in-the-gap",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 4,
+    "y": 10,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "forced-entry",
+    "region": 3,
+    "group": 81,
+    "map": 0,
+    "x": 15,
+    "y": 18,
+    "frlg_layout": 0,
+    "width": 32,
+    "height": 26,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "below-content",
+    "region": 3,
+    "group": 81,
+    "map": 0,
+    "x": 15,
+    "y": 13,
+    "frlg_layout": 0,
+    "width": 32,
+    "height": 26,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "shot": "slot0-content"
+   },
+   {
+    "shot": "slot0-battle"
+   },
+   {
+    "slot": 0,
+    "species": 133,
+    "level": 21,
+    "ability_num": 2,
+    "ability": 107,
+    "hidden_ability": 107,
+    "shiny": 0,
+    "gender": 0,
+    "slot_gender": 0
+   },
+   {
+    "step": "back-after-battle",
+    "region": 3,
+    "group": 81,
+    "map": 0,
+    "x": 15,
+    "y": 13,
+    "frlg_layout": 0,
+    "width": 32,
+    "height": 26,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "shot": "slot0-after-battle"
+   },
+   {
+    "step": "exit-after-take",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 4,
+    "y": 10,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "entrance-square",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 4,
+    "y": 12,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "in-the-gap",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 4,
+    "y": 10,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "empty-entry",
+    "region": 3,
+    "group": 81,
+    "map": 0,
+    "x": 15,
+    "y": 18,
+    "frlg_layout": 0,
+    "width": 32,
+    "height": 26,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "shot": "slot0-empty-revisit"
+   },
+   {
+    "step": "below-content",
+    "region": 3,
+    "group": 81,
+    "map": 0,
+    "x": 15,
+    "y": 13,
+    "frlg_layout": 0,
+    "width": 32,
+    "height": 26,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "exit-empty",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 4,
+    "y": 10,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "entrance-square",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 4,
+    "y": 12,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "in-the-gap",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 4,
+    "y": 10,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "forced-entry",
+    "region": 3,
+    "group": 81,
+    "map": 0,
+    "x": 15,
+    "y": 18,
+    "frlg_layout": 0,
+    "width": 32,
+    "height": 26,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "below-content",
+    "region": 3,
+    "group": 81,
+    "map": 0,
+    "x": 15,
+    "y": 13,
+    "frlg_layout": 0,
+    "width": 32,
+    "height": 26,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "shot": "slot1-content"
+   },
+   {
+    "shot": "slot1-battle"
+   },
+   {
+    "slot": 1,
+    "species": 187,
+    "level": 23,
+    "ability_num": 2,
+    "ability": 151,
+    "hidden_ability": 151,
+    "shiny": 0,
+    "gender": 254,
+    "slot_gender": 0
+   },
+   {
+    "step": "back-after-battle",
+    "region": 3,
+    "group": 81,
+    "map": 0,
+    "x": 15,
+    "y": 13,
+    "frlg_layout": 0,
+    "width": 32,
+    "height": 26,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "shot": "slot1-after-battle"
+   },
+   {
+    "step": "exit-after-take",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 4,
+    "y": 10,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "entrance-square",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 4,
+    "y": 12,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "in-the-gap",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 4,
+    "y": 10,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "empty-entry",
+    "region": 3,
+    "group": 81,
+    "map": 0,
+    "x": 15,
+    "y": 18,
+    "frlg_layout": 0,
+    "width": 32,
+    "height": 26,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "shot": "slot1-empty-revisit"
+   },
+   {
+    "step": "below-content",
+    "region": 3,
+    "group": 81,
+    "map": 0,
+    "x": 15,
+    "y": 13,
+    "frlg_layout": 0,
+    "width": 32,
+    "height": 26,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "exit-empty",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 4,
+    "y": 10,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "entrance-square",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 4,
+    "y": 12,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "in-the-gap",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 4,
+    "y": 10,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "forced-entry",
+    "region": 3,
+    "group": 81,
+    "map": 0,
+    "x": 15,
+    "y": 18,
+    "frlg_layout": 0,
+    "width": 32,
+    "height": 26,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "below-content",
+    "region": 3,
+    "group": 81,
+    "map": 0,
+    "x": 15,
+    "y": 13,
+    "frlg_layout": 0,
+    "width": 32,
+    "height": 26,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "shot": "slot2-content"
+   },
+   {
+    "shot": "slot2-battle"
+   },
+   {
+    "slot": 2,
+    "species": 161,
+    "level": 23,
+    "ability_num": 2,
+    "ability": 119,
+    "hidden_ability": 119,
+    "shiny": 0,
+    "gender": 254,
+    "slot_gender": 2
+   },
+   {
+    "step": "back-after-battle",
+    "region": 3,
+    "group": 81,
+    "map": 0,
+    "x": 15,
+    "y": 13,
+    "frlg_layout": 0,
+    "width": 32,
+    "height": 26,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "shot": "slot2-after-battle"
+   },
+   {
+    "step": "exit-after-take",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 4,
+    "y": 10,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "entrance-square",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 4,
+    "y": 12,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "in-the-gap",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 4,
+    "y": 10,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "empty-entry",
+    "region": 3,
+    "group": 81,
+    "map": 0,
+    "x": 15,
+    "y": 18,
+    "frlg_layout": 0,
+    "width": 32,
+    "height": 26,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "shot": "slot2-empty-revisit"
+   },
+   {
+    "step": "below-content",
+    "region": 3,
+    "group": 81,
+    "map": 0,
+    "x": 15,
+    "y": 13,
+    "frlg_layout": 0,
+    "width": 32,
+    "height": 26,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "exit-empty",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 4,
+    "y": 10,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "entrance-square",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 4,
+    "y": 12,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "in-the-gap",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 4,
+    "y": 10,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "forced-entry",
+    "region": 3,
+    "group": 81,
+    "map": 0,
+    "x": 15,
+    "y": 18,
+    "frlg_layout": 0,
+    "width": 32,
+    "height": 26,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "below-content",
+    "region": 3,
+    "group": 81,
+    "map": 0,
+    "x": 15,
+    "y": 13,
+    "frlg_layout": 0,
+    "width": 32,
+    "height": 26,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "shot": "slot3-content"
+   },
+   {
+    "shot": "slot3-pickup"
+   },
+   {
+    "slot": 3,
+    "item": 140,
+    "had_before": 0,
+    "has_after": 1,
+    "state": 255
+   },
+   {
+    "shot": "slot3-after-pickup"
+   },
+   {
+    "step": "exit-after-take",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 4,
+    "y": 10,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "entrance-square",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 4,
+    "y": 12,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "in-the-gap",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 4,
+    "y": 10,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "empty-entry",
+    "region": 3,
+    "group": 81,
+    "map": 0,
+    "x": 15,
+    "y": 18,
+    "frlg_layout": 0,
+    "width": 32,
+    "height": 26,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "shot": "slot3-empty-revisit"
+   },
+   {
+    "step": "below-content",
+    "region": 3,
+    "group": 81,
+    "map": 0,
+    "x": 15,
+    "y": 13,
+    "frlg_layout": 0,
+    "width": 32,
+    "height": 26,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "exit-empty",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 4,
+    "y": 10,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "entrance-square",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 4,
+    "y": 12,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "in-the-gap",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 4,
+    "y": 10,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "forced-entry",
+    "region": 3,
+    "group": 81,
+    "map": 0,
+    "x": 15,
+    "y": 18,
+    "frlg_layout": 0,
+    "width": 32,
+    "height": 26,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "below-content",
+    "region": 3,
+    "group": 81,
+    "map": 0,
+    "x": 15,
+    "y": 13,
+    "frlg_layout": 0,
+    "width": 32,
+    "height": 26,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "shot": "slot4-content"
+   },
+   {
+    "shot": "slot4-pickup"
+   },
+   {
+    "slot": 4,
+    "item": 141,
+    "had_before": 0,
+    "has_after": 1,
+    "state": 255
+   },
+   {
+    "shot": "slot4-after-pickup"
+   },
+   {
+    "step": "exit-after-take",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 4,
+    "y": 10,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "entrance-square",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 4,
+    "y": 12,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "in-the-gap",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 4,
+    "y": 10,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "empty-entry",
+    "region": 3,
+    "group": 81,
+    "map": 0,
+    "x": 15,
+    "y": 18,
+    "frlg_layout": 0,
+    "width": 32,
+    "height": 26,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "shot": "slot4-empty-revisit"
+   },
+   {
+    "step": "below-content",
+    "region": 3,
+    "group": 81,
+    "map": 0,
+    "x": 15,
+    "y": 13,
+    "frlg_layout": 0,
+    "width": 32,
+    "height": 26,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "exit-empty",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 4,
+    "y": 10,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "entrance-square",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 4,
+    "y": 12,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "in-the-gap",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 4,
+    "y": 10,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "forced-entry",
+    "region": 3,
+    "group": 81,
+    "map": 0,
+    "x": 15,
+    "y": 18,
+    "frlg_layout": 0,
+    "width": 32,
+    "height": 26,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "below-content",
+    "region": 3,
+    "group": 81,
+    "map": 0,
+    "x": 15,
+    "y": 13,
+    "frlg_layout": 0,
+    "width": 32,
+    "height": 26,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "shot": "slot5-content"
+   },
+   {
+    "shot": "slot5-pickup"
+   },
+   {
+    "slot": 5,
+    "item": 218,
+    "had_before": 0,
+    "has_after": 1,
+    "state": 255
+   },
+   {
+    "shot": "slot5-after-pickup"
+   },
+   {
+    "step": "exit-after-take",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 4,
+    "y": 10,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "entrance-square",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 4,
+    "y": 12,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "in-the-gap",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 4,
+    "y": 10,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "empty-entry",
+    "region": 3,
+    "group": 81,
+    "map": 0,
+    "x": 15,
+    "y": 18,
+    "frlg_layout": 0,
+    "width": 32,
+    "height": 26,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "shot": "slot5-empty-revisit"
+   },
+   {
+    "step": "below-content",
+    "region": 3,
+    "group": 81,
+    "map": 0,
+    "x": 15,
+    "y": 13,
+    "frlg_layout": 0,
+    "width": 32,
+    "height": 26,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "exit-empty",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 4,
+    "y": 10,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "entrance-square",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 15,
+    "y": 12,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "in-the-gap",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 15,
+    "y": 10,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "blossom-entry",
+    "region": 3,
+    "group": 81,
+    "map": 1,
+    "x": 15,
+    "y": 18,
+    "frlg_layout": 0,
+    "width": 32,
+    "height": 26,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "shot": "blossom-interior"
+   },
+   {
+    "step": "blossom-exit",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 15,
+    "y": 10,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "entrance-square",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 26,
+    "y": 12,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "in-the-gap",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 26,
+    "y": 10,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "winding-entry",
+    "region": 3,
+    "group": 81,
+    "map": 2,
+    "x": 15,
+    "y": 18,
+    "frlg_layout": 0,
+    "width": 32,
+    "height": 26,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "shot": "winding-interior"
+   },
+   {
+    "shot": "winding-path"
+   },
+   {
+    "step": "winding-exit",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 26,
+    "y": 10,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "blossom_state": 1,
+    "winding_state": 1
+   },
+   {
+    "refill_trials": 4000,
+    "refills": 210,
+    "by_slot": [
+     40,
+     45,
+     43,
+     57,
+     15,
+     10
+    ]
+   },
+   {
+    "squares_walked": 12,
+    "steps_counted": 12
+   },
+   {
+    "save_status": 1
+   }
+  ],
+  "stderr": ""
+ },
+ "read": {
+  "exit": 0,
+  "records": [
+   {
+    "reload_state": 2,
+    "reload_steps": 77
+   },
+   {
+    "step": "reloaded",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 8,
+    "y": 14,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "shot": "cold-reload"
+   },
+   {
+    "step": "entrance-square",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 4,
+    "y": 12,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "in-the-gap",
+    "region": 3,
+    "group": 81,
+    "map": 3,
+    "x": 4,
+    "y": 10,
+    "frlg_layout": 0,
+    "width": 31,
+    "height": 17,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "step": "reloaded-entered",
+    "region": 3,
+    "group": 81,
+    "map": 0,
+    "x": 15,
+    "y": 18,
+    "frlg_layout": 0,
+    "width": 32,
+    "height": 26,
+    "interaction": 0,
+    "mapsec": 223
+   },
+   {
+    "shot": "reloaded-grotto"
+   }
+  ],
+  "stderr": ""
+ },
+ "rom_sha1": "f729eb902b0e7989df2effe69d5d181a3fcb98fe",
+ "passed": true
+}
