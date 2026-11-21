@@ -26,7 +26,6 @@ optional, never part of routine startup.
 | DexNav app, hidden-Pokémon grass rustle, Pokégear on the production branch | ../gba/art/dexnav/README.md | Gear save IDs, `tools/gba/dexnav/runtime.py`, upstream hidden-Pokémon fix |
 | Pokégear maps, phone services, broadcasts / latest isolated build | ../gba/art/pokegear-services/README.md | Versioned save extension, service fixtures, atlas provenance, opening regression, incremental pokegear-services.patch; chapter content still pending |
 | Which HGSS maps exist, their status, what to build next | maps/HGSS_MAP_INVENTORY.csv | Per-map gates in MAP_CHECKLIST.md (read before any map work); regenerate/check with `tools/gba/maps/inventory/build_inventory.py` |
-| Standard trees, ridges, cliffs, stairs, tall grass, ponds for Johto maps | maps/JOHTO_ELEMENT_STANDARDS.md | Tools in `tools/gba/maps/standards/` |
 | Remote Claude/Grok setup / fresh clone | GBA_REMOTE_HANDOFF.md | Source presets, public baseline, Linux and macOS build commands |
 | Resume current work / handoff | AGENT_HANDOFF.md | only its next-step references |
 | Modern Pokégear / B/W polish with distinct device identity | ../gba/art/pokegear-modern/README.md | Native visual revision, runtime evidence and still-open app services |
