@@ -54,14 +54,10 @@ int main(int argc,char**argv){
  // the east gate and back
  go(VIOLET,74,56);at(VIOLET_NUM,74,56,"east-front");shot("east-front");
  step(UP);frames(240,0);observe("east-gate");need(state[2]==EAST_NUM,"into-east-gate");shot("east-gate-inside");
- need(state[3]<=2&&state[4]==5,"east-gate-lands-by-its-west-exit");   // HGSS plan: exits in the side walls
- step(LEFT);step(LEFT);frames(240,0);observe("east-gate-west-exit");need(state[2]==VIOLET_NUM,"east-gate-west-exit-to-violet");
  go(VIOLET,74,57);at(VIOLET_NUM,74,57,"east-front-again");
  // the west gate and back
  go(VIOLET,6,30);at(VIOLET_NUM,6,30,"west-front");shot("west-front");
  step(LEFT);step(LEFT);frames(240,0);observe("west-gate");need(state[2]==WEST_NUM,"into-west-gate");shot("west-gate-inside");
- need(state[3]>=10&&state[4]==5,"west-gate-lands-by-its-east-exit");
- step(RIGHT);step(RIGHT);frames(240,0);observe("west-gate-east-exit");need(state[2]==VIOLET_NUM,"west-gate-east-exit-to-violet");
  // the north road, both bridges and the landing, south to the main street
  go(VIOLET,39,13);at(VIOLET_NUM,39,13,"north-road");shot("north-road");
  walk(DOWN,30,"south");
@@ -80,8 +76,7 @@ DOOR_TESTS c->deinit(c);return 0;
 
 def generate():
     import doors as D
-    tests = ''.join(f' door({d["cell"][0]},{d["cell"][1]},"{d["name"]}");\n' for d in D.DOORS
-                    if d['name'] != 'EastGate')   # the Johto gate's exits are its side walls; checked above
+    tests = ''.join(f' door({d["cell"][0]},{d["cell"][1]},"{d["name"]}");\n' for d in D.DOORS)
     src = TEMPLATE.replace('RUNTIME_C', str(ROOT / 'tools/gba/maps/runtime.c')).replace('DOOR_TESTS', tests)
     return src.replace('#define RIGHT 16\n', f'#define RIGHT 16\n#define VIOLET {VIOLET}\n#define VIOLET_NUM {VIOLET}\n#define EAST_NUM {EAST_GATE}\n#define WEST_NUM {WEST_GATE}\n', 1)
 
