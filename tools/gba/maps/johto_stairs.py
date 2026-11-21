@@ -49,11 +49,12 @@ def north_south(out, x0, x1, y0, y1, first, phase=0):
         out[Y, x0 + len(TOP_RAIL):x1 - len(BOTTOM_RAIL), :3] = TREAD_EDGE if edge else TREAD_STRIPES[(Y + phase) % len(TREAD_STRIPES)]
         out[Y, x0:x1, 3] = 255
 
-def east_west(out, x0, y_top, falls, phase=0):
+def east_west(out, x0, y_top, falls, phase=0, slope=1.0):
     """Draw one column of an east-west flight into RGBA `out`: pixel column x0..x0+15, its first tread row at
-    y_top on the high side. Stripe cycle position = (column pixel + phase) % 5."""
+    y_top on the high side. Stripe cycle position = (column pixel + phase) % 5. `slope`: pixels down per pixel
+    across (1 is the kit's 45 degrees)."""
     for xx in range(PX):
-        dy = xx if falls == 'E' else PX - 1 - xx
+        dy = int(round((xx if falls == 'E' else PX - 1 - xx) * slope))
         top = y_top + dy
         bands = [(top - len(TOP_RAIL) + k, c) for k, c in enumerate(TOP_RAIL)]
         bands += [(top + k, TREAD_EDGE if k == 0 else TREAD_STRIPES[(xx + phase) % len(TREAD_STRIPES)]) for k in range(TREAD_PX)]
@@ -112,10 +113,12 @@ def cliff_under(grid, W, H, d, isrock, cells, stair='^', rock='R'):
                     cells[y][nx] = dict(cells[y][nx], floor=cells[top][nx]['floor'])
     return draw
 
-def place(grid, W, H, falls=lambda cells: 'E', stair='^', rock='R'):
+def place(grid, W, H, falls=lambda cells: 'E', stair='^', rock='R', half_slope=1.0):
     """Draw every flight with the kit. Returns (art RGBA, placements). North-south flights fill their rows;
     an east-west flight's bands are centred on its cells (rails reaching over the cliff above and below), so
-    the caller draws the art after the cliff."""
+    the caller draws the art after the cliff. half_slope: the slope of a one-column (half) east-west flight
+    (Route 36's crossings use 0.75, the Gen 3 angle); a full flight keeps the kit's 45 degrees so its two
+    columns meet."""
     art = np.zeros((H * PX, W * PX, 4), np.uint8)
     placed = []
     for kind, cells in flights(grid, W, H, stair, rock):
@@ -130,9 +133,10 @@ def place(grid, W, H, falls=lambda cells: 'E', stair='^', rock='R'):
             order = xs if f == 'E' else xs[::-1]
             mid = (ys[0] + ys[-1] + 1) * PX / 2
             band = len(TOP_RAIL) + TREAD_PX + len(BOTTOM_RAIL)
-            top0 = int(round(mid - band / 2 + len(TOP_RAIL) - (len(xs) * PX - 1) / 2))
+            slope = half_slope if len(xs) == 1 else 1.0
+            top0 = int(round(mid - band / 2 + len(TOP_RAIL) - (len(xs) * PX - 1) * slope / 2))
             for i, x in enumerate(order):
-                east_west(art, x * PX, top0 + i * PX, f, phase=x * PX)
+                east_west(art, x * PX, top0 + i * PX, f, phase=x * PX, slope=slope)
             placed += [dict(cell=list(c), art=f'johto_stairs east-west falling {f}', flight='east-west') for c in cells]
     return art, placed
 

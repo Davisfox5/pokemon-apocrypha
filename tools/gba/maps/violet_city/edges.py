@@ -1,11 +1,12 @@
 """Violet City's edges after the owner's review of #39 (docs/maps/reviews/PR39-2026-11-20.md).
 
-- A row of trees along the top above Sprout Tower (rows 0-2), the tower's weathervane showing between the crowns.
+- A row of trees along the top above Sprout Tower (rows 0-2), open over the tower's weathervane (no tree is drawn
+  over it).
 - The bottom forest runs on off the map: rows 70-71 continue the woods instead of a lawn strip below them.
 - The west gate is the standard G02 (gba/art/johto-common-review/gates/refinement-4/G02.png, the same master as
-  Route 31's), its stairs facing the town, the strip under it sealed with trees.
-- The east gate toward Route 31 is G02 mirrored, its stairs facing the town, where the stand-in house stood,
-  sealed with trees above and below.
+  Route 31's), its stairs facing the town, the woods behind its roof and a band of trees under it.
+- The east gate toward Route 31 is G02 mirrored, its stairs facing the town, where the stand-in house stood, the
+  woods behind its roof and a band of trees under it.
 
 The woods are Violet's own forest metatiles placed on the forest's own lattice (an even row takes the crown
 top 513/514 where a band starts, 579/580 inside; odd rows 516/517; the last row 581/582; even columns the
@@ -92,27 +93,21 @@ def lawn_at(cv, x, r):
     ys, xs = np.mgrid[r * 16:(r + 1) * 16, x * 16:(x + 1) * 16]
     return lawn[ys % 32, xs % 32]
 
-def put(cv, x, r, m, keep_front=False):
-    """Cell (x, r) takes Violet's metatile m (both layers, its attribute), blocked. keep_front: pixels of the
-    old cell that are not lawn stay, on the lower layer under the crowns (the tower's vane)."""
+def put(cv, x, r, m):
+    """Cell (x, r) takes Violet's metatile m (both layers, its attribute), blocked."""
     if not (0 <= x < W and 0 <= r < H):
         return
     low, up = cv.v.layers(m)
     sl = cv.sl(x, r)
-    if keep_front:
-        old = cv.image()[sl]
-        front = ~(old == lawn_at(cv, x, r)).all(-1)
-        lo = low.copy(); lo[front] = old[front]      # the vane on the ground layer, the crowns over it (a bank
-        cv.lower[sl] = lo; cv.upper[sl] = up         # holds the vane with the lawn, none with the crowns)
-    else:
-        cv.lower[sl] = low; cv.upper[sl] = up
+    cv.lower[sl] = low; cv.upper[sl] = up
     cv.attr[r, x] = cv.v.attr(m)
     cv.bits[r, x] = BLOCKED
     cv.changed.add((x, r)); cv.retraverse.add((x, r))
 
-def woods(cv, xs, r0, r1, start_top=True, end_last=True, keep_front=False):
+def woods(cv, xs, r0, r1, start_top=True, end_last=True):
     """Forest on columns xs (whole trees: even columns pair with the next) from row r0 to r1 inclusive. r0 must be
-    even when the band starts there (a crown top), r1 even when it ends there (the trunks)."""
+    even when the band starts there (a crown top), r1 even when it ends there (the trunks). start_top=False
+    carries on a forest that already runs above r0 (crown bodies over the trunks of the row above)."""
     for r in range(r0, r1 + 1):
         if r == r0 and start_top:
             pair = START
@@ -121,9 +116,15 @@ def woods(cv, xs, r0, r1, start_top=True, end_last=True, keep_front=False):
         else:
             pair = BODY_EVEN if r % 2 == 0 else BODY_ODD
         for x in xs:
-            put(cv, x, r, pair[x % 2], keep_front)
+            put(cv, x, r, pair[x % 2])
 
-def gate(cv, g):
+def gate(cv, g, behind=()):
+    """G02 at g's origin on the upper layer. The lower layer is lawn, except in the cells of `behind` (the woods
+    north of the gate), where the trees go on behind the roof, whole, and the gate stands in front of them. To
+    spend as few tiles as possible there, each 8x8 tile of such a cell takes one of three forms: the gate misses
+    it, so it keeps the tree's own two layers (tiles the sheets already hold); the gate covers it whole, so its
+    lower layer is lawn (also held); the gate covers part of it, so its lower layer is the tree flattened (the
+    gate's colours have a bank of their own, so the gate cannot share the tree's upper tile)."""
     art = g02(cv.v)
     if g['mirror']:
         art = art[:, ::-1].copy()
@@ -135,9 +136,21 @@ def gate(cv, g):
                 continue
             sl = cv.sl(x, r)
             piece = art[cy * 16:(cy + 1) * 16, cx * 16:(cx + 1) * 16]
-            low = lawn_at(cv, x, r).copy()
             a = piece[..., 3] > 0
-            cv.lower[sl] = low; cv.upper[sl] = 0; cv.upper[sl][a, :3] = piece[a, :3]; cv.upper[sl][a, 3] = 255
+            lawn = lawn_at(cv, x, r)
+            low = lawn.copy()
+            up = np.zeros((16, 16, 4), np.uint8); up[a, :3] = piece[a, :3]; up[a, 3] = 255
+            if (x, r) in behind:
+                flat = cv.image()[sl].copy()
+                old_low, old_up = cv.lower[sl].copy(), cv.upper[sl].copy()
+                for ty in (0, 8):
+                    for tx in (0, 8):
+                        q = np.s_[ty:ty + 8, tx:tx + 8]
+                        if not a[q].any():
+                            low[q] = old_low[q]; up[q] = old_up[q]
+                        elif not a[q].all():
+                            low[q] = flat[q]
+            cv.lower[sl] = low; cv.upper[sl] = up
             if (x, r) in g['stairs']:
                 # walked on: the gate's art on the middle layer, under the player
                 cv.attr[r, x] = (B.COVERED << 12) | g['mb']; cv.bits[r, x] = WALKABLE
@@ -146,25 +159,32 @@ def gate(cv, g):
             cv.changed.add((x, r)); cv.retraverse.add((x, r))
 
 def edges(cv):
-    # Top: one band of trees over rows 0-2 between the north woods (columns 34-45), the vane in front.
-    woods(cv, range(34, 46), 0, 2, keep_front=True)
+    # Top: trees over rows 0-2 between the north woods (columns 34-45), except the two trees whose cells hold
+    # Sprout Tower's weathervane (columns 38-41): those cells stay as they were, the vane against the lawn.
+    woods(cv, [x for x in range(34, 46) if x not in range(38, 42)], 0, 2)
     # Bottom: where row 70 is the woods' last row, the woods run on off the map.
     for x in range(W):
         m70 = int(cv.v.words[70, x]) & 1023
         if m70 in LAST:
             woods(cv, [x], 70, 71, start_top=False, end_last=False)
-    # West gate: G02 at (0, 25); under it (rows 32-33) a band of trees joining the woods from row 34 on.
-    gate(cv, GATES[1])
+    # West gate: G02 at (0, 25). The woods above it (columns 0-7, trunks on row 24) run on one more tree row
+    # (trunks on row 26), behind the gate's top two rows, so no lawn shows between the trees and the roof. Under
+    # it (rows 32-33) a band of trees joining the woods from row 34 on.
+    woods(cv, range(0, 8), 24, 26, start_top=False)
+    gate(cv, GATES[1], behind={(x, r) for x in range(0, 7) for r in (25, 26)})
     woods(cv, range(0, 8), 32, 34, end_last=False)
-    # East gate: G02 mirrored at (73, 53). Above it a band of trees (rows 50-52, columns 74-77) between the
-    # lawn and the gate, the stand-in house's other cells lawn; below it (rows 60-61) a band joining the woods.
+    # East gate: G02 mirrored at (73, 53), where the stand-in house stood (its other cells lawn). Above it the
+    # woods: columns 76-79 carry on down from the east woods (no new crown top over their trunks on row 50),
+    # columns 74-75 start a tree on row 50; all end with trunks on row 54, behind the gate's top two rows.
+    # Below it (rows 60-61) a band joining the woods.
     for x, r in [(73, 51), (73, 52)] + [(x, r) for x in range(74, 78) for r in range(51, 53)]:
         sl = cv.sl(x, r)
         cv.lower[sl] = lawn_at(cv, x, r); cv.upper[sl][..., 3] = 0
         cv.attr[r, x] = B.NORMAL << 12; cv.bits[r, x] = WALKABLE
         cv.changed.add((x, r)); cv.retraverse.add((x, r))
-    woods(cv, range(74, 78), 50, 52)
-    woods(cv, range(78, 80), 52, 52, start_top=False)     # the east woods end on the gate's top row too
-    gate(cv, GATES[0])
+    woods(cv, range(74, 76), 50, 54)
+    woods(cv, range(76, 80), 50, 54, start_top=False)
+    gate(cv, GATES[0], behind={(x, r) for x in range(74, 80) for r in (53, 54)})
     woods(cv, range(72, 78), 60, 62, end_last=False)
-    cv.notes.append('edges: tree band above Sprout Tower, bottom woods run on, standard G02 gates west and east, sealed with trees')
+    cv.notes.append('edges: tree band above Sprout Tower (open over the vane), bottom woods run on, standard G02 '
+                    'gates west and east with the woods behind their roofs')

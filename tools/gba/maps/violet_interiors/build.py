@@ -41,13 +41,14 @@ def register(engine, prim, sec, psym, ssym):
     PP.register(engine, psym, prim, primary=True)
     PP.register(engine, ssym, sec, primary=False)
 
-def layout(engine, lid, folder, W, H, words, psym, ssym, black):
+def layout(engine, lid, folder, W, H, words, psym, ssym, black, name=None):
+    """name: the layout's symbol when several layouts share one folder (default: the folder's)."""
     d = engine / 'data/layouts' / folder
     d.mkdir(parents=True, exist_ok=True)
     (d / 'map.bin').write_bytes(struct.pack('<%dH' % words.size, *[int(w) for w in words.ravel()]))
     (d / 'border.bin').write_bytes(struct.pack('<4H', *[black] * 4))
     lj = engine / 'data/layouts/layouts.json'; L = json.loads(lj.read_text())
-    entry = dict(id=lid, name=f'{folder}_Layout', width=W, height=H, primary_tileset=f'gTileset_{psym}',
+    entry = dict(id=lid, name=name or f'{folder}_Layout', width=W, height=H, primary_tileset=f'gTileset_{psym}',
                  secondary_tileset=f'gTileset_{ssym}', border_filepath=f'data/layouts/{folder}/border.bin',
                  blockdata_filepath=f'data/layouts/{folder}/map.bin', layout_version='emerald')
     L['layouts'] = [l for l in L['layouts'] if l.get('id') != lid] + [entry]

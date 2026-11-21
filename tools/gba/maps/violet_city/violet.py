@@ -57,7 +57,8 @@ def families(v):
     fams = [canopy, earth, stone, lawn, cobble, sand, water]
     return fams, [0, 3, 4, 6]
 
-FOLD_STEPS = range(0, 17)                            # pixels a texture tile may move to reuse another, as few as fit
+FOLD_STEPS = range(16, 33)                           # pixels a texture tile may move to reuse another, as few as fit
+                                                     # (16 was already the floor before the gates' woods)
 
 def install(engine, v, cv):
     cells = cv.cells()

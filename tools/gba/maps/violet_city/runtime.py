@@ -54,6 +54,8 @@ int main(int argc,char**argv){
  // the east gate and back
  go(VIOLET,72,57);at(VIOLET_NUM,72,57,"east-front");shot("east-front");
  step(RIGHT);step(RIGHT);frames(240,0);observe("east-gate");need(state[2]==EAST_NUM,"into-east-gate");shot("east-gate-inside");
+ need(state[3]<=2&&state[4]==5,"east-gate-lands-by-its-west-exit");   // HGSS's plan: exits in the side walls
+ step(LEFT);step(LEFT);frames(240,0);observe("east-gate-west-exit");need(state[2]==VIOLET_NUM,"east-gate-west-exit-to-violet");
  go(VIOLET,72,58);at(VIOLET_NUM,72,58,"east-front-lower");
  step(RIGHT);step(RIGHT);frames(240,0);observe("east-gate-lower");need(state[2]==EAST_NUM,"into-east-gate-lower");
  // the gates' blocked cells: the east gate's roof, the tree seal above the west gate
@@ -62,6 +64,8 @@ int main(int argc,char**argv){
  // the west gate and back
  go(VIOLET,6,30);at(VIOLET_NUM,6,30,"west-front");shot("west-front");
  step(LEFT);step(LEFT);frames(240,0);observe("west-gate");need(state[2]==WEST_NUM,"into-west-gate");shot("west-gate-inside");
+ need(state[3]>=10&&state[4]==5,"west-gate-lands-by-its-east-exit");   // (the second step in walks one cell)
+ step(RIGHT);step(RIGHT);frames(240,0);observe("west-gate-east-exit");need(state[2]==VIOLET_NUM,"west-gate-east-exit-to-violet");
  // the north road, both bridges and the landing, south to the main street
  go(VIOLET,39,13);at(VIOLET_NUM,39,13,"north-road");shot("north-road");
  walk(DOWN,30,"south");

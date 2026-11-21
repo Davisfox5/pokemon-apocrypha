@@ -397,6 +397,10 @@ def light_lawn(phg):
     Image.fromarray(art).save(LOCAL / 'light-lawn.png')
     return art
 
+# Mr. Pokemon's fence: its top rail ran east behind where his house now stands (reference.adapt, columns 27-31);
+# it ends at its corner post (column 26).
+FENCE_TRIM = (27 * PX, 5 * PX, 32 * PX, 7 * PX)
+
 def fences(phg, grid):
     """HGSS's fences: every pixel of the projected HGSS ground render whose material is fence_b (the
     posts rise above their cells, as HGSS draws them)."""
@@ -407,6 +411,8 @@ def fences(phg, grid):
     art = np.zeros((H * PX, W * PX, 4), np.uint8)
     a = art[ROW0 * PX:ROW0 * PX + HH * PX, COL0 * PX:COL0 * PX + HW * PX]
     a[m, :3] = ref[m]; a[m, 3] = 255
+    x0, y0, x1, y1 = FENCE_TRIM
+    art[y0:y1, x0:x1] = 0
     Image.fromarray(art).save(LOCAL / 'fences.png')
     return art
 
@@ -420,7 +426,9 @@ def houses(shadow, grid):
     ter = np.array(Image.open(SRC / 'hgss/hgss-terrain.png').convert('RGB')).astype(int)
     info = json.loads((LOCAL / 'buildings/buildings.json').read_text())['sprites']
     doors = sorted((x, y) for y, row in enumerate(grid) for x, ch in enumerate(row) if ch == 'D')
-    mailbox = next((x, y) for y, row in enumerate(grid) for x, ch in enumerate(row) if ch == 's' and any(grid[y][x + d] == 'H' for d in (1, 2)))
+    mailbox = Rf.MR_POKEMON_NEW['mailbox']
+    assert grid[mailbox[1]][mailbox[0]] == 's'
+
     out = []
     for name, parts in HOUSE_PARTS.items():
         m = np.isin(own, parts)
@@ -552,7 +560,9 @@ def stairs(grid, ncells):
     """The Johto standard stairs (tools/gba/maps/johto_stairs.py, owner-locked 2026-11-20) on HGSS's stair
     cells: north-south flights with a rail each side and plank treads, crossings of a wall on the diagonal."""
     import johto_stairs as JS
-    return JS.place(grid, W, H, falls=JS.falls_by_ground(grid, W, H, lambda x, y: ncells[y][x]['ground']))
+    # A one-column crossing (a half flight over the thin ridge) takes the Gen 3 angle Route 36's crossings have
+    # (owner review of #39, second pass).
+    return JS.place(grid, W, H, falls=JS.falls_by_ground(grid, W, H, lambda x, y: ncells[y][x]['ground']), half_slope=0.75)
 
 def ledge_pieces():
     l11, l12, l13 = (rgba(SHARED / f'{n}.png') for n in ('L11', 'L12', 'L13'))
@@ -644,7 +654,7 @@ def over(dst, src, x, y, owner=None, name=''):
 
 def read_grid():
     lines = [l for l in (TRACE / 'material-grid.txt').read_text().splitlines() if l[:3].isdigit()]
-    return [list(l.split()[1]) for l in lines]
+    return Rf.adapt([list(l.split()[1]) for l in lines])
 
 def compose(phg, engine):
     grid = read_grid()
@@ -661,7 +671,20 @@ def compose(phg, engine):
     plain_tex = dict(grass=tex[G.GRASS], sand=tex[G.PATH])
     import johto_stairs as JS                        # a wall crossed east-west runs on under its flight, unbroken
     draw_rock = JS.cliff_under(grid, W, H, d, isrock, ncells)
+    # Owner review of #39, second pass: a north-south flight's face runs on under it too, so the rock meets
+    # its rails with no lawn between (its cells terrace at the level of the rock beside them).
+    for kind, fc in JS.flights(grid, W, H):
+        if kind != 'ns':
+            continue
+        for x, y in fc:
+            side = [d[y, nx] for nx in (x - 1, x + 1) if 0 <= nx < W and isrock[y, nx]]
+            if side:
+                draw_rock[y, x] = True; d[y, x] = max(side)
     bottom, rock_over, piece = Rk.rock_frlg(ncells, d, draw_rock, bottom, Rk.frlg_pieces(engine), plain_tex, soft=True)
+    # One-cell-thick ridges take Route 36's ridge (the owner's thin-ridge standard): a full cell high, level
+    # with a half flight, running on under its stairs.
+    import johto_ridge as JR
+    thin = JR.draw(engine, draw_rock, bottom, rock_over, tex[G.GRASS])
     owner = np.full((H * PX, W * PX), '', object)
     flat = np.zeros((H * PX, W * PX, 4), np.uint8)
     flat_owner = np.full((H * PX, W * PX), '', object)

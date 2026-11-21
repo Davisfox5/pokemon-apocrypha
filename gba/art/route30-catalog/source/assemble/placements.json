@@ -141,96 +141,6 @@
    "base": 95
   },
   {
-   "name": "fence_3",
-   "master": "local-art/fences.png",
-   "xy": [
-    433,
-    85
-   ],
-   "base": 95
-  },
-  {
-   "name": "fence_4",
-   "master": "local-art/fences.png",
-   "xy": [
-    441,
-    85
-   ],
-   "base": 95
-  },
-  {
-   "name": "fence_5",
-   "master": "local-art/fences.png",
-   "xy": [
-    449,
-    85
-   ],
-   "base": 95
-  },
-  {
-   "name": "fence_6",
-   "master": "local-art/fences.png",
-   "xy": [
-    457,
-    85
-   ],
-   "base": 95
-  },
-  {
-   "name": "fence_7",
-   "master": "local-art/fences.png",
-   "xy": [
-    465,
-    85
-   ],
-   "base": 95
-  },
-  {
-   "name": "fence_8",
-   "master": "local-art/fences.png",
-   "xy": [
-    473,
-    85
-   ],
-   "base": 95
-  },
-  {
-   "name": "fence_9",
-   "master": "local-art/fences.png",
-   "xy": [
-    481,
-    85
-   ],
-   "base": 95
-  },
-  {
-   "name": "fence_10",
-   "master": "local-art/fences.png",
-   "xy": [
-    489,
-    85
-   ],
-   "base": 95
-  },
-  {
-   "name": "fence_11",
-   "master": "local-art/fences.png",
-   "xy": [
-    497,
-    85
-   ],
-   "base": 95
-  },
-  {
-   "name": "fence_12",
-   "master": "local-art/fences.png",
-   "xy": [
-    505,
-    85
-   ],
-   "base": 95
-  },
-  {
    "name": "tree_10",
    "master": "local-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
    "xy": [
@@ -383,37 +293,11 @@
    "base": 143
   },
   {
-   "name": "fence_13",
+   "name": "fence_3",
    "master": "local-art/fences.png",
    "xy": [
     425,
     133
-   ],
-   "base": 143
-  },
-  {
-   "name": "mailbox",
-   "master": "local-art/buildings/mailbox.png (HGSS model 30 at C06's angle)",
-   "xy": [
-    434,
-    116
-   ],
-   "cell": [
-    27,
-    8
-   ],
-   "base": 143
-  },
-  {
-   "name": "mr_pokemon_house",
-   "master": "gba/art/route30-catalog/source/local-art/buildings/mr_pokemon_gen3.png (Cherrygrove's house model)",
-   "xy": [
-    448,
-    64
-   ],
-   "door": [
-    29,
-    8
    ],
    "base": 143
   },
@@ -494,6 +378,32 @@
     8
    ],
    "base": 159
+  },
+  {
+   "name": "mr_pokemon_house",
+   "master": "gba/art/route30-catalog/source/local-art/buildings/mr_pokemon_gen3.png (Cherrygrove's house model)",
+   "xy": [
+    432,
+    80
+   ],
+   "door": [
+    28,
+    9
+   ],
+   "base": 159
+  },
+  {
+   "name": "mailbox",
+   "master": "local-art/buildings/mailbox.png (HGSS model 30 at C06's angle)",
+   "xy": [
+    418,
+    148
+   ],
+   "cell": [
+    26,
+    10
+   ],
+   "base": 175
   },
   {
    "name": "tree_27",
@@ -3332,7 +3242,7 @@
    "base": 1087
   },
   {
-   "name": "fence_15",
+   "name": "fence_5",
    "master": "local-art/fences.png",
    "xy": [
     217,
@@ -3341,7 +3251,7 @@
    "base": 1087
   },
   {
-   "name": "fence_16",
+   "name": "fence_6",
    "master": "local-art/fences.png",
    "xy": [
     225,
@@ -3350,7 +3260,7 @@
    "base": 1087
   },
   {
-   "name": "fence_17",
+   "name": "fence_7",
    "master": "local-art/fences.png",
    "xy": [
     233,
@@ -3450,7 +3360,7 @@
    "base": 1119
   },
   {
-   "name": "fence_14",
+   "name": "fence_4",
    "master": "local-art/fences.png",
    "xy": [
     209,
@@ -3459,7 +3369,7 @@
    "base": 1119
   },
   {
-   "name": "fence_18",
+   "name": "fence_8",
    "master": "local-art/fences.png",
    "xy": [
     217,

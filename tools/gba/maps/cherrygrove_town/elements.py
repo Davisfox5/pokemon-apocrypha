@@ -749,13 +749,14 @@ def forests(cv):
                     top += 1
                 y = bot - 1 if (bot - 1) % 2 == phase else bot
                 assert y + 1 <= bot or bot == H - 1, ('a trunk below the woods', i, x, bot)
-                # A leftover column: the pair before it moves half a cell east and the column takes no tree of its
-                # own, so the crowns meet the next part's with even gaps instead of a straddling tree crowding both.
-                if single and x == x1 and x1 > x0:
-                    continue
-                at = x - 0.5 if single and x == x1 else x + 0.5 if single and x == x1 - 2 else x
+                # A leftover column (one cell between this part's last pair and the next part's first): a tree a
+                # whole cell west, standing behind the pair before it (drawn first in its row), so the woods close
+                # with no lawn strip, every crown it touches stays whole in front of it, and it stays inside this
+                # part (half a cell west would run into the next part's cells, which are not redrawn, and be cut).
+                behind = single and x == x1 and x1 > x0
+                at = x - 1 if behind else x
                 while y >= top:                      # the last root sits on the top row or the row below it
-                    cv.trees.append((at, y, 'b' if take_blossom(pink, claimed, x, y) else 'g'))
+                    cv.trees.append((at, y, 'b' if take_blossom(pink, claimed, x, y) else 'g', behind))
                     y -= 2
         for y, x in zip(ys, xs):
             cv.put_ground(x, y, lawn_at(lawn, x, y))
@@ -786,10 +787,10 @@ def take_blossom(pink, claimed, x, yr):
 
 def draw_trees(cv, sprites):
     cv.canopy = set()                                 # cells a crown covers (the texture folds stay inside them)
-    for x, y, k in sorted(cv.trees, key=lambda t: (t[1], t[0])):
+    for x, y, k, *_ in sorted(cv.trees, key=lambda t: (t[1], not (t[3:] and t[3]), t[0])):
         over(cv.top, sprites[k], int(round(x * 16)), (y - 1 - R0) * 16)
         cv.canopy |= {(int(x) + dx, y + dy) for dx in range(3 if x != int(x) else 2) for dy in (-1, 0)}
-    for x, y, k in cv.trees:                          # a crown over the cell above a block: drawn anew, above the player
+    for x, y, k, *_ in cv.trees:                      # a crown over the cell above a block: drawn anew, above the player
         for dx in ((0, 1) if x == int(x) else (0, 1, 2)):
             c = (int(x) + dx, y - 1)
             if 0 <= c[0] < W and 0 <= c[1] < H and c not in cv.kit:

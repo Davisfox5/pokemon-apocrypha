@@ -105,8 +105,8 @@
  },
  "native_pixels_differing": 690,
  "reach": {
-  "native_with_cut": 1336,
-  "native_before_cut": 1335,
+  "native_with_cut": 1330,
+  "native_before_cut": 1329,
   "hgss": 1329,
   "native_only": [
    [
@@ -138,7 +138,32 @@
     67
    ]
   ],
-  "hgss_only": [],
+  "hgss_only": [
+   [
+    26,
+    10
+   ],
+   [
+    27,
+    9
+   ],
+   [
+    28,
+    9
+   ],
+   [
+    29,
+    9
+   ],
+   [
+    30,
+    9
+   ],
+   [
+    31,
+    9
+   ]
+  ],
   "north_edge_reached": true
  }
 }

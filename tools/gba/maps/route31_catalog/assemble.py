@@ -52,7 +52,11 @@ FLOOR = 3                           # HGSS height of Route 31's main floor (the 
 SIGN_ART = {32: 'P14', 31: 'P13'}
 # Owner review of #39: the lawn strip under the gatehouse read as open ground, so one more row of trees on
 # the woods' own 2-row lattice seals it (roots on the gatehouse's blocked south row; collision unchanged).
+# Second pass (owner: never draw over what is there): those trees sit SEAL_DROP px lower than the lattice, so
+# their crown tips start one pixel under the gatehouse's base (G02's last opaque row is 105, map y 249) instead
+# of over it. The woods' next row stands in front of them as the lattice's rows do.
 GATE_SEAL_ROOTS = [(0, 16), (2, 16), (4, 16)]
+SEAL_DROP = 10
 GATE_ORIGIN = (0, 9)                # G02 is 7x7 cells; its stairs (column 6, rows 4-5) stand on HGSS's gate warps (6,13)/(6,14)
 FLOWER_TONES, LIGHT_TONES = 6, 3
 
@@ -407,6 +411,7 @@ def compose(phg, engine):
     events = json.loads((SRC / 'hgss-events.json').read_text())
     rinfo = json.loads((SRC / 'hgss/hgss-render.json').read_text())
     roots = [tuple(r) for r in json.loads((TRACE / 'trees.json').read_text())['roots']] + GATE_SEAL_ROOTS
+    seal = set(GATE_SEAL_ROOTS)
     road = road_texture(engine)
     q = ground_quadrants(phg, ncells)
     bottom, mat, tex = paint_ground(q, road)
@@ -458,7 +463,7 @@ def compose(phg, engine):
     lay(la, 'ledge')
     top = np.zeros((H * PX, W * PX, 4), np.uint8)
     tree = cherry_tree(engine, tex[G.GRASS])
-    objs = [dict(name=f'tree_{i}', master='local-art/cherrygrove-tree-with-shadow.png (T01 + shadow)', xy=[x * PX, (y - 1) * PX], art=tree, root=[x, y])
+    objs = [dict(name=f'tree_{i}', master='local-art/cherrygrove-tree-with-shadow.png (T01 + shadow)', xy=[x * PX, (y - 1) * PX + (SEAL_DROP if (x, y) in seal else 0)], art=tree, root=[x, y])
             for i, (x, y) in enumerate(roots)]
     gx, gy = GATE_ORIGIN
     objs.append(dict(name='gate_violet', master='shared-art/G02.png', xy=[gx * PX, gy * PX], art=rgba(SHARED / 'G02.png')))

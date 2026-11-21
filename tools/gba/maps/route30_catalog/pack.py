@@ -233,7 +233,7 @@ def prepare(engine):
     the single pack share this)."""
     z = np.load(SRC / 'assemble/layers.npz', allow_pickle=True)
     ground, flat, top, owner = z['ground'], z['flat'], z['objects'], z['owner'].astype(object)
-    grid = [list(l.split()[1]) for l in (SRC / 'trace/material-grid.txt').read_text().splitlines() if l[:3].isdigit()]
+    grid = Rf.adapt([list(l.split()[1]) for l in (SRC / 'trace/material-grid.txt').read_text().splitlines() if l[:3].isdigit()])
     for x, y in HOUSE_LAWN:
         grid[y][x] = 'g'
     cells = json.loads((SRC / 'trace/ledger.json').read_text())['cells']
