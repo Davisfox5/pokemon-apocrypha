@@ -1,15 +1,9 @@
 """Johto standard tall grass (owner-approved 2026-11-21).
 
-The tile is a hand-drawn 16x16 (G3) in four greens. The new grass covers exactly the area the
-old grass was drawn in (not whole cells), so margins, path borders and shore lips that share a
-grass cell are kept as they were. Patches get rounded convex corners
-(radius 7 px opening) and a wavy 1-2 px dark edge on the sides and bottom; the top row
-shows blade tips over the ground. Carved-out pixels always show the map's plain grass ground,
-never path, sand or other neighbouring colours (owner, 2026-11-21).
-
-restyle(engine, map) returns (old, new, tall_grass_cells). Only pixels inside tall grass
-cells change; anything in a cell's top layer that is not old grass (tree canopies, props)
-is kept. See AGENTS.md "Never draw over what is already there".
+The tile is a hand-drawn 16x16 (G3) in four greens. It is laid over each tall grass cell as a
+full tile with no background, on top of the terrain that would be there without grass, so
+path edges, their shadows and lining are never painted over. See restyle() and AGENTS.md
+"Never draw over what is already there".
 """
 import sys
 from pathlib import Path
@@ -55,72 +49,59 @@ def morph(m,r,op):
         sh=np.roll(np.roll(m,dy,0),dx,1)
         out = (out & sh) if op=='erode' else (out | sh)
     return out
-def restyle(engine,name,tile=None,R=7):
-    e=G.Engine(Path(engine)); m=e.by_name[name]; lay=e.layouts[m['layout']]; raw=e.grid(lay); g=raw&1023; ts=e.tileset(lay)
-    tg=np.vectorize(lambda v:G.behavior(ts,int(v))==2)(g)
-    img=np.asarray(G.native_image(e,m).convert('RGB')).astype(int); out=img.copy()
-    Hh,Ww=g.shape
-    tile=parse(G3).astype(int) if tile is None else tile
-    # old grass colours (to tell grass from overlapping canopies in the top layer)
-    olds=Counter(int(v) for v in g[tg]).most_common(6)
-    OLD=np.unique(np.concatenate([np.asarray(ts.render(v).convert('RGB')).reshape(-1,3) for v,_ in olds]),axis=0).astype(int)
-    # ground texture: most common walkable non-grass metatile
-    col=(raw>>10)&3
-    KEEPREF=None
+def restyle(engine, name, tile=None):
+    """Overlay the standard grass on every tall grass cell (owner 2026-11-21).
+
+    1. Put the terrain back: the old grass clump lives in each grass metatile's top layer,
+       and the bottom layer holds what is under it (plain ground, or a dirt path edge with
+       its shadow and grey lining). Where the clump drew, the bottom layer is shown again.
+    2. Lay the full 16x16 grass tile on top with no background: every blade pixel is drawn.
+       The tile's dark shade fills in only where the old clump was or where the patch carries
+       on into the neighbouring cell, and only over plain ground, so path edges, their shadow
+       and lining show between the blades. No half tiles: every tall grass cell gets the
+       whole tile.
+    3. Anything in the cell's top layer that is not old grass (tree canopies, props) is drawn
+       back on top.
+    """
+    e = G.Engine(Path(engine)); m = e.by_name[name]; lay = e.layouts[m['layout']]
+    raw = e.grid(lay); g = raw & 1023; ts = e.tileset(lay)
+    tg = np.vectorize(lambda v: G.behavior(ts, int(v)) == 2)(g)
+    img = np.asarray(G.native_image(e, m).convert('RGB')).astype(int); out = img.copy()
+    Hh, Ww = g.shape
+    T = parse(G3 if tile is None else tile).astype(int)
+    blade = ~(T == DARK).all(-1)
+    near = lambda px, ref: np.abs(px[:, :, None, :] - ref[None, None]).sum(-1).min(-1) <= 12
+    # old clump colours: the top layer of the commonest tall grass metatiles
+    olds = [v for v, _ in Counter(int(v) for v in g[tg]).most_common(4)]
+    OLD = np.unique(np.concatenate([t[mk] for t, mk in (render_layer(ts, v, 1, bg=False) for v in olds)]), axis=0)
+    col = (raw >> 10) & 3
     def greenish(v):
         a = np.asarray(ts.render(int(v)).convert('RGB')).reshape(-1, 3).mean(0)
         return a[1] > a[0] * 1.15 and a[1] > a[2]
-    gm=next(v for v,_ in Counter(int(v) for v,c,t in zip(g.flat,col.flat,tg.flat) if c==0 and not t).most_common() if greenish(v))
-    ground=np.asarray(ts.render(gm).convert('RGB')).astype(int)
-    KEEPREF=np.unique(np.concatenate([OLD,ground.reshape(-1,3)]),axis=0)
-    # The new grass covers exactly where the old grass was drawn, not whole cells: pixels in
-    # grass cells whose colour is an old-grass colour (not ground), closed to fill highlights.
-    # Margins the old cells left (ground, path borders, shore lips) stay as they were.
-    gd=ground.reshape(-1,3)
-    OLDG=np.array([c for c in OLD if np.abs(gd-c).sum(-1).min()>12]) if len(OLD) else OLD
-    cells=np.kron(tg,np.ones((16,16),bool))
-    isg=cells & (np.abs(img[:,:,None,:]-OLDG[None,None]).sum(-1).min(-1)<=12)
-    pad=8
-    M=morph(morph(np.pad(isg,pad),3,'dilate'),3,'erode')[pad:-pad,pad:-pad] & cells
-    Mp=np.pad(M,pad)
-    Mr=morph(morph(Mp,R,'erode'),R,'dilate')[pad:-pad,pad:-pad]   # opening: rounds convex corners
-    H,W=M.shape; yy,xx=np.mgrid[0:H,0:W]
-    # wavy side/bottom edges: erode by 1 or 2 px following a tuft rhythm
-    wave=((xx//4+yy//4)%2).astype(bool)
-    inner1=morph(np.pad(Mr,pad),1,'erode')[pad:-pad,pad:-pad]
-    inner2=morph(np.pad(Mr,pad),2,'erode')[pad:-pad,pad:-pad]
-    keep=np.where(wave,inner1,Mr)
-    above=np.zeros_like(M); above[1:]=M[:-1]
-    # distance (px) from the top of the patch, per column
-    top=np.zeros((H,W),int); run=np.zeros(W,int)
-    for y in range(H):
-        run=np.where(M[y],run+1,0); top[y]=run
-    tex=np.tile(tile,(H//16,W//16,1))
-    outline=keep & ~inner1
+    gm = next(v for v, _ in Counter(int(v) for v, c, t in zip(g.flat, col.flat, tg.flat) if c == 0 and not t).most_common() if greenish(v))
+    gcols = np.unique(np.asarray(ts.render(gm).convert('RGB')).reshape(-1, 3), axis=0).astype(int)
     for y in range(Hh):
         for x in range(Ww):
-            if not tg[y,x]: continue
-            sl=(slice(y*16,y*16+16),slice(x*16,x*16+16))
-            mid=int(g[y,x]); topl,tm=render_layer(ts,mid,1,bg=False)
-            # carved pixels show plain grass ground only (owner 2026-11-21: never path or sand colours)
-            ground_=ground
-            cell=np.where(keep[sl][...,None],tex[sl],np.where(M[sl][...,None],ground_,img[sl]))
-            # top edge: only blade tips over ground in the first rows of the patch
-            t=top[sl]; tips=(t>=1)&(t<=4)&((tex[sl]==DARK).all(-1))&keep[sl]
-            cell[tips]=ground_[tips]
-            ol=outline[sl]&~(t<=4)&~(tex[sl]==np.array(P['L'])).all(-1)
-            cell[ol]=DARK
-            # keep anything in the original top layer that isn't old grass (tree canopies etc.)
-            foreign=tm & (np.abs(topl[:,:,None,:]-OLD[None,None]).sum(-1).min(-1)>12)
-            cell=np.where(foreign[...,None],topl,cell)
-            # keep every original pixel that is not old grass or plain ground (path borders, flowers,
-            # shore lips sharing the cell): only the grass itself is replaced
-            orig=img[sl]
-            other=np.abs(orig[:,:,None,:]-KEEPREF[None,None]).sum(-1).min(-1)>12
-            cell=np.where(other[...,None],orig,cell)
-            out[sl]=cell
-    return img.astype(np.uint8),out.astype(np.uint8),tg
-
+            if not tg[y, x]: continue
+            sl = (slice(y * 16, y * 16 + 16), slice(x * 16, x * 16 + 16))
+            v = int(g[y, x])
+            bot, _ = render_layer(ts, v, 0)
+            topl, tm = render_layer(ts, v, 1, bg=False)
+            clump = tm & near(topl, OLD)
+            base = np.where(clump[..., None], bot, img[sl])
+            plain = near(base, gcols)
+            fill = clump.copy()
+            if y > 0 and tg[y - 1, x]: fill[:4] = True
+            if y < Hh - 1 and tg[y + 1, x]: fill[12:] = True
+            if x > 0 and tg[y, x - 1]: fill[:, :3] = True
+            if x < Ww - 1 and tg[y, x + 1]: fill[:, 13:] = True
+            cell = base.copy()
+            cell[~blade & fill & plain] = DARK
+            cell[blade] = T[blade]
+            foreign = tm & ~clump
+            cell = np.where(foreign[..., None], topl, cell)
+            out[sl] = cell
+    return img.astype(np.uint8), out.astype(np.uint8), tg
 
 if __name__ == '__main__':
     out = HERE.parents[3] / 'gba/art/johto-common/standards/tall_grass_tile.png'
