@@ -22,6 +22,8 @@ This project lives in **two** GitHub repositories. Put each change in the right 
 
 Hard rule for every map, mockup, standard and fix. The owner should never have to repeat it.
 
+- Change only what the owner asked for. No extra fixes, cleanups, repacks of unrelated
+  art or "while I'm here" changes; propose them instead (owner, 2026-11-21).
 - Changing one element (water, tall grass, a border, a path, a building) changes only
   that element. Every cell it touches keeps everything else that was in it: tree
   canopies and trunks, overhangs, shadows, props, signs, ledges, cliff edges, and the
@@ -31,7 +33,8 @@ Hard rule for every map, mockup, standard and fix. The owner should never have t
   gets a metatile built from both, never the new piece pasted over the whole cell.
 - Area elements (tall grass, water, paths, sand) end in soft edge and corner pieces that
   blend into the ground around them. No square cut-offs where a patch meets grass,
-  trees or dirt.
+  trees or dirt. The softened edge shows plain grass ground, never path, sand
+  or other neighbouring colours.
 - Before showing anything, compare old and new cell by cell: every pixel that changed
   must belong to the element being changed. Anything else that moved is a defect.
   This applies to mockups as much as to built maps.

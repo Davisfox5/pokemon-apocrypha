@@ -2,8 +2,8 @@
 
 The tile is a hand-drawn 16x16 (G3) in four greens. Patches get rounded convex corners
 (radius 7 px opening) and a wavy 1-2 px dark edge on the sides and bottom; the top row
-shows blade tips over the ground. Carved-out pixels take the ground of the nearest plain,
-walkable neighbour cell, so a patch beside sand curves into sand.
+shows blade tips over the ground. Carved-out pixels always show the map's plain grass ground,
+never path, sand or other neighbouring colours (owner, 2026-11-21).
 
 restyle(engine, map) returns (old, new, tall_grass_cells). Only pixels inside tall grass
 cells change; anything in a cell's top layer that is not old grass (tree canopies, props)
@@ -64,7 +64,10 @@ def restyle(engine,name,tile=None,R=7):
     OLD=np.unique(np.concatenate([np.asarray(ts.render(v).convert('RGB')).reshape(-1,3) for v,_ in olds]),axis=0).astype(int)
     # ground texture: most common walkable non-grass metatile
     col=(raw>>10)&3
-    gm=Counter(int(v) for v,c,t in zip(g.flat,col.flat,tg.flat) if c==0 and not t).most_common(1)[0][0]
+    def greenish(v):
+        a = np.asarray(ts.render(int(v)).convert('RGB')).reshape(-1, 3).mean(0)
+        return a[1] > a[0] * 1.15 and a[1] > a[2]
+    gm=next(v for v,_ in Counter(int(v) for v,c,t in zip(g.flat,col.flat,tg.flat) if c==0 and not t).most_common() if greenish(v))
     ground=np.asarray(ts.render(gm).convert('RGB')).astype(int)
     M=np.kron(tg,np.ones((16,16),bool))
     pad=8; Mp=np.pad(M,pad)
@@ -87,19 +90,8 @@ def restyle(engine,name,tile=None,R=7):
             if not tg[y,x]: continue
             sl=(slice(y*16,y*16+16),slice(x*16,x*16+16))
             mid=int(g[y,x]); topl,tm=render_layer(ts,mid,1,bg=False)
-            # ground for carved pixels comes from the nearest non-grass neighbour cell, same pixel position
-            gnd=ground.copy(); best=None
-            yy0,xx0=np.mgrid[0:16,0:16]
-            cand=[]
-            for dy,dx,dist in ((1,0,15-yy0),(-1,0,yy0),(0,-1,xx0),(0,1,15-xx0),(1,1,np.maximum(15-yy0,15-xx0)),(1,-1,np.maximum(15-yy0,xx0)),(-1,1,np.maximum(yy0,15-xx0)),(-1,-1,np.maximum(yy0,xx0))):
-                Y,X=y+dy,x+dx
-                if 0<=Y<Hh and 0<=X<Ww and not tg[Y,X] and col[Y,X]==0 and render_layer(ts,int(g[Y,X]),1,bg=False)[1].sum()==0:
-                    r_=np.asarray(ts.render(int(g[Y,X])).convert('RGB')).astype(int)
-                    mag=(r_[...,0]>240)&(r_[...,1]<20)&(r_[...,2]>240); r_[mag]=ground[mag]
-                    cand.append((dist,r_))
-            if cand:
-                d=np.stack([c[0] for c in cand]); k=d.argmin(0)
-                gnd=np.stack([c[1] for c in cand])[k,yy0,xx0]
+            # carved pixels show plain grass ground only (owner 2026-11-21: never path or sand colours)
+            gnd=ground
             ground_=gnd
             cell=np.where(keep[sl][...,None],tex[sl],ground_)
             # top edge: only blade tips over ground in the first rows of the patch
