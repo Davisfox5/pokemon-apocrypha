@@ -424,7 +424,7 @@ hgss_id,hgss_const,hgss_code,region,mapsec,type,kit,scope,batch,gba_map,status,p
 57,MAP_CINNABAR_ISLAND,MAP_T09,Kanto,CINNABAR_ISLAND,city_town,,core,K4 Fuchsia-Cinnabar,,not started,,,,,
 508,MAP_CINNABAR_ISLAND_POKECENTER_1F,MAP_T09PC0101,Kanto,CINNABAR_ISLAND,interior,kanto-center,core,K4 Fuchsia-Cinnabar,,not started,,,,,
 509,MAP_CINNABAR_ISLAND_POKECENTER_B1F,MAP_T09PC0102,Kanto,CINNABAR_ISLAND,interior,kanto-center,optional,K4 Fuchsia-Cinnabar,,not started,,,,,
-56,MAP_FUCHSIA,MAP_T08,Kanto,FUCHSIA_CITY,city_town,,core,K4 Fuchsia-Cinnabar,KantoFuchsiaCity,in review,,,claude/project-thread-xt3z4h,,
+56,MAP_FUCHSIA,MAP_T08,Kanto,FUCHSIA_CITY,city_town,,core,K4 Fuchsia-Cinnabar,KantoFuchsiaCity,in review,https://github.com/Davisfox5/pokeemerald-expansion/pull/62,https://github.com/Davisfox5/pokemon-apocrypha/pull/59,claude/project-thread-xt3z4h,,
 478,MAP_FUCHSIA_POKEMART,MAP_T08FS0101,Kanto,FUCHSIA_CITY,interior,kanto-mart,core,K4 Fuchsia-Cinnabar,,not started,,,,,
 480,MAP_FUCHSIA_GYM,MAP_T08GYM0101,Kanto,FUCHSIA_CITY,interior,kanto-gym,core,K4 Fuchsia-Cinnabar,,not started,,,,,
 481,MAP_FUCHSIA_SOUTHWEST_HOUSE,MAP_T08R0401,Kanto,FUCHSIA_CITY,interior,kanto-house,core,K4 Fuchsia-Cinnabar,,not started,,,,,
