@@ -1,8 +1,0 @@
-{
-  "hgss": "MAP_FUCHSIA",
-  "offset": [0, 0],
-  "adapt_walk": [],
-  "adapt_warps": [],
-  "adapt_seams": {},
-  "notes": "Native cell = HGSS tile, 1:1, whole 64x64 HGSS map (2x2 matrix chunks from (37,12)). Warp adaptations are listed in gba/maps/plans/FuchsiaCity.md and get filled in at G3 once the owner approves the plan."
-}

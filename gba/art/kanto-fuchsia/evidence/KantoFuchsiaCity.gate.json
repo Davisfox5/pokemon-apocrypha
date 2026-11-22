@@ -1,0 +1,61 @@
+{
+ "build": {
+  "ok": true,
+  "tail": ""
+ },
+ "glitch": {
+  "ok": true,
+  "problems": [],
+  "cells": [],
+  "black_metatiles": [],
+  "black_cells": 0,
+  "review": ""
+ },
+ "budget": {
+  "ok": true,
+  "problems": [],
+  "primary_tiles": 512,
+  "secondary_tiles": 112,
+  "secondary_tiles_free": 400,
+  "primary_metatiles": 512,
+  "secondary_metatiles": 63,
+  "secondary_metatiles_free": 449,
+  "palettes_used": [
+   0,
+   1,
+   2,
+   3,
+   5,
+   8,
+   9,
+   10,
+   12
+  ]
+ },
+ "seams": {
+  "ok": true,
+  "seams": {},
+  "note": "checked from this side; run the gate on the neighbour for the other side"
+ },
+ "warps": {
+  "ok": true,
+  "problems": [],
+  "warps": 0
+ },
+ "walk": {
+  "ok": true,
+  "compared_cells": 4096,
+  "differences": 0,
+  "first": [],
+  "note": "HGSS ledges, water and counters can need adapt_walk entries; each must be explained in notes"
+ },
+ "porymap": {
+  "ok": true,
+  "offset_px": [
+   0,
+   0
+  ]
+ },
+ "result": "PASS",
+ "gate_file": "/home/user/pokemon-apocrypha/gba/maps/gates/KantoFuchsiaCity.json"
+}
