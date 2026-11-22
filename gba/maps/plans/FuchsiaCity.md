@@ -47,7 +47,7 @@ art. FRLG cells below are `FuchsiaCity_Frlg` layout coordinates unless another m
 | Paths | HGSS dirt paths | FRLG | General_Frlg sand path and its edges, as FRLG Fuchsia's paths |
 | Tall grass | none in HGSS Fuchsia | none | none |
 | Trees | forest border and tree rows | FRLG | General_Frlg pine trees as FRLG Fuchsia's border |
-| Rock / cliff faces | SW plateau behind the Gym row, south rims | FRLG | FuchsiaCity rock ridge (FRLG (4..28, 26..35)), face height to the Route 36 standard |
+| Rock / cliff faces | SW plateau behind the Gym row, south rims | FRLG | Levels counted from HGSS heights with the owner-accepted level method (`route32_native/levels.py`, contour audit zero breaks); drawn with `rock_frlg` (`route32_native/rock.py`), FRLG Fuchsia's rock, face height to the Route 36 standard; only protruding corners softened |
 | Ledges | none in HGSS Fuchsia | none | none |
 | Water / shore | pen ponds, fenced pond by the warden's house | FRLG | FuchsiaCity pond (FRLG (6..10, 6..9), (34..41, 23..26)) |
 | Stairs | none in HGSS Fuchsia | none | none |
