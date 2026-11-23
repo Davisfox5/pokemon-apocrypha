@@ -1,0 +1,187 @@
+{
+ "note": "HGSS models at 45 degrees, unsqueezed, 16 px per unit, Gen 3 finish (Celadon round 6 method). center_hgss is for comparison only: the map uses the owner-locked C06 Center.",
+ "sprites": {
+  "hall": {
+   "model": 295,
+   "door_model": null,
+   "model_width_units": 5.75,
+   "size": [
+    92,
+    131
+   ],
+   "cells": [
+    5.75,
+    8.19
+   ],
+   "colours": 22
+  },
+  "mart": {
+   "model": 39,
+   "door_model": 15,
+   "model_width_units": 4.77,
+   "size": [
+    77,
+    67
+   ],
+   "cells": [
+    4.81,
+    4.19
+   ],
+   "colours": 22
+  },
+  "gym": {
+   "model": 300,
+   "door_model": 16,
+   "model_width_units": 6.98,
+   "size": [
+    112,
+    82
+   ],
+   "cells": [
+    7.0,
+    5.12
+   ],
+   "colours": 43
+  },
+  "house_red": {
+   "model": 297,
+   "door_model": 307,
+   "model_width_units": 3.75,
+   "size": [
+    60,
+    73
+   ],
+   "cells": [
+    3.75,
+    4.56
+   ],
+   "colours": 17
+  },
+  "house_pink": {
+   "model": 298,
+   "door_model": null,
+   "model_width_units": 3.75,
+   "size": [
+    60,
+    75
+   ],
+   "cells": [
+    3.75,
+    4.69
+   ],
+   "colours": 11
+  },
+  "warden_house": {
+   "model": 299,
+   "door_model": 306,
+   "model_width_units": 4.44,
+   "size": [
+    71,
+    73
+   ],
+   "cells": [
+    4.44,
+    4.56
+   ],
+   "colours": 18
+  },
+  "center_hgss": {
+   "model": 40,
+   "door_model": 15,
+   "model_width_units": 5.25,
+   "size": [
+    84,
+    81
+   ],
+   "cells": [
+    5.25,
+    5.06
+   ],
+   "colours": 21
+  },
+  "route15_gate": {
+   "model": 247,
+   "door_model": null,
+   "model_width_units": 7.5,
+   "size": [
+    120,
+    105
+   ],
+   "cells": [
+    7.5,
+    6.56
+   ],
+   "colours": 19
+  },
+  "city_sign": {
+   "model": 29,
+   "door_model": null,
+   "model_width_units": 0.88,
+   "size": [
+    14,
+    20
+   ],
+   "cells": [
+    0.88,
+    1.25
+   ],
+   "colours": 6
+  },
+  "house_sign": {
+   "model": 30,
+   "door_model": null,
+   "model_width_units": 0.69,
+   "size": [
+    11,
+    27
+   ],
+   "cells": [
+    0.69,
+    1.69
+   ],
+   "colours": 8
+  },
+  "notice_board": {
+   "model": 31,
+   "door_model": null,
+   "model_width_units": 1.0,
+   "size": [
+    16,
+    21
+   ],
+   "cells": [
+    1.0,
+    1.31
+   ],
+   "colours": 5
+  },
+  "gym_sign": {
+   "model": 33,
+   "door_model": null,
+   "model_width_units": 1.0,
+   "size": [
+    16,
+    24
+   ],
+   "cells": [
+    1.0,
+    1.5
+   ],
+   "colours": 8
+  },
+  "lamp": {
+   "model": 333,
+   "door_model": null,
+   "model_width_units": 2.0,
+   "size": [
+    32,
+    20
+   ],
+   "cells": [
+    2.0,
+    1.25
+   ],
+   "colours": 8
+  }
+ }
+}
