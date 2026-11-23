@@ -1,0 +1,787 @@
+{
+  "source": {
+    "repository": "pret/pokeheartgold (Davisfox5 fork)",
+    "revision": "9d8b7591f09b65804da2fb2dfd56f320633e0d36",
+    "archives": {
+      "files/a/0/6/5": "0817bd81cc30342bc40dd6ce829121e9a8be4e9d04d0b790f8d9d99688c4bebe",
+      "files/a/0/4/2": "991506d5626fee587e4bf27042ae7b2945e167b89d6ec9f2d834d29e7476d58f",
+      "files/a/0/4/4": "6385837c11139c543884434a54768e7279b485214b7ca309cf8a670d8f98d647",
+      "files/a/0/4/0": "c750b0cd588c9dd42dfcae5a334f2eb504c5bdc943a9f529c4479020863bee9a"
+    }
+  },
+  "meta": {
+    "area_bank": 16,
+    "map_texture_set": 16,
+    "building_texture_set": 15,
+    "matrix_origin": [
+      37,
+      12
+    ],
+    "top_down_fill_pixels": 5472,
+    "filled_seam_pixels": 100
+  },
+  "size_cells": [
+    64,
+    64
+  ],
+  "px_per_cell": 16,
+  "projection": "screen x = X*16; screen y = (Z - (Y - ref))*16, depth Z + (Y - ref). ref = own height for walkable near-horizontal terrain (top-down, registers on its cell), lowest vertex for steep terrain faces, building base for buildings",
+  "buildings": [
+    {
+      "model": 295,
+      "chunk": 182,
+      "pos": [
+        31.0,
+        1.0,
+        16.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "park_mark",
+        "pokepark",
+        "station_c"
+      ],
+      "footprint": [
+        28.0,
+        11.922607421875,
+        34.375,
+        20.125
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 39,
+      "chunk": 182,
+      "pos": [
+        14.0,
+        1.0,
+        31.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "gs_fs_a",
+        "h_kage"
+      ],
+      "footprint": [
+        11.875,
+        29.6875,
+        17.0,
+        32.875
+      ],
+      "replaced_by": "poke_mart"
+    },
+    {
+      "model": 15,
+      "chunk": 182,
+      "pos": [
+        13.4420166015625,
+        1.0,
+        32.2574462890625
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "pc_door"
+      ],
+      "footprint": [
+        12.8170166015625,
+        32.2574462890625,
+        14.0670166015625,
+        32.2574462890625
+      ],
+      "replaced_by": "poke_mart_door"
+    },
+    {
+      "model": 31,
+      "chunk": 182,
+      "pos": [
+        29.5,
+        1.0,
+        21.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "board_cd",
+        "h_kage"
+      ],
+      "footprint": [
+        28.9375,
+        21.0625,
+        30.125,
+        21.8125
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 333,
+      "chunk": 182,
+      "pos": [
+        10.5,
+        4.0,
+        21.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "sktk_sl2",
+        "sktk_sl3"
+      ],
+      "footprint": [
+        9.5,
+        20.123779296875,
+        11.5,
+        21.5
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 333,
+      "chunk": 182,
+      "pos": [
+        27.5,
+        4.0,
+        28.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "sktk_sl2",
+        "sktk_sl3"
+      ],
+      "footprint": [
+        26.5,
+        27.123779296875,
+        28.5,
+        28.5
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 333,
+      "chunk": 183,
+      "pos": [
+        34.5,
+        4.0,
+        28.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "sktk_sl2",
+        "sktk_sl3"
+      ],
+      "footprint": [
+        33.5,
+        27.123779296875,
+        35.5,
+        28.5
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 333,
+      "chunk": 183,
+      "pos": [
+        51.5,
+        4.0,
+        21.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "sktk_sl2",
+        "sktk_sl3"
+      ],
+      "footprint": [
+        50.5,
+        20.123779296875,
+        52.5,
+        21.5
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 300,
+      "chunk": 184,
+      "pos": [
+        11.5,
+        1.0,
+        54.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "h_kage",
+        "kn_gym_a",
+        "kn_gym_c",
+        "sk_gym_b"
+      ],
+      "footprint": [
+        8.0206298828125,
+        51.4129638671875,
+        15.365234375,
+        56.149169921875
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 16,
+      "chunk": 184,
+      "pos": [
+        11.5,
+        1.0,
+        55.40492248535156
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "gym_door"
+      ],
+      "footprint": [
+        10.822998046875,
+        55.40492248535156,
+        12.177001953125,
+        55.65492248535156
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 40,
+      "chunk": 184,
+      "pos": [
+        25.5,
+        1.0,
+        54.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "gs_pc_a",
+        "gs_pc_b",
+        "h_kage"
+      ],
+      "footprint": [
+        22.875,
+        52.0,
+        28.5,
+        56.311767578125
+      ],
+      "replaced_by": "pokemon_center"
+    },
+    {
+      "model": 15,
+      "chunk": 184,
+      "pos": [
+        25.5,
+        1.0,
+        55.60820007324219
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "pc_door"
+      ],
+      "footprint": [
+        24.875,
+        55.60820007324219,
+        26.125,
+        55.60820007324219
+      ],
+      "replaced_by": "pokemon_center_door"
+    },
+    {
+      "model": 33,
+      "chunk": 184,
+      "pos": [
+        9.5,
+        1.0,
+        57.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "board_ef",
+        "h_kage"
+      ],
+      "footprint": [
+        8.9375,
+        57.25,
+        10.0625,
+        57.8125
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 297,
+      "chunk": 184,
+      "pos": [
+        17.0,
+        1.0,
+        54.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "h_kage",
+        "h_mado",
+        "sk_h01"
+      ],
+      "footprint": [
+        14.75,
+        51.375,
+        19.5045166015625,
+        56.125
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 307,
+      "chunk": 184,
+      "pos": [
+        17.125,
+        1.0,
+        55.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "sk_door2"
+      ],
+      "footprint": [
+        15.87640380859375,
+        54.989013671875,
+        17.12640380859375,
+        55.1177978515625
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 298,
+      "chunk": 184,
+      "pos": [
+        21.0,
+        1.0,
+        54.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "h_kage",
+        "h_mado",
+        "sk_h02"
+      ],
+      "footprint": [
+        18.75,
+        51.375,
+        23.50439453125,
+        56.125
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 333,
+      "chunk": 184,
+      "pos": [
+        29.5,
+        4.0,
+        62.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "sktk_sl2",
+        "sktk_sl3"
+      ],
+      "footprint": [
+        28.5,
+        61.123779296875,
+        30.5,
+        62.5
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 333,
+      "chunk": 184,
+      "pos": [
+        4.5,
+        4.0,
+        62.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "sktk_sl2",
+        "sktk_sl3"
+      ],
+      "footprint": [
+        3.5,
+        61.123779296875,
+        5.5,
+        62.5
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 333,
+      "chunk": 184,
+      "pos": [
+        5.5,
+        4.0,
+        41.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "sktk_sl2",
+        "sktk_sl3"
+      ],
+      "footprint": [
+        4.5,
+        40.123779296875,
+        6.5,
+        41.5
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 333,
+      "chunk": 184,
+      "pos": [
+        28.5,
+        4.0,
+        37.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "sktk_sl2",
+        "sktk_sl3"
+      ],
+      "footprint": [
+        27.5,
+        36.123779296875,
+        29.5,
+        37.5
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 29,
+      "chunk": 184,
+      "pos": [
+        24.5,
+        1.0,
+        40.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "board_ab",
+        "h_kage"
+      ],
+      "footprint": [
+        24.03125,
+        40.5,
+        25.03125,
+        41.0078125
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 247,
+      "chunk": 185,
+      "pos": [
+        61.0,
+        1.0,
+        39.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "gate",
+        "gate_2",
+        "gate_3",
+        "gate_p2",
+        "h_kage"
+      ],
+      "footprint": [
+        57.25,
+        36.25,
+        64.75,
+        42.25
+      ],
+      "replaced_by": "g02_gate"
+    },
+    {
+      "model": 30,
+      "chunk": 185,
+      "pos": [
+        36.5,
+        1.0,
+        51.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "board_ab",
+        "h_kage"
+      ],
+      "footprint": [
+        36.0,
+        51.21875,
+        37.0,
+        52.03125
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 299,
+      "chunk": 185,
+      "pos": [
+        39.0,
+        1.0,
+        50.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "h_kage",
+        "h_mado",
+        "sk_h03"
+      ],
+      "footprint": [
+        36.75,
+        47.375,
+        41.50439453125,
+        52.25
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 306,
+      "chunk": 185,
+      "pos": [
+        39.25,
+        1.0,
+        51.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "sk_door1"
+      ],
+      "footprint": [
+        37.751708984375,
+        50.99810791015625,
+        39.251708984375,
+        51.12689208984375
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 298,
+      "chunk": 185,
+      "pos": [
+        43.0,
+        1.0,
+        50.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "h_kage",
+        "h_mado",
+        "sk_h02"
+      ],
+      "footprint": [
+        40.75,
+        47.375,
+        45.50439453125,
+        52.125
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 333,
+      "chunk": 185,
+      "pos": [
+        33.5,
+        4.0,
+        37.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "sktk_sl2",
+        "sktk_sl3"
+      ],
+      "footprint": [
+        32.5,
+        36.123779296875,
+        34.5,
+        37.5
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 333,
+      "chunk": 185,
+      "pos": [
+        39.5,
+        4.0,
+        37.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "sktk_sl2",
+        "sktk_sl3"
+      ],
+      "footprint": [
+        38.5,
+        36.123779296875,
+        40.5,
+        37.5
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 333,
+      "chunk": 185,
+      "pos": [
+        45.5,
+        4.0,
+        37.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "sktk_sl2",
+        "sktk_sl3"
+      ],
+      "footprint": [
+        44.5,
+        36.123779296875,
+        46.5,
+        37.5
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 333,
+      "chunk": 185,
+      "pos": [
+        51.5,
+        4.0,
+        37.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "sktk_sl2",
+        "sktk_sl3"
+      ],
+      "footprint": [
+        50.5,
+        36.123779296875,
+        52.5,
+        37.5
+      ],
+      "replaced_by": null
+    }
+  ]
+}

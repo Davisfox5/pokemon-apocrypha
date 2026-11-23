@@ -1,0 +1,93 @@
+# Fuchsia City material grid (64x64), one code per 16x16 cell. Native = HGSS + (0, 0).
+#   g  lawn (grass01gs)
+#   l  pale pen lawn (grass02)
+#   d  maroon stone road (sek_fe03)
+#   f  lawn with flowers (flower01/02)
+#   t  tree root (2x2)
+#   k  woods cell under the crown of the tree south of it
+#   o  woods cell no root fits: blocked lawn under the woods edge
+#   ~  pond (Surf)
+#   h  pen hedge (sek_teien)
+#   b  a pen's inside: flower bed, soil bed or planter (sek_flower, f_dodai, flower_sp1)
+#   x  fence (fence_a)
+#   i  street lamp (model 333)
+#   s  sign
+#   R  rock (terrace, one level)
+#   L  jump ledge south
+#   Q  jump ledge west
+#   E  jump ledge east
+#   J  ledge end (blocked)
+#   H  building
+#   D  door
+#   C  the hall's entrance steps (warp)
+#   w  gatehouse doorway (warp)
+#   c  cuttable tree (object)
+#   a  Apricorn tree (object)
+#   p  pen front rail (white pickets between planter posts)
+#   u  lawn no one reaches on foot (north of the hall; the fenced pond yard, Surf only)
+#   X  other blocked
+#   x: 0123456789012345678901234567890123456789012345678901234567890123
+000   ttttttttttttttttttttttttttttuuuuuutttttttttttttttttttttttttttttt
+001   ttttttttttttttttttttttttttttuuuuuutttttttttttttttttttttttttttttt
+002   ttttttttttttttttttttttttttttuuuuuutttttttttttttttttttttttttttttt
+003   ttttttttttttttttttttttttttttuuuuuutttttttttttttttttttttttttttttt
+004   ttttttttttttttttttttttttttttuuuuuutttttttttttttttttttttttttttttt
+005   ttttttttttttttttttttttttttttuuuuuutttttttttttttttttttttttttttttt
+006   ttttttttttttttttttttttttttttuuuuuutttttttttttttttttttttttttttttt
+007   ttttttttttttttttttttttttttttuuuuuutttttttttttttttttttttttttttttt
+008   ttttttttttttttttttttttttttttuuuuuutttttttttttttttttttttttttttttt
+009   ttttttttttttttttttttttttttttuuuuuutttttttttttttttttttttttttttttt
+010   ttttttttttttttttttttttttttttuuuuuutttttttttttttttttttttttttttttt
+011   ttttttttttttttttttttttttttttHHHHHHtttttttttttttttttttttttttttttt
+012   ttttttttttttttttttttttttttttHHHHHHtttttttttttttttttttttttttttttt
+013   ttttttttttttttttttttttttttttHHHHHHtttttttttttttttttttttttttttttt
+014   ttttttttttttttttttttttttttttHHHHHHtttttttttttttttttttttttttttttt
+015   ttttttttttttttttttttttttttttHHHHHHtttttttttttttttttttttttttttttt
+016   ttttttttttttttttttttttttttttHHHHHHtttttttttttttttttttttttttttttt
+017   ttttttttttttttttttttttttttttHHHHHHtttttttttttttttttttttttttttttt
+018   ttttttttttttttttttttttttttttHHHHHHtttttttttttttttttttttttttttttt
+019   ttttttttttttttttttttttttttttHHCCHHtttttttttttttttttttttttttttttt
+020   ttttttttttillllllllllllllllllddddllllllllllllllllllitttttttttttt
+021   ttttttttttlllllllllllllllllllsdddllllllllllllllllllltttttttttttt
+022   ttttttttttllhhhhhhhllhhhhhhllddddllhhhhhhllhhhhhhhlltttttttttttt
+023   ttttttttttllh~~~~~hllhbbbbhllddddllhbbbbhllhbbbbbhlltttttttttttt
+024   ttttttttttllh~~~~~hllhbbbbhllddddllhbbbbhllhbbbbbhlltttttttttttt
+025   ttttttttttllh~~~~~hllhbbbbhllddddllhbbbbhllhbbbbbhlltttttttttttt
+026   ttttttttttllhppppphllhpppphllddddllhpppphllhppppphlltttttttttttt
+027   ttttttttttlllllllllllllllllilddddlillllllllllllllllltttttttttttt
+028   ttttttttttllXXXXlllllllllllllddddllllllhhhhhhhlllllltttttttttttt
+029   ttttttttttggHHHHgggggggggggggddddllllllhbbbbbhlllllltttttttttttt
+030   ttttttttttggHHHHgddddddddddddddddllllllhbbbbbhlllllltttttttttttt
+031   ttttttttttggHHHHgddddddddddddddddllllllhbbbbbhlllllltttttttttttt
+032   ttttttttttggHDHHHddddddddddddddddllllllllllllllllllltttttttttttt
+033   ttttttttttgdddddddddkkkkkkkkgddddgkkkkkkkkkkkkkkkkkktttttttttttt
+034   ttttttttttgdddddddddttttttttxddddgtttttttttttttttttttttttttttttt
+035   ttttttttttkkddddddddttttttttxddddgtttttttttttttttttttttttttttttt
+036   tttttttttttthhhhhhhhfgggggggiddddixxxxxixxxxxixxxxxixxxxxgHHHHHH
+037   tttttttttttt~~~~~~~hggafggggxddddddddddddddddddddddddddddgHHHHHH
+038   tttttttttttt~~~~~~~hgfggggggxddddddddddddddddddddddddddddwHHHHHH
+039   tttttttttttt~~~~~~~hfgfgfgggxddddddddddddddddddddddddddddwHHHHHH
+040   xxxxxixxxxxxxxxxxxxhxxxxsxxcxddddddddddddddddddddddddddddgHHHHHH
+041   gddddddddddddddddddddddddddddddddxxxxxxxxxxxxxxxxgggggkkkkHHHHHH
+042   gddddddddddddddddddddddddddddddddxuuuuu~~~~~~~~~xgggggtttttttttt
+043   gddddddddddddddddddddddddddddddddxuuuuu~~~~~~~~~xgdddgtttttttttt
+044   gddddddddddddddddddddddddddddddddxuuuuu~~~~~~~~~xgdddgtttttttttt
+045   kkkkggRRRRRRRRRRRRRRRRRRRRRRRRgggxuuuuu~~~~~~~~~xgdddgtttttttttt
+046   ttttggRRRRRRRRRRRRRRRRRRRRRRRRgggxuuuuu~~~~~~gggxgdddgtttttttttt
+047   ttttggRRRRRRRRRRRRRRRRRRRRRRRRgggxuuHHHHHHHHHgggggdddgtttttttttt
+048   ttttggRRRRRRRRRRRRRRRRRRRRRRRRgggxuuHHHHHHHHHgggggdddgtttttttttt
+049   ttttggRRRRRRRRRRRRRRRRRRRRRRRRgggxxxHHHHHHHHHHxxxgdddgtttttttttt
+050   ttttggRRRRRRRRRRRRRRRRRRRRRRRRggggggHHHHHHHHHgfgfgdddgtttttttttt
+051   ttttggRRHHHHHHHHHHHHHHHHRRRRRRggggggsHDHHHHHHfgfggdddgtttttttttt
+052   ttttggQgHHHHHHHHHHHHHHHHHHHHgEggggggggggggggggggggdddgtttttttttt
+053   ttttggQgHHHHHHHHHHHHHHHHHHHHgEgggggddddddddddddddddddgtttttttttt
+054   ttttggQgHHHHHHHHHHHHHHHHHHHHgEgggggddddddddddddddddddgtttttttttt
+055   ttttggQdHHHDHHHHDHHHHHHHHDHHgEgggggddddddddddddddddddgtttttttttt
+056   ttttggQdddddddddddddddddddddgEgggxxxxgggxxxxxxxxxgggggtttttttttt
+057   ttttggQddsddddddddddddddddddgEggggggggggggggggggggggggtttttttttt
+058   ttttggQdddddddddddddddddddddgEggggggggggggggggggggggggtttttttttt
+059   ttttggJLLgdddkkkkddddddgLLLLLJkkkkkkkkkkkkkkkkkkkkkkkktttttttttt
+060   ttttgggggggggttttddddddgggggggtttttttttttttttttttttttttttttttttt
+061   ttttiggggggggttttggwwggggggggitttttttttttttttttttttttttttttttttt
+062   RRRRRRRRRRRRRRRRRHHHHHHooooRRRRRtttttttttttttttttttttttttttttttt
+063   RRRRRRRRRRRRRRRRRHHHHHHooooRRRRRtttttttttttttttttttttttttttttttt
