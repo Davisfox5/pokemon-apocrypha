@@ -1,7 +1,7 @@
 # KantoFuchsiaCity plan (HGSS `MAP_FUCHSIA`)
 
-Gates: [MAP_CHECKLIST.md](../../../docs/MAP_CHECKLIST.md). Status: G0 and G1 done, G2 waiting on
-the owner. Nothing is drawn or built. The first build (FireRed's pieces on HGSS's plan, fork
+Gates: [MAP_CHECKLIST.md](../../../docs/MAP_CHECKLIST.md). Status: G2 approved 2026-11-23, built, G4 pass,
+G5 done, in owner review (G6). The first build (FireRed's pieces on HGSS's plan, fork
 PR #62 / hub PR #59) was turned down and deleted on 2026-11-23.
 
 Method: MAP_CHECKLIST gates, GBA_MAP_RECONSTRUCTION steps 1 and 2, and the Kanto town rules on
@@ -68,7 +68,24 @@ Olivine way", "Planning a new town: the change plot"), Celadon as the worked exa
 
 ## G2 Sourcing plan
 
-Approved by owner: pending
+Approved by owner: 2026-11-23, with three answers:
+
+1. Plain HGSS Fuchsia in a Gen 3 style. The story changes below (Safari Zone entrance, Gardenia's Gym crest,
+   Warden sign) wait for a later pass; the Gym keeps HGSS's crest.
+2. The Mart is the one Saffron uses: FireRed's Mart (`general_frlg` 0x028-0x02B, 0x030-0x033, 0x038-0x03B,
+   0x040, 0x041, 0x062, 0x063).
+3. The engine base is the builder's call: built on `apocrypha`, on a tileset pair of its own.
+
+Sources as built, where they differ from the table (each still one source per line):
+
+- Pen lawn: FRLG, `general_frlg` 0x0BD-0x0CF (FireRed's own pale lawn and its edge pieces), in place of HGSS's
+  `grass02`, so it sits on FireRed's grass without a colour break.
+- Pens, ponds, rock, ledges, fences: Converted HGSS, taken from the decoded map at 1:1 by material and repeated
+  from one period each (`compose.remap`), so each costs the same tiles wherever it runs. The east post of a pen
+  is its west post mirrored.
+- Road: `sek_fe03`, the west half of the texture (32 px period across, 64 down).
+- Hall, Gym, Route 15 gatehouse and the pink house are drawn as their west half mirrored (symmetric models).
+- Mart: FRLG (answer 2).
 
 ### Story brief (change plot step 1)
 
@@ -160,11 +177,35 @@ hidden Nugget, the cut tree and Apricorn objects' scripts.
 3. Engine base: build on Celadon's stack (engine `claude/celadon-city`, which has
    `gMapGroup_Kanto` and the streamed view; recommended), or on `apocrypha` alone.
 
+## G4 Gate
+
+`evidence/gate/KantoFuchsiaCity.gate.json`: build, glitch, budget, seams, warps, walk, porymap all pass.
+Budget: 1,000 of 1,024 tiles, 497 metatiles, 13 palettes; 92.8% of pixels keep their exact 5-bit colour
+(`evidence/pack.json`); the C06 Center is exact. Walk: 117 cells in `adapt_walk`, each kind explained in the
+gate file's notes.
+
 ## G5 Self-review
 
-Not started.
+Checked and fixed (cells):
+
+- Whole map beside HGSS: `evidence/compare.png`.
+- Pens (12-49, 21-32): HGSS's Mart roof leaked into pen 1's picket row; picket feet now come from pen 2.
+  The short pen (39-45, 28-31) had a stray hedge top at (45-46, 32); fixed.
+- Yard pond (39-47, 42-46): house roofs leaked into the south bank; ground pixels now come from the flat decode.
+- Terrace (6-29, 45-52): lawn showed between the rock and the south row's roofs; rock top now runs behind them.
+- East hill (27-31, 62-63): HGSS draws a strip of Route 19's gate there; replaced by the west hill's rock.
+- Trees: the 2x2 roots alone left lawn columns in the forest; staggered rows added between them.
+- Ponds were solid; they are Surf water again, row 46 of the yard pond solid as in HGSS.
+- In game (`evidence/gameplay-sheet.png`, `evidence/gameplay/results.json`): 32 frames equal the native decode,
+  a 107-step walk hall to west exit to Route 15 gate, every door, both gate mouths, a pen and the pond fence
+  refuse the player.
+- Porymap 6.3.1 export equals the native render (`evidence/porymap.png`).
+
+Known and left for the owner: the light glows (model 333) read as pink lamps; signs have no text yet; the
+cut tree and Apricorn tree are not placed (objects, out of this pass).
 
 ## G6 Owner review log
 
 - 2026-11-23 round 0: first build (FireRed's pieces) turned down and deleted.
 - 2026-11-23: first change plot turned down for skipped steps. This file is the full pass.
+- 2026-11-23: plan approved (answers above). Built and sent for review.
