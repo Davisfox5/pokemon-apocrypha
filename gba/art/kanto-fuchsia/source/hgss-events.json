@@ -1,0 +1,283 @@
+{
+  "source": {
+    "repository": "pret/pokeheartgold",
+    "revision": "9d8b7591f09b65804da2fb2dfd56f320633e0d36",
+    "files": [
+      "files/fielddata/eventdata/zone_event/053_T08.json",
+      "files/fielddata/mapmatrix/map_matrix/map_matrix_0000_EVERYWHERE.bin",
+      "files/fielddata/script/scr_seq/scr_seq_0807_T08.s",
+      "files/msgdata/msg/msg_0512_T08.gmm"
+    ]
+  },
+  "matrix": {
+    "chunks": [
+      {
+        "x": 37,
+        "z": 12,
+        "land_data": 182
+      },
+      {
+        "x": 38,
+        "z": 12,
+        "land_data": 183
+      },
+      {
+        "x": 37,
+        "z": 13,
+        "land_data": 184
+      },
+      {
+        "x": 38,
+        "z": 13,
+        "land_data": 185
+      }
+    ],
+    "origin": [
+      1184,
+      384
+    ],
+    "size": [
+      64,
+      64
+    ],
+    "neighbours": {
+      "west": [
+        "MAP_ROUTE_18"
+      ],
+      "east": [
+        "MAP_ROUTE_15"
+      ],
+      "north": [],
+      "south": [
+        "MAP_ROUTE_19"
+      ]
+    }
+  },
+  "warps": [
+    {
+      "index": 0,
+      "cell": [
+        57,
+        38
+      ],
+      "dest": "MAP_ROUTE_15_FUCHSIA_GATEHOUSE",
+      "anchor": 0
+    },
+    {
+      "index": 1,
+      "cell": [
+        57,
+        39
+      ],
+      "dest": "MAP_ROUTE_15_FUCHSIA_GATEHOUSE",
+      "anchor": 0
+    },
+    {
+      "index": 2,
+      "cell": [
+        19,
+        61
+      ],
+      "dest": "MAP_ROUTE_19_FUCHSIA_GATEHOUSE",
+      "anchor": 0
+    },
+    {
+      "index": 3,
+      "cell": [
+        20,
+        61
+      ],
+      "dest": "MAP_ROUTE_19_FUCHSIA_GATEHOUSE",
+      "anchor": 0
+    },
+    {
+      "index": 4,
+      "cell": [
+        13,
+        32
+      ],
+      "dest": "MAP_FUCHSIA_POKEMART",
+      "anchor": 0
+    },
+    {
+      "index": 5,
+      "cell": [
+        30,
+        19
+      ],
+      "dest": "MAP_FUCHSIA_PAL_PARK_ENTRANCE",
+      "anchor": 0
+    },
+    {
+      "index": 6,
+      "cell": [
+        31,
+        19
+      ],
+      "dest": "MAP_FUCHSIA_PAL_PARK_ENTRANCE",
+      "anchor": 0
+    },
+    {
+      "index": 7,
+      "cell": [
+        11,
+        55
+      ],
+      "dest": "MAP_FUCHSIA_GYM",
+      "anchor": 0
+    },
+    {
+      "index": 8,
+      "cell": [
+        16,
+        55
+      ],
+      "dest": "MAP_FUCHSIA_SOUTHWEST_HOUSE",
+      "anchor": 0
+    },
+    {
+      "index": 9,
+      "cell": [
+        25,
+        55
+      ],
+      "dest": "MAP_FUCHSIA_POKECENTER_1F",
+      "anchor": 0
+    },
+    {
+      "index": 10,
+      "cell": [
+        38,
+        51
+      ],
+      "dest": "MAP_FUCHSIA_SAFARI_ZONE_WARDEN_HOUSE",
+      "anchor": 0
+    }
+  ],
+  "signs": [
+    {
+      "cell": [
+        29,
+        21
+      ],
+      "script": "_EV_scr_seq_T08_004 + 1",
+      "bg_type": 1,
+      "text": "There’s a notice here... The Safari Zone is closed. Instead, we have Pal Park."
+    },
+    {
+      "cell": [
+        36,
+        51
+      ],
+      "script": "_EV_scr_seq_T08_005 + 1",
+      "bg_type": 1,
+      "text": "Home of the Pal Park Warden"
+    },
+    {
+      "cell": [
+        9,
+        57
+      ],
+      "script": "_EV_scr_seq_T08_003 + 1",
+      "bg_type": 1,
+      "text": "Fuchsia City Pokémon Gym Leader: Janine The Poisonous Ninja Master"
+    },
+    {
+      "cell": [
+        24,
+        40
+      ],
+      "script": "_EV_scr_seq_T08_009 + 1",
+      "bg_type": 1,
+      "text": "Fuchsia City Happening and Passing City"
+    },
+    {
+      "cell": [
+        48,
+        29
+      ],
+      "script": "std_hiddenitem_t08_nugget",
+      "bg_type": 2,
+      "text": ""
+    }
+  ],
+  "objects": [
+    {
+      "id": "obj_T08_gsmiddleman1",
+      "sprite": "SPRITE_GSMIDDLEMAN1",
+      "cell": [
+        14,
+        57
+      ],
+      "facing": 1,
+      "movement": 3,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_T08_gswoman1",
+      "sprite": "SPRITE_GSWOMAN1",
+      "cell": [
+        29,
+        42
+      ],
+      "facing": 1,
+      "movement": 3,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_T08_gsboy2",
+      "sprite": "SPRITE_GSBOY2",
+      "cell": [
+        28,
+        29
+      ],
+      "facing": 1,
+      "movement": 3,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_T08_tree",
+      "sprite": "SPRITE_TREE",
+      "cell": [
+        27,
+        40
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_MAPTEMP_010"
+    },
+    {
+      "id": "obj_T08_bonguri",
+      "sprite": "SPRITE_BONGURI",
+      "cell": [
+        22,
+        37
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_T08_gsmiddleman1_2",
+      "sprite": "SPRITE_GSMIDDLEMAN1",
+      "cell": [
+        17,
+        61
+      ],
+      "facing": 0,
+      "movement": 14,
+      "flag": "FLAG_HIDE_CAMERON"
+    },
+    {
+      "id": "obj_T08_juggrer",
+      "sprite": "SPRITE_JUGGRER",
+      "cell": [
+        36,
+        27
+      ],
+      "facing": 1,
+      "movement": 0,
+      "flag": "FLAG_NOTHING"
+    }
+  ]
+}

@@ -1,0 +1,532 @@
+{
+ "note": "HGSS's building placements (model id, kind, footprint in cells) and zone events.",
+ "models": [
+  {
+   "model": 295,
+   "kind": "pal_park_hall",
+   "footprint": [
+    28.0,
+    11.92,
+    34.38,
+    20.12
+   ]
+  },
+  {
+   "model": 39,
+   "kind": "mart",
+   "footprint": [
+    11.88,
+    29.69,
+    17.0,
+    32.88
+   ]
+  },
+  {
+   "model": 15,
+   "kind": "sliding door (Mart, Center)",
+   "footprint": [
+    12.82,
+    32.26,
+    14.07,
+    32.26
+   ]
+  },
+  {
+   "model": 31,
+   "kind": "notice board",
+   "footprint": [
+    28.94,
+    21.06,
+    30.12,
+    21.81
+   ]
+  },
+  {
+   "model": 333,
+   "kind": "street lamp",
+   "footprint": [
+    9.5,
+    20.12,
+    11.5,
+    21.5
+   ]
+  },
+  {
+   "model": 333,
+   "kind": "street lamp",
+   "footprint": [
+    26.5,
+    27.12,
+    28.5,
+    28.5
+   ]
+  },
+  {
+   "model": 333,
+   "kind": "street lamp",
+   "footprint": [
+    33.5,
+    27.12,
+    35.5,
+    28.5
+   ]
+  },
+  {
+   "model": 333,
+   "kind": "street lamp",
+   "footprint": [
+    50.5,
+    20.12,
+    52.5,
+    21.5
+   ]
+  },
+  {
+   "model": 300,
+   "kind": "gym",
+   "footprint": [
+    8.02,
+    51.41,
+    15.37,
+    56.15
+   ]
+  },
+  {
+   "model": 16,
+   "kind": "Gym door",
+   "footprint": [
+    10.82,
+    55.4,
+    12.18,
+    55.65
+   ]
+  },
+  {
+   "model": 40,
+   "kind": "pokemon_center",
+   "footprint": [
+    22.88,
+    52.0,
+    28.5,
+    56.31
+   ]
+  },
+  {
+   "model": 15,
+   "kind": "sliding door (Mart, Center)",
+   "footprint": [
+    24.88,
+    55.61,
+    26.12,
+    55.61
+   ]
+  },
+  {
+   "model": 33,
+   "kind": "Gym sign",
+   "footprint": [
+    8.94,
+    57.25,
+    10.06,
+    57.81
+   ]
+  },
+  {
+   "model": 297,
+   "kind": "house_red",
+   "footprint": [
+    14.75,
+    51.38,
+    19.5,
+    56.12
+   ]
+  },
+  {
+   "model": 307,
+   "kind": "house door",
+   "footprint": [
+    15.88,
+    54.99,
+    17.13,
+    55.12
+   ]
+  },
+  {
+   "model": 298,
+   "kind": "house_pink",
+   "footprint": [
+    18.75,
+    51.38,
+    23.5,
+    56.12
+   ]
+  },
+  {
+   "model": 333,
+   "kind": "street lamp",
+   "footprint": [
+    28.5,
+    61.12,
+    30.5,
+    62.5
+   ]
+  },
+  {
+   "model": 333,
+   "kind": "street lamp",
+   "footprint": [
+    3.5,
+    61.12,
+    5.5,
+    62.5
+   ]
+  },
+  {
+   "model": 333,
+   "kind": "street lamp",
+   "footprint": [
+    4.5,
+    40.12,
+    6.5,
+    41.5
+   ]
+  },
+  {
+   "model": 333,
+   "kind": "street lamp",
+   "footprint": [
+    27.5,
+    36.12,
+    29.5,
+    37.5
+   ]
+  },
+  {
+   "model": 29,
+   "kind": "city sign",
+   "footprint": [
+    24.03,
+    40.5,
+    25.03,
+    41.01
+   ]
+  },
+  {
+   "model": 247,
+   "kind": "route15_gatehouse",
+   "footprint": [
+    57.25,
+    36.25,
+    64.75,
+    42.25
+   ]
+  },
+  {
+   "model": 30,
+   "kind": "house sign",
+   "footprint": [
+    36.0,
+    51.22,
+    37.0,
+    52.03
+   ]
+  },
+  {
+   "model": 299,
+   "kind": "warden_house",
+   "footprint": [
+    36.75,
+    47.38,
+    41.5,
+    52.25
+   ]
+  },
+  {
+   "model": 306,
+   "kind": "Warden's door",
+   "footprint": [
+    37.75,
+    51.0,
+    39.25,
+    51.13
+   ]
+  },
+  {
+   "model": 298,
+   "kind": "house_pink",
+   "footprint": [
+    40.75,
+    47.38,
+    45.5,
+    52.12
+   ]
+  },
+  {
+   "model": 333,
+   "kind": "street lamp",
+   "footprint": [
+    32.5,
+    36.12,
+    34.5,
+    37.5
+   ]
+  },
+  {
+   "model": 333,
+   "kind": "street lamp",
+   "footprint": [
+    38.5,
+    36.12,
+    40.5,
+    37.5
+   ]
+  },
+  {
+   "model": 333,
+   "kind": "street lamp",
+   "footprint": [
+    44.5,
+    36.12,
+    46.5,
+    37.5
+   ]
+  },
+  {
+   "model": 333,
+   "kind": "street lamp",
+   "footprint": [
+    50.5,
+    36.12,
+    52.5,
+    37.5
+   ]
+  }
+ ],
+ "warps": [
+  {
+   "index": 0,
+   "cell": [
+    57,
+    38
+   ],
+   "dest": "MAP_ROUTE_15_FUCHSIA_GATEHOUSE",
+   "anchor": 0
+  },
+  {
+   "index": 1,
+   "cell": [
+    57,
+    39
+   ],
+   "dest": "MAP_ROUTE_15_FUCHSIA_GATEHOUSE",
+   "anchor": 0
+  },
+  {
+   "index": 2,
+   "cell": [
+    19,
+    61
+   ],
+   "dest": "MAP_ROUTE_19_FUCHSIA_GATEHOUSE",
+   "anchor": 0
+  },
+  {
+   "index": 3,
+   "cell": [
+    20,
+    61
+   ],
+   "dest": "MAP_ROUTE_19_FUCHSIA_GATEHOUSE",
+   "anchor": 0
+  },
+  {
+   "index": 4,
+   "cell": [
+    13,
+    32
+   ],
+   "dest": "MAP_FUCHSIA_POKEMART",
+   "anchor": 0
+  },
+  {
+   "index": 5,
+   "cell": [
+    30,
+    19
+   ],
+   "dest": "MAP_FUCHSIA_PAL_PARK_ENTRANCE",
+   "anchor": 0
+  },
+  {
+   "index": 6,
+   "cell": [
+    31,
+    19
+   ],
+   "dest": "MAP_FUCHSIA_PAL_PARK_ENTRANCE",
+   "anchor": 0
+  },
+  {
+   "index": 7,
+   "cell": [
+    11,
+    55
+   ],
+   "dest": "MAP_FUCHSIA_GYM",
+   "anchor": 0
+  },
+  {
+   "index": 8,
+   "cell": [
+    16,
+    55
+   ],
+   "dest": "MAP_FUCHSIA_SOUTHWEST_HOUSE",
+   "anchor": 0
+  },
+  {
+   "index": 9,
+   "cell": [
+    25,
+    55
+   ],
+   "dest": "MAP_FUCHSIA_POKECENTER_1F",
+   "anchor": 0
+  },
+  {
+   "index": 10,
+   "cell": [
+    38,
+    51
+   ],
+   "dest": "MAP_FUCHSIA_SAFARI_ZONE_WARDEN_HOUSE",
+   "anchor": 0
+  }
+ ],
+ "signs": [
+  {
+   "cell": [
+    29,
+    21
+   ],
+   "script": "_EV_scr_seq_T08_004 + 1",
+   "bg_type": 1,
+   "text": "There\u2019s a notice here... The Safari Zone is closed. Instead, we have Pal Park."
+  },
+  {
+   "cell": [
+    36,
+    51
+   ],
+   "script": "_EV_scr_seq_T08_005 + 1",
+   "bg_type": 1,
+   "text": "Home of the Pal Park Warden"
+  },
+  {
+   "cell": [
+    9,
+    57
+   ],
+   "script": "_EV_scr_seq_T08_003 + 1",
+   "bg_type": 1,
+   "text": "Fuchsia City Pok\u00e9mon Gym Leader: Janine The Poisonous Ninja Master"
+  },
+  {
+   "cell": [
+    24,
+    40
+   ],
+   "script": "_EV_scr_seq_T08_009 + 1",
+   "bg_type": 1,
+   "text": "Fuchsia City Happening and Passing City"
+  },
+  {
+   "cell": [
+    48,
+    29
+   ],
+   "script": "std_hiddenitem_t08_nugget",
+   "bg_type": 2,
+   "text": ""
+  }
+ ],
+ "objects": [
+  {
+   "id": "obj_T08_gsmiddleman1",
+   "sprite": "SPRITE_GSMIDDLEMAN1",
+   "cell": [
+    14,
+    57
+   ],
+   "facing": 1,
+   "movement": 3,
+   "flag": "FLAG_NOTHING"
+  },
+  {
+   "id": "obj_T08_gswoman1",
+   "sprite": "SPRITE_GSWOMAN1",
+   "cell": [
+    29,
+    42
+   ],
+   "facing": 1,
+   "movement": 3,
+   "flag": "FLAG_NOTHING"
+  },
+  {
+   "id": "obj_T08_gsboy2",
+   "sprite": "SPRITE_GSBOY2",
+   "cell": [
+    28,
+    29
+   ],
+   "facing": 1,
+   "movement": 3,
+   "flag": "FLAG_NOTHING"
+  },
+  {
+   "id": "obj_T08_tree",
+   "sprite": "SPRITE_TREE",
+   "cell": [
+    27,
+    40
+   ],
+   "facing": 0,
+   "movement": 0,
+   "flag": "FLAG_MAPTEMP_010"
+  },
+  {
+   "id": "obj_T08_bonguri",
+   "sprite": "SPRITE_BONGURI",
+   "cell": [
+    22,
+    37
+   ],
+   "facing": 0,
+   "movement": 0,
+   "flag": "FLAG_NOTHING"
+  },
+  {
+   "id": "obj_T08_gsmiddleman1_2",
+   "sprite": "SPRITE_GSMIDDLEMAN1",
+   "cell": [
+    17,
+    61
+   ],
+   "facing": 0,
+   "movement": 14,
+   "flag": "FLAG_HIDE_CAMERON"
+  },
+  {
+   "id": "obj_T08_juggrer",
+   "sprite": "SPRITE_JUGGRER",
+   "cell": [
+    36,
+    27
+   ],
+   "facing": 1,
+   "movement": 0,
+   "flag": "FLAG_NOTHING"
+  }
+ ]
+}
