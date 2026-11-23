@@ -16,10 +16,11 @@
 static const char *out;
 static unsigned SB3_GROTTOES, SB3_STEPS, MON_SIZE, MD_ABILITY_NUM, MD_SPECIES, MD_LEVEL, MD_IS_SHINY;
 static unsigned GROTTO_GROUP, GROTTO_NUM, PROOF_GROUP, PROOF_NUM, PROOF_INDEX, ITEM_PEARL, BLOSSOM_NUM, WINDING_NUM;
-// Test woods: entrance gaps at x = 4, 15, 26 (warp on row 9, open field from row 12). Interiors: arrival
-// (15,18), exit below it; the round hollow's content stands at (15,12).
-#define ENT_Y 9
-#define FIELD_Y 12
+// Test woods: each entrance is the two trunk-row cells where two trees meet, at x = 5/6, 15/16, 25/26
+// on row 11; the field starts at row 12. Interiors: arrival (15,18), exit below it; the round
+// hollow's content stands at (15,12).
+#define ENT_Y 11
+#define FIELD_Y 13
 #define ARRIVE_X 15
 #define ARRIVE_Y 18
 #define CONTENT_STEPS 5
@@ -51,26 +52,26 @@ static unsigned slot_count(void) { return c->busRead8(c, sym("gHiddenGrottoes") 
 static unsigned state_of(unsigned id) { return c->busRead8(c, sb3() + SB3_GROTTOES + id); }
 static void at(unsigned g, unsigned m, unsigned x, unsigned y, const char *tag) { observe(tag); need(state[1] == g && state[2] == m && state[3] == x && state[4] == y, tag); }
 
-// From the field below an entrance gap, walk up through the gap into the hollow.
-static void enter_at(unsigned ex, unsigned num, const char *tag, const char *gapshot)
+// From the field, walk north into the entrance between two trees.
+static void enter_at(unsigned ex, unsigned num, const char *tag, const char *belowshot)
 {
     call("MapProof_Enter", PROOF_INDEX | (ex << 8) | ((unsigned)FIELD_Y << 16)); frames(300, 0); wait_field(60);
     at(PROOF_GROUP, PROOF_NUM, ex, FIELD_Y, "entrance-square");
-    step(UP); step(UP);
-    at(PROOF_GROUP, PROOF_NUM, ex, ENT_Y + 1, "in-the-gap");
-    if (gapshot) shot(gapshot);
+    step(UP);
+    at(PROOF_GROUP, PROOF_NUM, ex, ENT_Y + 1, "below-entrance");
+    if (belowshot) shot(belowshot);
     step(UP); frames(200, 0); wait_field(60);
     at(GROTTO_GROUP, num, ARRIVE_X, ARRIVE_Y, tag);
 }
-static void enter(const char *tag) { enter_at(4, GROTTO_NUM, tag, NULL); }
+static void enter(const char *tag) { enter_at(5, GROTTO_NUM, tag, NULL); }
 // Walk up to stand below the content, facing it.
 static void approach(void) { for (int i = 0; i < CONTENT_STEPS; i++) step(UP); at(GROTTO_GROUP, GROTTO_NUM, ARRIVE_X, ARRIVE_Y - CONTENT_STEPS, "below-content"); }
 static void leave_to(unsigned ex, const char *tag)
 {
     step(DOWN); frames(260, 0); wait_field(60);
-    observe(tag); need(state[1] == PROOF_GROUP && state[2] == PROOF_NUM && state[3] == ex && state[4] == ENT_Y + 1, tag);   // the door exit steps the player out into the gap
+    observe(tag); need(state[1] == PROOF_GROUP && state[2] == PROOF_NUM && state[3] == ex && state[4] == ENT_Y + 1, tag);   // the door exit steps the player back out onto the field
 }
-static void leave(const char *tag) { leave_to(4, tag); }
+static void leave(const char *tag) { leave_to(5, tag); }
 
 int main(int argc, char **argv)
 {
@@ -120,7 +121,7 @@ int main(int argc, char **argv)
     // A new save: the grotto is unvisited (counts as full) until the first entry rolls it.
     need(grotto_state() == 0, "unvisited-at-start");
     call("MapProof_Enter", PROOF_INDEX | (15u << 8) | (14u << 16)); frames(300, 0); wait_field(60); shot("entrance-outside");
-    enter_at(4, GROTTO_NUM, "first-entry", "entrance-in-gap");
+    enter_at(5, GROTTO_NUM, "first-entry", "entrance-below");
     unsigned first = grotto_state(); printf("{\"first_roll\":%u}\n", first);
     need(first >= 1 && first <= slot_count(), "first-visit-rolls");
     frames(30, 0); shot("first-visit");
@@ -178,17 +179,17 @@ int main(int argc, char **argv)
     }
 
     // The other two interiors: each entrance leads to its own interior, rolls its own grotto, and
-    // the exit returns to that entrance.
+    // the exit returns to that entrance. The blossom one is entered by its right-hand cell.
     need(state_of(1) == 0 && state_of(2) == 0, "others-unvisited");
-    enter_at(15, BLOSSOM_NUM, "blossom-entry", NULL); frames(30, 0); shot("blossom-interior");
+    enter_at(16, BLOSSOM_NUM, "blossom-entry", NULL); frames(30, 0); shot("blossom-interior");
     need(state_of(1) == 1 && state_of(0) != 0, "blossom-rolled-its-own-grotto");
-    leave_to(15, "blossom-exit");
-    enter_at(26, WINDING_NUM, "winding-entry", NULL); frames(30, 0); shot("winding-interior");
+    leave_to(16, "blossom-exit");
+    enter_at(25, WINDING_NUM, "winding-entry", NULL); frames(30, 0); shot("winding-interior");
     need(state_of(2) == 1, "winding-rolled-its-own-grotto");
     for (int i = 0; i < 3; i++) step(UP);
     frames(20, 0); shot("winding-path");
     for (int i = 0; i < 3; i++) step(DOWN);
-    leave_to(26, "winding-exit");
+    leave_to(25, "winding-exit");
     printf("{\"blossom_state\":%u,\"winding_state\":%u}\n", state_of(1), state_of(2));
 
     // Refill rate: 4000 wraps of the 256-step counter with the grotto empty.

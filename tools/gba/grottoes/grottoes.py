@@ -142,6 +142,8 @@ def validate(spec, eng, check_entrances=True):
         indexes.add(i)
         if g.get('map') not in maps:
             errors.append(f'{tag}: unknown map {g.get("map")}')
+        if not isinstance(g.get('width', 1), int) or not 1 <= g.get('width', 1) <= 4:
+            errors.append(f'{tag}: width must be 1..4 entrance tiles')
         if g.get('interior') not in INTERIORS:
             errors.append(f'{tag}: interior must be one of {", ".join(sorted(INTERIORS))}')
         slots = g.get('slots', [])
@@ -175,20 +177,25 @@ def validate(spec, eng, check_entrances=True):
     return errors
 
 
+def entrance_tiles(g):
+    return [(g['x'] + k, g['y']) for k in range(g.get('width', 1))]
+
+
 def check_entrance(g, eng):
     errors, tag = [], g['id']
     path = eng.maps()[g['map']]
     warps = json.loads(path.read_text()).get('warp_events') or []
-    hit = [w for w in warps if w['x'] == g['x'] and w['y'] == g['y']]
-    if not hit:
-        errors.append(f'{tag}: no warp on {g["map"]} at ({g["x"]},{g["y"]}); run "place"')
-    elif hit[0]['dest_map'] != g.get('interior') or str(hit[0]['dest_warp_id']) != '0':
-        errors.append(f'{tag}: the warp at ({g["x"]},{g["y"]}) must go to {g.get("interior")} warp 0')
-    b = eng.behavior_at(path, g['x'], g['y'])
-    if b is None:
-        errors.append(f'{tag}: could not read the entrance metatile behavior')
-    elif b not in ENTRANCE_BEHAVIORS:
-        errors.append(f'{tag}: entrance tile behavior is {b}; it must warp when stepped on ({", ".join(sorted(ENTRANCE_BEHAVIORS))})')
+    for x, y in entrance_tiles(g):
+        hit = [w for w in warps if w['x'] == x and w['y'] == y]
+        if not hit:
+            errors.append(f'{tag}: no warp on {g["map"]} at ({x},{y}); run "place"')
+        elif hit[0]['dest_map'] != g.get('interior') or str(hit[0]['dest_warp_id']) != '0':
+            errors.append(f'{tag}: the warp at ({x},{y}) must go to {g.get("interior")} warp 0')
+        b = eng.behavior_at(path, x, y)
+        if b is None:
+            errors.append(f'{tag}: could not read the entrance metatile behavior at ({x},{y})')
+        elif b not in ENTRANCE_BEHAVIORS:
+            errors.append(f'{tag}: entrance tile ({x},{y}) behavior is {b}; it must warp when stepped on ({", ".join(sorted(ENTRANCE_BEHAVIORS))})')
     return errors
 
 
@@ -215,7 +222,8 @@ def render(spec):
     data += 'const struct HiddenGrotto gHiddenGrottoes[HIDDEN_GROTTO_COUNT + 1] =\n{\n'
     for g in gs:
         data += (f'    [{g["id"]}] =\n    {{\n        .map = {g["map"]},\n        .x = {g["x"]},\n        .y = {g["y"]},\n'
-                 f'        .slotCount = ARRAY_COUNT({g["_slots"]}),\n        .slots = {g["_slots"]},\n    }},\n')
+                 f'        .slotCount = ARRAY_COUNT({g["_slots"]}),\n        .width = {g.get("width", 1)},\n'
+                 f'        .slots = {g["_slots"]},\n    }},\n')
     data += '};\n'
     return consts, data
 
@@ -234,16 +242,18 @@ def main(argv):
         path = eng.maps()[g['map']]
         m = json.loads(path.read_text())
         warps = m.get('warp_events') or []
-        if any(w['x'] == g['x'] and w['y'] == g['y'] for w in warps):
-            print(f'{g["map"]} already has a warp at ({g["x"]},{g["y"]})')
-        else:
-            warps.append({'x': g['x'], 'y': g['y'], 'elevation': 0, 'dest_map': g['interior'], 'dest_warp_id': '0'})
-            m['warp_events'] = warps
-            path.write_text(json.dumps(m, indent=2, ensure_ascii=False) + '\n')
-            print(f'added the grotto warp to {path}')
-        b = eng.behavior_at(path, g['x'], g['y'])
-        if b not in ENTRANCE_BEHAVIORS:
-            print(f'note: the entrance tile is {b}; draw the big-tree entrance there (johto_art.py, E/G cells)')
+        for x, y in entrance_tiles(g):
+            if any(w['x'] == x and w['y'] == y for w in warps):
+                print(f'{g["map"]} already has a warp at ({x},{y})')
+            else:
+                warps.append({'x': x, 'y': y, 'elevation': 0, 'dest_map': g['interior'], 'dest_warp_id': '0'})
+                print(f'added a grotto warp at ({x},{y}) to {path}')
+        m['warp_events'] = warps
+        path.write_text(json.dumps(m, indent=2, ensure_ascii=False) + '\n')
+        for x, y in entrance_tiles(g):
+            b = eng.behavior_at(path, x, y)
+            if b not in ENTRANCE_BEHAVIORS:
+                print(f'note: tile ({x},{y}) is {b}; draw the entrance there (johto_art.py ENTRANCES)')
         return 0
     errors = validate(spec, eng, check_entrances=(argv[1] == 'check'))
     if errors:

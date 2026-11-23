@@ -8,9 +8,9 @@ the generator, the checker and the runtime test live here.
 
 ## How it plays
 
-- A grotto entrance is a one-cell gap between two big trees in a forest wall, as in Black 2/White 2.
-  The trees beside it lean in so their crowns overhang the gap, and the back of the gap is a dark
-  hollow. Walking up into the hollow leads to a clearing ringed by trees.
+- A grotto entrance sits where two big trees of a forest wall meet. There is no gap: the trees
+  stand as usual, and only the background showing between their sides is dark, deepest at the seam.
+  Walking north into either of the two trunk-row cells at the seam leads to a clearing in dense woods.
 - The clearing holds one thing: a Pokémon (shown as its overworld sprite) or an item ball.
 - Talking to the Pokémon starts a wild battle. It always has its Hidden Ability, is never shiny
   (as in B2W2), uses the slot's gender if one is set, and Synchronize and Cute Charm work as for
@@ -22,7 +22,7 @@ the generator, the checker and the runtime test live here.
 - A grotto the player has never entered counts as full. Its content is rolled on the first visit.
 - The clearing borrows the route's map section (name, region, met location), battle scene and
   music, so a Pokémon caught there is met on that route.
-- Walking back down the path leaves through the same gap.
+- Walking back down the path leaves through the same entrance.
 
 ## Engine pieces (fork)
 
@@ -56,15 +56,17 @@ Proposals modelled on B2W2's grottoes, drawn with Cherrygrove's tree (the Johto 
 All four are built by `tools/gba/grottoes/johto_art.py build ENGINE` from character grids in that
 file. It copies the green and pink trees pixel for pixel out of CherrygroveCity
 (`extract`, stamps in `gba/art/hidden-grottoes/`), uses CherrygrovePrimary's own grass and flower
-metatiles, fills forest cells on Cherrygrove's 2x3 tree lattice, and packs only the tiles that
-CherrygrovePrimary doesn't already have into the `hidden_grotto` secondary tileset (188 of 496
-tiles, 73 metatiles, 3 palettes). `check ENGINE` fails if the engine files differ from a rebuild.
+metatiles, fills forest cells densely (a row of trees every two cells, alternate rows shifted one
+cell, so each row's crowns hide the trunks behind), and packs only the tiles that
+CherrygrovePrimary doesn't already have into the `hidden_grotto` secondary tileset (122 of 496
+tiles, 60 metatiles, 2 palettes). `check ENGINE` fails if the engine files differ from a rebuild.
 Previews: `gba/evidence/hidden-grottoes/layout-*.png`.
 
-The entrance piece is the `L`/`E`/`G`/`R` group in the grids: the gap floor darkens toward the back
-(tree shadow, ordered dither), the back cell is the hollow (`MB_NON_ANIMATED_DOOR`), and the leaning
-crowns sit on the top layer over the gap so the player passes under them. To put one on a finished
-map, that map's builder copies the same pieces into the map's own secondary tileset.
+The entrance (`ENTRANCES` in the builder) changes only the background pixels between two trees'
+sides in the six cells at their seam: tree pixels stay as they are, grass and shadow there turn to
+the trees' own darkest browns, fading back to shadow toward the edges and the bottom. The two
+trunk-row cells are `MB_NON_ANIMATED_DOOR` and passable. To put one on a finished map, that map's
+builder applies the same change to its own tree cells.
 
 Save use: one byte per grotto ID plus a step counter, appended to the end of SaveBlock3, so
 existing saves load with every grotto unvisited. Grotto IDs index the save bytes, so an ID never
@@ -75,15 +77,15 @@ the 1624-byte limit.
 ## Adding a grotto (map threads)
 
 1. The map must be finished. Grottoes go on finished maps, never into an open map PR.
-2. On the map, draw the big-tree entrance (see above) in a forest wall. The hollow metatile's
-   behavior must warp when stepped on (`MB_NON_ANIMATED_DOOR`). The player walks up into it from
-   the south and steps back out into the gap on return.
+2. On the map, draw the entrance (see above) where two trees of a forest wall meet. Both
+   trunk-row cells at the seam warp when stepped on (`MB_NON_ANIMATED_DOOR`). The player walks up
+   into either from the south and steps back out on return.
 3. Add an entry to `gba/grottoes/grottoes.json`: the next unused `index` (never reuse one),
-   `id` (`GROTTO_<PLACE>`), `name`, `map`, entrance `x`/`y`, `interior` (one of the three maps
-   above), and its slots:
+   `id` (`GROTTO_<PLACE>`), `name`, `map`, entrance `x`/`y` (left cell) and `width` (2 for the
+   two seam cells), `interior` (one of the three maps above), and its slots:
    - Pokémon: `{"species": "SPECIES_X", "level": [min, max], "gender": "any|male|female", "weight": n}`
    - Item: `{"item": "ITEM_X", "weight": n}`
-4. `python3 tools/gba/grottoes/grottoes.py place ENGINE GROTTO_<PLACE>` adds the warp to the map.
+4. `python3 tools/gba/grottoes/grottoes.py place ENGINE GROTTO_<PLACE>` adds the warps to the map.
 5. `python3 tools/gba/grottoes/grottoes.py generate ENGINE` writes the two generated engine files.
 6. `python3 tools/gba/grottoes/grottoes.py check ENGINE` must pass. It rejects species without a
    Hidden Ability (resolved by preprocessing the engine's species data, so roster and ability
@@ -98,14 +100,14 @@ both are meant to be very rare.
 ## Test
 
 `python3 tools/gba/grottoes/runtime.py ENGINE OUT` (GBA toolchain on PATH, libmgba-dev) runs the
-ROM headless twice and writes `results.json` and frames. It walks through the gap into the test
+ROM headless twice and writes `results.json` and frames. It walks into the entrance of the test
 grotto (`GROTTO_TEST_WOODS_HOLLOW`, a `test_only` entrance in the test woods), checks the first
 visit rolls content, forces every slot in turn (each Pokémon: sprite, battle, species, level
 range, ability slot 2 equal to the species' Hidden Ability, not shiny, female when the slot says
 so, grotto empty after running; each item: ball, pickup, empty), revisits empty, measures the
 refill rate over 4000 simulated 256-step wraps, checks walking advances the counter, enters the
-blossom and winding grottoes from their own entrances (each rolls its own grotto and exits back to
-its own gap), saves, and cold-reloads the save. Evidence: `gba/evidence/hidden-grottoes/`.
+blossom (by its right-hand cell) and winding grottoes from their own entrances (each rolls its own
+grotto and exits back to its own entrance), saves, and cold-reloads the save. Evidence: `gba/evidence/hidden-grottoes/`.
 Porymap 6.3.1 renders all four maps identically to the builder's decode (`porymap-*.png`, 0
 differing pixels).
 

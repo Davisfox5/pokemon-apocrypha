@@ -7,9 +7,8 @@
       "name": "Test grotto: round hollow",
       "test_only": true,
       "map": "MAP_HIDDEN_GROTTO_TEST_WOODS",
-      "x": 4,
-      "y": 9,
-      "interior": "MAP_HIDDEN_GROTTO",
+      "x": 5,
+      "y": 11,
       "slots": [
         {
           "species": "SPECIES_EEVEE",
@@ -50,7 +49,9 @@
           "item": "ITEM_SHINY_STONE",
           "weight": 5
         }
-      ]
+      ],
+      "width": 2,
+      "interior": "MAP_HIDDEN_GROTTO"
     },
     {
       "index": 1,
@@ -59,8 +60,7 @@
       "test_only": true,
       "map": "MAP_HIDDEN_GROTTO_TEST_WOODS",
       "x": 15,
-      "y": 9,
-      "interior": "MAP_HIDDEN_GROTTO_BLOSSOM",
+      "y": 11,
       "slots": [
         {
           "species": "SPECIES_HOPPIP",
@@ -71,7 +71,9 @@
           "gender": "any",
           "weight": 1
         }
-      ]
+      ],
+      "width": 2,
+      "interior": "MAP_HIDDEN_GROTTO_BLOSSOM"
     },
     {
       "index": 2,
@@ -79,15 +81,16 @@
       "name": "Test grotto: winding path",
       "test_only": true,
       "map": "MAP_HIDDEN_GROTTO_TEST_WOODS",
-      "x": 26,
-      "y": 9,
-      "interior": "MAP_HIDDEN_GROTTO_WINDING",
+      "x": 25,
+      "y": 11,
       "slots": [
         {
           "item": "ITEM_PEARL",
           "weight": 1
         }
-      ]
+      ],
+      "width": 2,
+      "interior": "MAP_HIDDEN_GROTTO_WINDING"
     }
   ]
 }

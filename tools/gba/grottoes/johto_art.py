@@ -14,19 +14,19 @@ How the art is made (nothing is redrawn by hand except the hollow's shading):
   * Ground. Walkable ground is CherrygrovePrimary's own grass metatiles (0x033 plain, 0x034/0x027
     tufts). Flower beds are its 0x0C5 flowers.
   * Layouts. Each map is a character grid (LAYOUTS below). '#'/'%' cells are forest and get filled
-    with green/pink trees: lattice-aligned first (2 wide, 3 tall, like Cherrygrove's woods), then
-    any cell still bare gets an extra tree that fits inside the forest. The grid is padded with forest
-    so the camera never reaches the map edge.
+    with green/pink trees, densely: rows two cells apart, every other row shifted one cell, so each
+    row's crowns cover the trunks of the row behind and no grass shows through. Any cell still bare
+    gets an extra tree that fits inside the forest. The grid is padded with forest so the camera
+    never reaches the map edge.
   * Layers. Trees and flowers sit on the metatile's top layer over grass (COVERED, both under the
-    player), as in Cherrygrove. In walkable cells, tree pixels go above the player (NORMAL) so the
-    entrance's canopies close over the gap.
+    player), as in Cherrygrove. In walkable cells, any tree pixels go above the player (NORMAL).
   * Packing. Every 8x8 tile is matched against CherrygrovePrimary (any flip, any of its palettes)
     first; only new tiles go into the secondary tileset `hidden_grotto`, with new palettes in 6-12.
 
-Entrance (the TestWoods layout): a one-cell gap between two big trees in a forest wall, as in
-Black 2/White 2. The two trees beside the gap lean 3 px in so their crowns overhang it, the floor
-darkens toward the back, and the back cell is a dark hollow under the next row of trees. The player
-steps into the gap, then north onto the warp cell (MB_NON_ANIMATED_DOOR).
+Entrance (ENTRANCES, shown on the TestWoods layout): no gap. Two trees of a forest wall stand
+side by side as usual; only the background showing between their sides (grass and shadow) turns
+dark, deepest at the seam. The two trunk-row cells at the seam are the entrance (MB_NON_ANIMATED_DOOR,
+passable): the player walks north into either one.
 """
 from __future__ import annotations
 import hashlib, json, struct, sys
@@ -54,8 +54,7 @@ STAMPS = {'green': (48, 26), 'pink': (48, 0)}
 
 # Legend: '#' green forest, '%' pink forest, '.' grass, 'f' flower bed (walkable),
 # 'O' grotto content (grass), 'W' arrival warp (grass), 'X' exit trigger (grass, shaded),
-# 'E' entrance warp (hollow), 'G' entrance gap floor, 'L'/'R' the trees beside the gap,
-# 'A'/'B' other fixed trees (each a 2x3 block of one letter; alternate letters for neighbours).
+# 'A'/'B' fixed trees (each a 2x3 block of one letter; alternate letters for neighbours).
 LAYOUTS = {
     # B2W2's hollow: a round clearing ringed by trees, content in the middle, way out to the south.
     'HiddenGrotto': [
@@ -109,24 +108,26 @@ LAYOUTS = {
         "#######XX#######",
     ],
     # Test field with a grotto entrance in its forest wall (the entrance piece in context).
-    # Test field with three grotto entrances in its forest wall, one per interior.
+    # Test field: a forest wall with three grotto entrances (ENTRANCES), one per interior.
     'HiddenGrottoTestWoods': [
-        "###############################",
-        "###############################",
-        "###############################",
-        "AALLERRAABBAALLERRAABBAALLERRAA",
-        "AALLGRRAABBAALLGRRAABBAALLGRRAA",
-        "AALLGRRAABBAALLGRRAABBAALLGRRAA",
-        "...............................",
-        "...............................",
-        "...............................",
-        "...............................",
-        "...............................",
+        "##############################",
+        "##############################",
+        "##############################",
+        "AABBAABBAABBAABBAABBAABBAABBAA",
+        "AABBAABBAABBAABBAABBAABBAABBAA",
+        "AABBAABBAABBAABBAABBAABBAABBAA",
+        "..............................",
+        "..............................",
+        "..............................",
+        "..............................",
+        "..............................",
     ],
 }
 # Grass ground only (no pad of forest) on these sides of a layout.
 OPEN_SIDES = {'HiddenGrottoTestWoods': {'bottom', 'left', 'right'}}
-WALK = set('.fOWXEG')
+# Grotto entrances: the left of the two trunk-row cells where two trees of a wall meet (grid coords).
+ENTRANCES = {'HiddenGrottoTestWoods': [(5, 5), (15, 5), (25, 5)]}
+WALK = set('.fOWX')
 
 
 # --------------------------------------------------------------------------- engine art
@@ -210,33 +211,46 @@ def pad(name):
 def place_trees(grid, name=''):
     """Tree positions (x, y, kind) covering every forest cell, Cherrygrove's 2x3 lattice first."""
     h, w = len(grid), len(grid[0])
-    forest = lambda x, y: not (0 <= x < w and 0 <= y < h) or grid[y][x] in '#%'
-    fixed = lambda x, y: 0 <= x < w and 0 <= y < h and grid[y][x] in 'LRAB'
+    forest = lambda x, y: not (0 <= x < w and 0 <= y < h) or grid[y][x] in '#%AB'
+    fixed = lambda x, y: 0 <= x < w and 0 <= y < h and grid[y][x] in 'AB'
     def kind_at(x, y):
         cells = [grid[y + j][x + i] for j in range(3) for i in range(2) if 0 <= x + i < w and 0 <= y + j < h]
         return 'pink' if '%' in cells else 'green'
-    fits = lambda x, y: all(forest(x + i, y + j) and not fixed(x + i, y + j) for j in range(3) for i in range(2))
+    # A tree may stand behind a fixed tree (its lower rows hidden by it), never in front of one.
+    fits = lambda x, y: all(forest(x + i, y + j) and (j > 0 or not fixed(x + i, y + j)) for j in range(3) for i in range(2)) \
+        and not any(fixed(x + i, y + j) and not fixed(x + i, y + j - 1) and j == 0 for j in range(3) for i in range(2))
     trees, covered = [], set()
     def add(x, y):
         trees.append((x, y, kind_at(x, y)))
         covered.update((x + i, y + j) for j in range(3) for i in range(2))
-    # The two trees beside an entrance gap are fixed.
+    # Fixed trees (a wall drawn tree by tree).
     for y in range(h):
         for x in range(w):
-            if grid[y][x] in 'LRAB' and (y == 0 or grid[y - 1][x] != grid[y][x]) and (x == 0 or grid[y][x - 1] != grid[y][x]):
+            if grid[y][x] in 'AB' and (y == 0 or grid[y - 1][x] != grid[y][x]) and (x == 0 or grid[y][x - 1] != grid[y][x]):
                 trees.append((x, y, 'green_' + grid[y][x]))
                 covered.update((x + i, y + j) for j in range(3) for i in range(2))
-    # Pick the lattice phase that leaves the fewest bare forest cells.
+    # Dense woods: a row of trees every two cells, alternate rows shifted one cell. Pick the phase
+    # that leaves the fewest bare forest cells.
+    fixed_tops = {}
+    for (fx, fy, _) in list(trees):
+        for i in range(2):
+            fixed_tops[fx + i] = min(fixed_tops.get(fx + i, h), fy)
+    # Woods behind a fixed wall start two rows above it (their trunks hidden by its crowns).
+    behind = lambda x, y: all(y <= fixed_tops.get(x + i, h + 9) - 2 for i in range(2))
+    fixed_par = {(fy, fx % 2) for (fx, fy, _) in trees}
     def lattice(ox, oy):
         got, cov = [], set(covered)
-        for y in range(oy - 3, h, 3):
-            for x in range(ox - 2, w, 2):
-                if fits(x, y) and not any((x + i, y + j) in cov for j in range(3) for i in range(2)):
+        for y in range(oy - 4, h, 2):
+            for x in range(ox - 2 + ((y - oy) // 2) % 2, w, 2):
+                if fits(x, y) and behind(x, y):
                     got.append((x, y))
                     cov.update((x + i, y + j) for j in range(3) for i in range(2))
         bare = sum(1 for y in range(h) for x in range(w) if grid[y][x] in '#%' and (x, y) not in cov)
-        return bare, got
-    _, got = min((lattice(ox, oy) for oy in range(3) for ox in range(2)), key=lambda r: r[0])
+        # The row right behind a fixed wall sits half a tree over, as in the rest of the woods.
+        aligned = sum(1 for x, y in got if (y + 2, x % 2) in fixed_par)
+        staggered = sum(1 for x, y in got if (y + 2, 1 - x % 2) in fixed_par)
+        return bare, aligned - staggered, got
+    *_, got = min((lattice(ox, oy) for oy in range(2) for ox in range(2)), key=lambda r: r[:2])
     for x, y in got:
         add(x, y)
     for y in range(h):
@@ -245,7 +259,7 @@ def place_trees(grid, name=''):
                 best = None
                 for dy in (0, -1, -2):
                     for dx in (0, -1):
-                        if fits(x + dx, y + dy):
+                        if fits(x + dx, y + dy) and behind(x + dx, y + dy):
                             overlap = sum((x + dx + i, y + dy + j) in covered for j in range(3) for i in range(2))
                             if best is None or overlap < best[0]:
                                 best = (overlap, x + dx, y + dy)
@@ -271,21 +285,9 @@ def compose(name, eng, st):
     canopy = np.zeros_like(ground)       # tree pixels (above the player in walkable cells)
     under = np.zeros_like(ground)        # shadows, flowers, hollow: always under the player
     tree_mask = np.zeros(ground.shape[:2], bool)
-    # Fixed trees in an entrance row lean toward the nearest gap: 4 px for the two beside it, 2 px for
-    # the next ones, so the crowns overhang the gap and only hairline slivers open between trees.
-    gaps = [(x, y) for y, row in enumerate(grid) for x, ch in enumerate(row) if ch == 'E']
-    def lean(x, y, kind):
-        if '_' not in kind:
-            return 0
-        near = [(ex - (x + 2) if x < ex else x - (ex + 1), ex) for ex, ey in gaps if y <= ey <= y + 2]
-        if not near:
-            return 0
-        dist, ex = min(near)
-        px = max(0, 4 - 2 * (dist // 2))
-        return px if x < ex else -px
     for x, y, kind in trees:
         s = st[kind.split('_')[0]]
-        ox, oy = x * 16 + lean(x, y, kind), y * 16
+        ox, oy = x * 16, y * 16
         for j in range(48):
             for i in range(32):
                 X, Y = ox + i, oy + j
@@ -303,8 +305,11 @@ def compose(name, eng, st):
                 sl = under[y * 16:y * 16 + 16, x * 16:x * 16 + 16]
                 m = flowers[..., 3] > 0
                 sl[m] = flowers[m]
-            elif ch in 'EGX':
+            elif ch == 'X':
                 shade(under, x, y, ch, grid)
+    entrances = [(ex + px, ey + py) for ex, ey in ENTRANCES.get(name, [])]
+    for ex, ey in entrances:
+        entrance(canopy, tree_mask, ex, ey)
     # Shadows that landed on walkable cells stay under the player.
     walk = np.zeros(ground.shape[:2], bool)
     for y in range(h):
@@ -315,41 +320,47 @@ def compose(name, eng, st):
     under[sh] = canopy[sh]
     canopy[sh] = 0
     return dict(grid=grid, w=w, h=h, px=px, py=py, ground=ground, ground_mid=ground_mid,
-                under=under, canopy=canopy, trees=trees)
+                under=under, canopy=canopy, trees=trees, entrances=entrances)
+
+
+def entrance(canopy, tree_mask, ex, ey):
+    """Darken the background between two trees' sides at the seam right of cell ex, over the
+    trees' three rows (ey is the trunk row). Tree pixels are untouched; only the grass and shadow
+    showing between the trees change, darkest at the seam and at the bottom."""
+    bayer = np.array([[0, 8, 2, 10], [12, 4, 14, 6], [3, 11, 1, 9], [15, 7, 13, 5]]) / 16.0
+    seam = ex * 16 + 16
+    for Y in range((ey - 2) * 16, ey * 16 + 16):
+        up = (ey * 16 + 16 - Y) / 48.0                 # 0 at the bottom of the trunk row, 1 at the top
+        for X in range(ex * 16, ex * 16 + 32):
+            if tree_mask[Y, X]:
+                continue
+            low = max(0.0, (Y - (ey * 16 + 6)) / 10.0)  # fade out over the trunk row's lower part
+            d = 1.0 - abs(X + 0.5 - seam) / 12.0 - up * 0.3 - low * 0.7
+            b = bayer[Y % 4, X % 4]
+            if d > 0.62:
+                col = DARK[0]
+            elif d > 0.5:
+                col = DARK[0] if b < (d - 0.5) / 0.12 else DARK[2]
+            elif d > 0.36:
+                col = DARK[2]
+            elif d > 0.22:
+                col = DARK[2] if b < (d - 0.22) / 0.14 else SHADOW
+            elif d > 0.05:
+                if canopy[Y, X, 3] == 0 and b >= (d - 0.05) / 0.17:
+                    continue
+                col = SHADOW
+            else:
+                continue
+            canopy[Y, X] = col + (255,)
 
 
 def shade(under, x, y, ch, grid):
-    """The hollow and the gap floor, in the tree's own shadow and trunk browns.
-
-    t is the depth from the back of the hollow (top of the E cell) down through the gap: a dark core
-    with a rounded top sits at the back, wrapped in tree shadow, and the shadow thins out (ordered
-    dither) as the gap opens onto the field. The exit row X gets the forest's shadow creeping in."""
+    """Exit row X: the forest's shadow creeping onto the last row (ordered dither)."""
     bayer = np.array([[0, 8, 2, 10], [12, 4, 14, 6], [3, 11, 1, 9], [15, 7, 13, 5]]) / 16.0
-    if ch == 'X':
-        for j in range(16):
-            for i in range(16):
-                if bayer[j % 4, i % 4] < max(0.0, (j - 6) / 14.0):
-                    under[y * 16 + j, x * 16 + i] = SHADOW + (255,)
-        return
-    top = y
-    while top > 0 and grid[top - 1][x] in 'EG':
-        top -= 1
     for j in range(16):
-        t = (y - top) * 16 + j
         for i in range(16):
-            cx = abs(i - 7.5)
-            arch = lambda r, t0: t >= t0 + r - (max(0.0, r * r - cx * cx)) ** 0.5
-            col = None
-            if cx < 7.5 and arch(7.5, 0) and t < 28:
-                col = SHADOW
-            elif cx < 7.5 and 28 <= t < 44 and bayer[j % 4, i % 4] < (44 - t) / 16.0:
-                col = SHADOW
-            if cx < 5.5 and arch(5.5, 2) and t < 26:
-                col = DARK[2] if (t >= 20 and bayer[j % 4, i % 4] < (26 - t) / 6.0) or t < 20 else col
-            if cx < 3.5 and arch(3.5, 5) and t < 18:
-                col = DARK[0] if t < 14 or bayer[j % 4, i % 4] < (18 - t) / 4.0 else col
-            if col:
-                under[y * 16 + j, x * 16 + i] = col + (255,)
+            if bayer[j % 4, i % 4] < max(0.0, (j - 6) / 14.0):
+                under[y * 16 + j, x * 16 + i] = SHADOW + (255,)
 
 
 # --------------------------------------------------------------------------- packing
@@ -449,8 +460,9 @@ def build_all(eng):
                 ch = grid[y][x]
                 under, canopy, ground = c['under'][sl], c['canopy'][sl], c['ground'][sl]
                 walk = ch in WALK
-                beh = mb['MB_NON_ANIMATED_DOOR'] if ch == 'E' else mb['MB_NORMAL']
-                coll = PASS if walk else BLOCK
+                door = any((x, y) in ((ex, ey), (ex + 1, ey)) for ex, ey in c['entrances'])
+                beh = mb['MB_NON_ANIMATED_DOOR'] if door else mb['MB_NORMAL']
+                coll = PASS if walk or door else BLOCK
                 if not under[..., 3].any() and not canopy[..., 3].any():
                     blocks.append(c['ground_mid'][(x, y)] | coll)       # stock CherrygrovePrimary grass
                     continue
@@ -541,8 +553,10 @@ def layout_events(name, c):
     found = {}
     for y, row in enumerate(c['grid']):
         for x, ch in enumerate(row):
-            if ch in 'OWXE':
+            if ch in 'OWX':
                 found.setdefault(ch, []).append((x, y))
+    if c['entrances']:
+        found['E'] = c['entrances']
     return found
 
 
