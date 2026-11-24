@@ -11,9 +11,8 @@ plain HGSS Fuchsia, no story changes yet; the Mart is the one Saffron uses (Fire
     road         HGSS's sek_fe03 at its own size in the world's phase; where it meets grass, FireRed's path
                  pieces quadrant by quadrant (grass and rim over the road), one 16 px quadrant of the texture
                  under them
-    pens, ponds, rock, ledges, fences   HGSS's own pixels from the decoded map at 1:1, by material, repeated
-                 from one period (COLS, ROWS below) so each element costs the same few tiles wherever it runs
-    shadows      HGSS's shadow shapes (h_kage) as a darker step of the lawn under them
+    pens, ponds, rock, ledges, fences   FireRed's pieces in HGSS's colours, placed cell by cell from the
+                 ledger (elements.py); nothing is copied from an HGSS render
     trees        Cherrygrove's tree (clear background) on every root in trees.json
     flowers      FireRed's flower (0x004), red and white, on HGSS's flower cells
     buildings    each HGSS model's sprite (sprites.py), the owner-locked C06 Center, FireRed's Mart; top layer
@@ -31,6 +30,7 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[3]
 sys.path.insert(0, str(HERE))
 import metatiles as MT                                    # noqa: E402
+import elements as EL                                     # noqa: E402
 
 ART = ROOT / 'gba/art/kanto-fuchsia'
 SRC, EV = ART / 'source', ART / 'evidence'
@@ -64,114 +64,8 @@ PATH = dict(tl=0xD0, t=0xD1, tr=0xD2, l=0xD8, c=0xD9, r=0xDA, bl=0xE0, b=0xE1, b
 def quads(y, x, qy, qx):
     return (np.s_[y * 16 + qy * 8:y * 16 + qy * 8 + 8, x * 16 + qx * 8:x * 16 + qx * 8 + 8], np.s_[qy * 8:qy * 8 + 8, qx * 8:qx * 8 + 8])
 
-# ------------------------------------------------------------------ HGSS pixels by material
-# Materials copied from the decoded map as they are.
-COPY = ('sek_teien', 'sek_flower', 'f_dodai', 'f_dodai_a', 'flower_sp1', 'pond_un', 'pond_line', 'wall01_d', 'wall01_g',
-        'cliff01gs', 'allpeakgs', 'allpeak_pgs', 'fence_a')
-LAWNS = ('grass01gs', 'grass01_a', 'grass02', 'grass02_r', 'grass02_a', 'flower01', 'flower02', 'sek_fe03', 'sek_fe03_r',
-         'tree01gs', 'tree01_re', 'tree01_un', '')
-
-def remap():
-    """dst cell -> src cell: each repeated element is drawn from one period of itself, so it costs the same
-    tiles wherever it runs. Identity where nothing is listed."""
-    m = {}
-    def cols(x0, x1, y0, y1, src):                       # columns x0..x1 of rows y0..y1 take column src(x)
-        for y in range(y0, y1 + 1):
-            for x in range(x0, x1 + 1):
-                m[(x, y)] = (src(x), y)
-    def rows(x0, x1, y0, y1, src):
-        for y in range(y0, y1 + 1):
-            for x in range(x0, x1 + 1):
-                m[(x, y)] = (x, src(y))
-    def block(x0, x1, y0, y1, sx, sy, px=2, py=2):       # a px x py period anchored at (sx, sy)
-        for y in range(y0, y1 + 1):
-            for x in range(x0, x1 + 1):
-                m[(x, y)] = (sx + (x - sx) % px, sy + (y - sy) % py)
-    # rock terrace (x 6-29, rows 45-51): top from a 2x2 period, north band and the sides from one period each
-    block(8, 27, 46, 51, 10, 46)
-    block(8, 27, 45, 45, 10, 45, 2, 1)
-    block(6, 7, 47, 49, 6, 47, 2, 2); block(28, 29, 47, 49, 28, 47, 2, 2)
-    # south hills (rows 62-63)
-    block(1, 15, 62, 63, 2, 62, 2, 2); block(28, 31, 62, 63, 2, 62, 2, 2)
-    m[(27, 62)], m[(27, 63)] = (6, 45), (6, 46)          # the east hill's west end is the terrace's north-west corner
-    block(8, 27, 51, 52, 10, 46)                         # rock top runs on behind the south row's roofs
-    # ledges: the walls beside the south row (x 6 and x 29, rows 53-57) and the south strip (row 59)
-    rows(6, 6, 53, 57, lambda y: 54); rows(29, 29, 53, 57, lambda y: 54)
-    cols(24, 27, 59, 59, lambda x: 25)
-    # yard pond (x 39-47, rows 42-46): its inside from a 2x2 period, banks from one period
-    block(41, 45, 43, 45, 41, 43); block(41, 45, 42, 42, 41, 42, 2, 1); block(41, 45, 46, 46, 41, 46, 2, 1)
-    # pens 1-4 (rows 21-27 drawn): the hedge posts and their shadow are pen 1's, the inside one column of its kind
-    for x0, x1, mid in ((12, 18, 15), (21, 26, 23), (35, 40, 37), (43, 49, 23)):
-        for y in range(21, 28):
-            # the east post is the west post mirrored (HGSS's own shadow shape beside it)
-            m[(x0 - 1, y)], m[(x0, y)], m[(x1, y)], m[(x1 + 1, y)] = (11, y), (12, y), (12, y, True, (18, y)), (11, y, True, (19, y))
-            for x in range(x0 + 1, x1):
-                m[(x, y)] = (mid, y)
-        # the pickets' feet (row 27) are behind the Mart's roof at pen 1 in HGSS: every pen takes pen 2's
-        m[(x0 - 1, 27)], m[(x0, 27)], m[(x1, 27)], m[(x1 + 1, 27)] = (20, 27), (21, 27), (21, 27, True, (26, 27)), (20, 27, True, (27, 27))
-        for x in range(x0 + 1, x1):
-            m[(x, 27)] = (23, 27)
-            if mid == 15:
-                m[(x, 26)] = (15, 26)
-    pen3 = dict(m)
-    for dy, sy in ((27, 21), (28, 22), (29, 23), (30, 24), (31, 26), (32, 27)):   # the shorter pen south of them: one bed row less
-        m[(38, dy)], m[(39, dy)], m[(45, dy)], m[(46, dy)] = pen3[(34, sy)], pen3[(35, sy)], pen3[(40, sy)], pen3[(41, sy)]
-        for x in range(40, 45):
-            m[(x, dy)] = pen3[(37, sy)]
-    cols(14, 17, 36, 40, lambda x: 15)                   # the south-west pond pen
-    g = grid()
-    for y in range(H):                                   # fences: one cell of the run, one of the column
-        for x in range(W):
-            if g[y][x] == 'x':
-                run = (x > 0 and g[y][x - 1] in 'xi') or (x < W - 1 and g[y][x + 1] in 'xi')
-                m[(x, y)] = (8, 40) if run else (28, 37)
-    return m
-
-def hgss_layer(out, engine_grass_dark, fam):
-    """HGSS's pens, ponds, rock, ledges and fences from the decoded map, and its shadows on the lawn."""
-    z = np.load(SRC / 'hgss/hgss-ground-materials.npz')
-    names = [str(n) for n in z['names']]
-    mat, ov = z['material'], z['overlay']
-    rend = np.array(Image.open(SRC / 'hgss/hgss-render.png').convert('RGB'))
-    gnd = np.array(Image.open(SRC / 'hgss/hgss-ground.png').convert('RGB'))
-    own = np.load(SRC / 'hgss/hgss-foreground-owner.npz')['owner']
-    copy_ids = [names.index(n) for n in COPY]
-    lawn_ids = [names.index(n) for n in LAWNS if n in names]
-    kage = names.index('h_kage')
-    pond_ov = [names.index(n) for n in ('pond_on', 'pond_edge')]
-    g = grid()
-    cell = lambda ok: np.kron(np.array([[ok(x, y) for x in range(W)] for y in range(H)]), np.ones((16, 16), bool)).astype(bool)
-    standing = cell(lambda x, y: g[y][x] in 'pxhb' or (y and g[y - 1][x] == 'p' and not (12 <= x <= 16 and y == 27)))
-    whole = cell(lambda x, y: g[y][x] in 'b')             # a pen's bed: every pixel of it
-    stand = (rend != gnd).any(-1) & standing & ~(rend[..., 2].astype(int) > rend[..., 0].astype(int) + 40)              # pickets, fence posts: standing terrain, not a building
-    take = np.isin(mat, copy_ids) | np.isin(ov, pond_ov) | stand | whole
-    shade = (ov == kage) & np.isin(mat, lawn_ids) & ~take
-    penm = np.isin(mat, [names.index(n) for n in ('sek_teien', 'sek_flower', 'f_dodai', 'f_dodai_a', 'flower_sp1')])
-    fencem = (mat == names.index('fence_a')) | stand
-    pondm = np.isin(mat, [names.index(n) for n in ('pond_un', 'pond_line')]) | np.isin(ov, pond_ov)
-    m = remap()
-    mask = np.zeros((H * 16, W * 16), bool)
-    for y in range(H):
-        for x in range(W):
-            sx, sy, flip, shsrc = (tuple(m.get((x, y), (x, y))) + (False, None))[:4]
-            d = np.s_[y * 16:y * 16 + 16, x * 16:x * 16 + 16]
-            s = np.s_[sy * 16:sy * 16 + 16, (sx * 16 + 15 if flip else sx * 16):(sx * 16 - 1 if flip else sx * 16 + 16) or None:(-1 if flip else 1)]
-            t = take[s] & (g[y][x] not in 'HD')
-            if (x, y) in m and g[y][x] in 'HD' and y <= 52 and 8 <= x <= 27:
-                t = np.ones((16, 16), bool)
-            out[d][t] = np.where(stand[s][..., None], rend[s], gnd[s])[t]
-            fam[d][t] = np.where(pondm[s], ROCK, np.where(penm[s] | (g[y][x] in 'hbp'), PEN, np.where(fencem[s], FENCE, ROCK)))[t]
-            mask[d] = t
-            if shsrc:
-                sh0 = shade[shsrc[1] * 16:shsrc[1] * 16 + 16, shsrc[0] * 16:shsrc[0] * 16 + 16] & ~t
-            else:
-                sh0 = shade[s]
-            sh = sh0 & (g[y][x] in 'lhbp~') & (20 <= y <= 33)      # the pens' shadows; buildings bring their own shape
-            out[d][sh] = engine_grass_dark(out[d][sh])
-    return mask
-
 # ------------------------------------------------------------------ the ground
-GROUND, TREE, PEN, ROCK, FENCE = 0, 1, 2, 3, 4            # bottom-layer palette families
+from elements import GROUND, TREE, PEN, ROCK, FENCE       # bottom-layer palette families  # noqa: E402
 ROAD_Q = (0, 0)                                           # the 16 px quadrant of sek_fe03 under an edge
 
 def ground(engine):
@@ -199,6 +93,10 @@ def ground(engine):
             for x in range(10, 52):
                 if not pale[y, x] and g[y][x] in 'hbp~isX' and (pale[y - 1, x] + pale[y + 1, x] + pale[y, x - 1] + pale[y, x + 1]) >= 1:
                     pale[y, x] = True
+    for y in range(20, 33):                              # the cells under a hedge post's top are pen lawn too
+        for x in range(10, 52):
+            if not pale[y, x] and g[y][x] == 'l' and int(pale[y - 1, x]) + int(pale[y + 1, x]) + int(pale[y, x - 1]) + int(pale[y, x + 1]) >= 3:
+                pale[y, x] = True
     road = np.array([[c in 'd' or (c == 'w' and x > 50) for x, c in enumerate(r)] for r in g])
     solid = np.array([[c in 'HDCX' for c in r] for r in g])
     pale &= ~road
@@ -245,12 +143,6 @@ def ground(engine):
                     if k != 'c':
                         out[d][cl == 1] = grass_px[d][cl == 1]
                         out[d][cl == 2] = pp[k][s][cl == 2]
-    # HGSS's own pieces, and its shadows as the lawn's dark step
-    dark = {(115, 205, 164): (65, 180, 139), (139, 222, 189): (115, 205, 164), (164, 230, 197): (139, 222, 189), (65, 180, 139): (49, 156, 123)}
-    def darker(p):
-        return np.array([dark.get(tuple(c), tuple(int(v * 0.8) for v in c)) for c in p.tolist()], np.uint8).reshape(-1, 3) if len(p) else p
-    fam = np.zeros((H * 16, W * 16), np.uint8)
-    hmask = hgss_layer(out, darker, fam)
     # flowers
     fl = ts.meta(0x004)
     key = gr
@@ -266,12 +158,25 @@ def ground(engine):
     ramp = [(255, 255, 255), (231, 231, 239), (181, 181, 198)]
     for i, c in enumerate(cols):
         white[petal & np.all(rgb == c, -1), :3] = ramp[min(i * 3 // max(1, len(cols)), 2)]
+    orange = fa.copy()
+    oramp = [(255, 189, 132), (239, 148, 107), (198, 99, 74)]                 # HGSS's bed flowers
+    for i, c in enumerate(cols):
+        orange[petal & np.all(rgb == c, -1), :3] = oramp[min(i * 3 // max(1, len(cols)), 2)]
+    pink = fa.copy()
+    pramp = [(255, 132, 189), (231, 82, 148), (173, 49, 123)]                 # flower_sp1's pinks
+    for i, c in enumerate(cols):
+        pink[petal & np.all(rgb == c, -1), :3] = pramp[min(i * 3 // max(1, len(cols)), 2)]
+    kinds = (orange, white, pink)
+    pick = lambda x, y: hsh('fl', x, y) % 2
     for y in range(H):
         for x in range(W):
             if g[y][x] == 'f':
-                f = white if hsh('fl', x, y) % 2 else fa
+                f = kinds[pick(x, y)]
                 d = out[y * 16:y * 16 + 16, x * 16:x * 16 + 16]
                 d[f[..., 3] > 0] = f[..., :3][f[..., 3] > 0]
+    # what stands on the ground, each a Gen 3 piece on its HGSS cells (elements.py)
+    fam = np.zeros((H * 16, W * 16), np.uint8)
+    EL.terrain(out, fam, EL.Pieces(ts, tex), g, kinds, pick)
     return out, fam
 
 # ------------------------------------------------------------------ what stands

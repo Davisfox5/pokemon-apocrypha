@@ -1,6 +1,7 @@
 # KantoFuchsiaCity plan (HGSS `MAP_FUCHSIA`)
 
-Gates: [MAP_CHECKLIST.md](../../../docs/MAP_CHECKLIST.md). Status: G2 approved 2026-11-23, built, G4 pass,
+Gates: [MAP_CHECKLIST.md](../../../docs/MAP_CHECKLIST.md). Status: G2 approved 2026-11-23, rebuilt 2026-11-24
+after the owner turned down the first build of this plan (terrain was copied from the HGSS decode), G4 pass,
 G5 done, in owner review (G6). The first build (FireRed's pieces on HGSS's plan, fork
 PR #62 / hub PR #59) was turned down and deleted on 2026-11-23.
 
@@ -80,9 +81,9 @@ Sources as built, where they differ from the table (each still one source per li
 
 - Pen lawn: FRLG, `general_frlg` 0x0BD-0x0CF (FireRed's own pale lawn and its edge pieces), in place of HGSS's
   `grass02`, so it sits on FireRed's grass without a colour break.
-- Pens, ponds, rock, ledges, fences: Converted HGSS, taken from the decoded map at 1:1 by material and repeated
-  from one period each (`compose.remap`), so each costs the same tiles wherever it runs. The east post of a pen
-  is its west post mirrored.
+- Pens, ponds, rock, ledges, fences (rebuilt 2026-11-24): FRLG pieces in HGSS's colours, placed cell by cell
+  from the ledger (`tools/gba/maps/fuchsia_city/elements.py`). No pixel of them comes from an HGSS render. The
+  lines of the table below marked FRLG give each one's pieces.
 - Road: `sek_fe03`, the west half of the texture (32 px period across, 64 down).
 - Hall, Gym, Route 15 gatehouse and the pink house are drawn as their west half mirrored (symmetric models).
 - Mart: FRLG (answer 2).
@@ -115,14 +116,14 @@ Ids are assigned at G3 when the town's own pair is packed; the source of every p
 | Tall grass | none in HGSS's Fuchsia | none | |
 | Trees | 499 roots in `trees.json` | Accepted map | Cherrygrove's standard tree, the clear-background cut, staggered 2x2 |
 | Flowers | `f` cells, pen beds | FRLG | `general_frlg` 0x004 and its colour swaps (`nature.flowers`) |
-| Rock face and top | terrace rows 45-51 x 6-29; south hills rows 62-63 | Converted HGSS | `wall01_d`, `wall01_g`, `cliff01gs`; one level, Route 36's face height |
-| Ledges | x 6 and x 29 rows 52-58; row 59 | Converted HGSS | `allpeakgs` strip with rounded ends; `MB_JUMP_WEST`, `MB_JUMP_EAST`, `MB_JUMP_SOUTH` |
-| Water and shore | pens (13-17, 23-25), (12-18, 37-39); yard pond (39-47, 42-46) | Converted HGSS | `pond_on`, `pond_un`, `pond_edge`, `pond_line`; `MB_POND_WATER` |
+| Rock face and top | terrace rows 45-51 x 6-29; south hills rows 62-63 | FRLG | `general_frlg` mountain set 0x068-0x07A, inner corners 0x0B2-0x0BB, in the ramp of `cliff01gs` / `wall01_d`; autotiled per 8 px quadrant, one level |
+| Ledges | x 6 and x 29 rows 52-58; row 59 | FRLG | `general_frlg` 0x087, ends 0x0B0/0x0B1, west 0x083/0x085/0x08D, east 0x084/0x086/0x08E, rock ramp; `MB_JUMP_WEST`, `MB_JUMP_EAST`, `MB_JUMP_SOUTH` |
+| Water and shore | pens (13-17, 23-25), (12-18, 37-39); yard pond (39-47, 42-46) | FRLG | pond nine-slice 0x1A5-0x1AF, 0x333-0x335: rim in the rock ramp, water `pond_on` in the world's phase, deep band `pond_edge`'s blue; `MB_POND_WATER` |
 | Stairs | none on the ground. The hall's steps are part of its model | none | |
-| Fences | `x` cells | Converted HGSS | `fence_a`, one post to a cell |
-| Pen hedges | `h` cells | Converted HGSS | `sek_teien` at 45 degrees |
-| Pen beds and planters | `b` cells | Converted HGSS | `f_dodai` planter, soil bed; flowers from the Flowers line |
-| Pen front rail | `p` cells, row 26 | Converted HGSS | the white picket and post from the pen model |
+| Fences | `x` cells | FRLG | 0x336 runs, 0x0F4/0x0F5 columns, corners 0x0EC, 0x337, 0x0FC, 0x0FD, in `fence_a`'s greys |
+| Pen hedges | `h` cells | FRLG | `fuchsia_city_frlg` 0x290-0x295, 0x29B, 0x29C in `sek_teien`'s greens; the back composed per quadrant to be one cell deep, as HGSS's is |
+| Pen beds and planters | `b` cells | Converted HGSS + FRLG | soil `f_dodai_a` in a frame of `f_dodai` planks, or the dark bed colour; one FRLG flower (0x004, recoloured) to a cell |
+| Pen front rail | `p` cells, row 26; row 31 of the short pen | FRLG | 0x336 |
 | Bridges and docks | none | none | |
 | Safari Zone entrance hall | x 28-33 rows 11-19 | Converted HGSS | model 295 with its `pokepark` overlay |
 | Mart | x 12-15 rows 28-32, door (13, 32) | Converted HGSS | models 39 + 15 |
@@ -180,7 +181,7 @@ hidden Nugget, the cut tree and Apricorn objects' scripts.
 ## G4 Gate
 
 `evidence/gate/KantoFuchsiaCity.gate.json`: build, glitch, budget, seams, warps, walk, porymap all pass.
-Budget: 1,000 of 1,024 tiles, 497 metatiles, 13 palettes; 92.8% of pixels keep their exact 5-bit colour
+Budget: 730 of 1,024 tiles, 404 metatiles, 13 palettes; 93.2% of pixels keep their exact 5-bit colour
 (`evidence/pack.json`); the C06 Center is exact. Walk: 117 cells in `adapt_walk`, each kind explained in the
 gate file's notes.
 
@@ -189,11 +190,15 @@ gate file's notes.
 Checked and fixed (cells):
 
 - Whole map beside HGSS: `evidence/compare.png`.
-- Pens (12-49, 21-32): HGSS's Mart roof leaked into pen 1's picket row; picket feet now come from pen 2.
-  The short pen (39-45, 28-31) had a stray hedge top at (45-46, 32); fixed.
-- Yard pond (39-47, 42-46): house roofs leaked into the south bank; ground pixels now come from the flat decode.
-- Terrace (6-29, 45-52): lawn showed between the rock and the south row's roofs; rock top now runs behind them.
-- East hill (27-31, 62-63): HGSS draws a strip of Route 19's gate there; replaced by the west hill's rock.
+- Rebuild of 2026-11-24, order followed: ledger first (spacing), then one Gen 3 piece per cell. Checked
+  beside HGSS, cell for cell: pens (12-49, 21-31), south-west pond pen (12-19, 36-40), yard and its pond
+  (33-48, 41-49), terrace (6-29, 45-51), ledges (x 6, x 29, row 59), south hills (rows 62-63).
+- Pen lawn had lawn-coloured holes at (12, 21), (18, 21) and the like, under HGSS's hedge post tops; filled.
+- The short pen (39-45, 28-31): its third row is the front rail in HGSS, so the bed is rows 29-30.
+- Yard pond: its inner corner at (44-45, 45-46) gets the rim's own corner pixels.
+- Palettes: ponds share the hedges' bank and the soil beds the fences', after the first pack folded the water
+  into the lawn's greens.
+- Ponds are Surf water with HGSS's collision, row 46 of the yard pond solid as in HGSS.
 - Trees: the 2x2 roots alone left lawn columns in the forest; staggered rows added between them.
 - Ponds were solid; they are Surf water again, row 46 of the yard pond solid as in HGSS.
 - In game (`evidence/gameplay-sheet.png`, `evidence/gameplay/results.json`): 32 frames equal the native decode,
@@ -209,3 +214,6 @@ cut tree and Apricorn tree are not placed (objects, out of this pass).
 - 2026-11-23 round 0: first build (FireRed's pieces) turned down and deleted.
 - 2026-11-23: first change plot turned down for skipped steps. This file is the full pass.
 - 2026-11-23: plan approved (answers above). Built and sent for review.
+- 2026-11-24: build turned down. Owner: the terrain was still copied and pasted, and the steps were done out of
+  order (converted first, looked second). Rebuilt: layout and spacing from the ledger first, then pens, ponds,
+  rock, ledges and fences as FRLG pieces that fit the cells. Sent for review.

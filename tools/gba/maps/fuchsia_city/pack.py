@@ -52,7 +52,7 @@ def dist(a, b):
     return 3 * (r1 - r2) ** 2 + 4 * (g1 - g2) ** 2 + 2 * (b1 - b2) ** 2
 
 # Palette banks, each seeded with a job (the bottom layer's families, then the buildings).
-BOTTOM_BANK = {0: 0, 1: 1, 2: 2, 3: 3, 4: 4}             # ground, trees, pens, rock and ponds, fences and lights
+BOTTOM_BANK = {0: 0, 1: 1, 2: 2, 3: 3, 4: 4}             # ground, trees, hedges and ponds, rock, fences and lights and soil beds
 TOP_BANK = dict(pokemon_center=(5, 6), mart=7, hall=8, gym=9, route15_gate=10, house_red=11, house_pink=11, warden_house=12,
                 notice_board=4, city_sign=4, house_sign=4, gym_sign=4)
 
