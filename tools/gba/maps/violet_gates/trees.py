@@ -92,10 +92,10 @@ GATES = {'west': (0, 400, gate_w), 'east': (1168, 848, gate_w[:, ::-1])}
 # the row in front 96 px below it: the distances measured on the finished Route 31 and Route 36 gates.
 # Between those and the untouched forest, rows sit 40 px apart so no half row is left over.
 def rows(pairs, ys): return [(x, y) for x in pairs for y in ys]
-BEHIND = {'west': rows((0, 32, 64, 96), (288, 328, 368)),
-          'east': rows((1216, 1248), (736, 776, 816)) + rows((1184,), (776, 816))}
-FRONT = {'west': rows((0, 32, 64), (496, 536, 576)) + rows((96,), (512, 544, 576)),
-         'east': rows((1184, 1216, 1248), (944, 984, 1024)) + rows((1152,), (960, 992, 1024))}
+BEHIND = {'west': rows((0, 32, 64, 96), (288, 320, 352, 384)),
+          'east': rows((1216, 1248), (736, 768, 800, 832)) + rows((1184,), (800, 832))}
+FRONT = {'west': rows((0, 32, 64, 96), (512, 544, 576)),
+         'east': rows((1152, 1184, 1216, 1248), (960, 992, 1024))}
 ZONES = {'west': (0, 8, 20, 37), 'east': (72, 80, 48, 65)}     # x0, x1, y0, y1 in cells
 
 cur = np.zeros((H * 16, W * 16, 4), np.int16)
@@ -235,8 +235,8 @@ for dy in range(6):
     for dx in range(5):
         sx, sy = HOUSE_SRC[0] + dx, HOUSE_SRC[1] + dy; x, y = HOUSE_DST[0] + dx, HOUSE_DST[1] + dy
         SE = ents(int(C.w[sy, sx])); DE = ents(int(w[y, x]))
-        dest_ground = DE[:4] if all((e >> 12) != TREE for e in DE[:4]) and not any(DE[4:]) else lawn_ents(x, y)[:4]
-        if any((e >> 12) == TREE for e in DE): dest_ground = lawn_ents(x, y)[:4]
+        LW = lawn_ents(x, y)
+        dest_ground = [LW[q] if (DE[q] >> 12) == TREE else DE[q] for q in range(4)]
         E = []
         for q in range(4):
             E.append(dest_ground[q] if (SE[q] >> 12) == 0 and (SE[q] & 1023) in LAWN_TILES else SE[q])
@@ -333,5 +333,5 @@ sheet = np.zeros((10, len(NEWT) * 10, 3), np.uint8) + np.array([255, 0, 255], np
 for n, (cell, bank, idx) in enumerate(NEWT):
     c = pals[bank][idx]; c[idx == 0] = (255, 0, 255); sheet[1:9, n * 10 + 1:n * 10 + 9] = c
 Image.fromarray(sheet).resize((sheet.shape[1] * 8, 80), Image.NEAREST).save(str(HERE / 'newtiles.png'))
-print('new tiles at', sorted(set(c for c, b, i in NEWT)))
+print([(c, b) for c, b, i in NEWT])
 pickle.dump((mt, attr, sheets, pals, w), open(sys.argv[2], 'wb'))
