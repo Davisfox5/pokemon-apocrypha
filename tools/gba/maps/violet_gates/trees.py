@@ -92,11 +92,12 @@ GATES = {'west': (0, 400, gate_w), 'east': (1168, 848, gate_w[:, ::-1])}
 # the row in front 96 px below it: the distances measured on the finished Route 31 and Route 36 gates.
 # Between those and the untouched forest, rows sit 40 px apart so no half row is left over.
 def rows(pairs, ys): return [(x, y) for x in pairs for y in ys]
-BEHIND = {'west': rows((0, 32, 64, 96), (288, 320, 352, 384)),
-          'east': rows((1216, 1248), (736, 768, 800, 832)) + rows((1184,), (800, 832))}
-FRONT = {'west': rows((0, 32, 64, 96), (512, 544, 576)),
-         'east': rows((1152, 1184, 1216, 1248), (960, 992, 1024))}
-ZONES = {'west': (0, 8, 20, 37), 'east': (72, 80, 48, 65)}     # x0, x1, y0, y1 in cells
+def col(lo, hi): return tuple(range(lo, hi + 1, 32))
+BEHIND = {'west': rows((0, 32, 64, 96), col(-16, 368)),
+          'east': rows((1216, 1248), col(-16, 816)) + rows((1184,), (784, 816))}
+FRONT = {'west': rows((0, 32, 64), col(496, 1136)) + rows((96,), col(512, 1120)),
+         'east': rows((1184, 1216, 1248), col(944, 1136)) + rows((1152,), col(960, 1120))}
+ZONES = {'west': [(0, 8, 0, 72)], 'east': [(76, 80, 0, 48), (72, 80, 48, 72)]}     # x0, x1, y0, y1 in cells
 
 cur = np.zeros((H * 16, W * 16, 4), np.int16)
 for y in range(H):
@@ -104,7 +105,7 @@ for y in range(H):
         cur[y * 16:y * 16 + 16, x * 16:x * 16 + 16] = cell_pic(ents(int(w[y, x])))
 
 zone_cells = set()
-for side, (zx0, zx1, zy0, zy1) in ZONES.items():
+for side, (zx0, zx1, zy0, zy1) in [(k, r) for k, v in ZONES.items() for r in v]:
     zone_cells |= {(x, y) for x in range(zx0, zx1) for y in range(zy0, zy1)}
 stay = set()
 for y in range(H):
@@ -161,12 +162,14 @@ def bank_with(pic, prefer):
 
 
 index_tiles(sorted(stay))
-for side, (zx0, zx1, zy0, zy1) in ZONES.items():
+for side, (zx0, zx1, zy0, zy1) in [(k, r) for k, v in ZONES.items() for r in v]:
     gx, gy, G = GATES[side]
     y0, y1, x0, x1 = zy0 * 16, zy1 * 16, zx0 * 16, zx1 * 16
     def layer(trees):
         L = np.zeros((H * 16, W * 16, 4), np.int16)
-        for tx, ty in sorted(trees, key=lambda t: t[1]): over(L[ty:ty + 48, tx:tx + 32], tree)
+        for tx, ty in sorted(trees, key=lambda t: t[1]):
+            c0 = max(0, -ty); c1 = min(48, H * 16 - ty)
+            over(L[ty + c0:ty + c1, tx:tx + 32], tree[c0:c1])
         return L
     TB, TF = layer(BEHIND[side]), layer(FRONT[side])
     GA = np.zeros((H * 16, W * 16, 4), np.int16); GA[gy:gy + 112, gx:gx + 112] = G

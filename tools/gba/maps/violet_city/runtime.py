@@ -63,7 +63,7 @@ int main(int argc,char**argv){
  go(VIOLET,7,30);at(VIOLET_NUM,7,30,"west-front-lower");
  step(LEFT);step(LEFT);frames(240,0);observe("west-gate-lower");need(state[2]==WEST_NUM,"into-west-gate-lower");
  go(VIOLET,7,27);step(LEFT);at(VIOLET_NUM,7,27,"west-gate-wall-blocks");
- go(VIOLET,8,26);step(LEFT);at(VIOLET_NUM,8,26,"west-gate-trees-block");shot("west-gate-trees");
+ go(VIOLET,8,25);step(LEFT);at(VIOLET_NUM,8,25,"west-gate-trees-block");shot("west-gate-trees");
  go(VIOLET,73,50);step(RIGHT);at(VIOLET_NUM,73,50,"east-gate-trees-block");shot("east-gate-trees");
  // the house by the east gate: the paving reaches its door step, the door is solid (no interior yet)
  go(VIOLET,70,44);step(UP);at(VIOLET_NUM,70,43,"house-door-step");step(UP);at(VIOLET_NUM,70,43,"house-door-solid");shot("house-door");
