@@ -3,7 +3,8 @@
 
     MGBA_FLAGS='-I... -L... -lmgba ...' python3 tools/gba/maps/violet_city/runtime.py ENGINE OUT
 
-Into both gates by both stairs, the gates' walls blocking, a walk down the north road, over the
+Into both gates by both stairs, the gates' walls and the tree rows round them blocking, the house by the east
+gate (door step on the paving, door solid), the two open rows behind Sprout Tower's top roof, a walk down the north road, over the
 north bridge, across the landing and the south bridge to the main street, the lake blocking on foot, the
 hall's front blocking at its door, the back path behind it open, the lawn its old west wing gave back
 walkable, and every door: its opening frames, the interior loaded, back outside below the door on the way out.
@@ -61,7 +62,16 @@ int main(int argc,char**argv){
  step(LEFT);step(LEFT);frames(240,0);observe("west-gate");need(state[2]==WEST_NUM,"into-west-gate");shot("west-gate-inside");
  go(VIOLET,7,30);at(VIOLET_NUM,7,30,"west-front-lower");
  step(LEFT);step(LEFT);frames(240,0);observe("west-gate-lower");need(state[2]==WEST_NUM,"into-west-gate-lower");
- go(VIOLET,7,25);step(LEFT);at(VIOLET_NUM,7,25,"west-gate-wall-blocks");
+ go(VIOLET,7,27);step(LEFT);at(VIOLET_NUM,7,27,"west-gate-wall-blocks");
+ go(VIOLET,8,26);step(LEFT);at(VIOLET_NUM,7,26,"lawn-beside-west-gate");step(UP);at(VIOLET_NUM,7,26,"west-gate-trees-block");shot("west-gate-trees");
+ go(VIOLET,73,50);step(RIGHT);at(VIOLET_NUM,73,50,"east-gate-trees-block");shot("east-gate-trees");
+ // the house by the east gate: the paving reaches its door step, the door is solid (no interior yet)
+ go(VIOLET,70,44);step(UP);at(VIOLET_NUM,70,43,"house-door-step");step(UP);at(VIOLET_NUM,70,43,"house-door-solid");shot("house-door");
+ // behind Sprout Tower: two open rows under the top roof, the trees behind them blocking
+ go(VIOLET,35,4);shot("beside-sprout-tower");step(RIGHT);step(RIGHT);step(RIGHT);at(VIOLET_NUM,38,4,"behind-sprout-tower");shot("behind-sprout-tower");
+ step(UP);at(VIOLET_NUM,38,3,"behind-sprout-ridge");shot("behind-sprout-ridge");step(UP);at(VIOLET_NUM,38,3,"trees-behind-tower-block");
+ step(DOWN);step(DOWN);at(VIOLET_NUM,38,4,"tower-blocks-from-behind");
+ step(RIGHT);step(RIGHT);step(RIGHT);step(RIGHT);step(RIGHT);at(VIOLET_NUM,43,4,"out-the-far-side");shot("past-sprout-tower");
  // the north road, both bridges and the landing, south to the main street
  go(VIOLET,39,13);at(VIOLET_NUM,39,13,"north-road");shot("north-road");
  walk(DOWN,30,"south");

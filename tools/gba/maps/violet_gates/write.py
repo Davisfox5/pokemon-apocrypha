@@ -2,7 +2,7 @@ import pickle,struct,sys,numpy as np
 from pathlib import Path
 from PIL import Image
 ENG=Path(sys.argv[1])
-mt,attr,sheets,pals,w=pickle.load(open('/tmp/claude-0/-home-user/85ee60ab-0025-575e-abae-bfbdaa5ee7ac/scratchpad/gates/built.pkl','rb'))
+mt,attr,sheets,pals,w=pickle.load(open(''+sys.argv[2]+'','rb'))
 T=ENG/'data/tilesets'
 for part,p in enumerate(['primary','secondary']):
     d=T/p/'violet_city'
