@@ -3,7 +3,8 @@
 
     MGBA_FLAGS='-I... -L... -lmgba ...' python3 tools/gba/maps/violet_city/runtime.py ENGINE OUT
 
-Into the east gate and back out, into the west gate and back out, a walk down the north road, over the
+Into both gates by both stairs, the gates' walls and the tree rows round them blocking, the house by the east
+gate (door step on the paving, door solid), the two open rows behind Sprout Tower's top roof, a walk down the north road, over the
 north bridge, across the landing and the south bridge to the main street, the lake blocking on foot, the
 hall's front blocking at its door, the back path behind it open, the lawn its old west wing gave back
 walkable, and every door: its opening frames, the interior loaded, back outside below the door on the way out.
@@ -51,13 +52,26 @@ int main(int argc,char**argv){
  c->rtc.override=RTC_FIXED;c->rtc.value=1789315200000LL;
  c->reset(c);frames(600,0);
  call("MapProof_Boot",0);frames(240,0);observe("new-game");
- // the east gate and back
- go(VIOLET,74,56);at(VIOLET_NUM,74,56,"east-front");shot("east-front");
- step(UP);frames(240,0);observe("east-gate");need(state[2]==EAST_NUM,"into-east-gate");shot("east-gate-inside");
- go(VIOLET,74,57);at(VIOLET_NUM,74,57,"east-front-again");
- // the west gate and back
- go(VIOLET,6,30);at(VIOLET_NUM,6,30,"west-front");shot("west-front");
+ // the east gate (both stairs) and the west gate (both stairs), their walls blocking
+ go(VIOLET,72,57);at(VIOLET_NUM,72,57,"east-front");shot("east-front");
+ step(RIGHT);step(RIGHT);frames(240,0);observe("east-gate");need(state[2]==EAST_NUM,"into-east-gate");shot("east-gate-inside");
+ go(VIOLET,72,58);at(VIOLET_NUM,72,58,"east-front-lower");
+ step(RIGHT);step(RIGHT);frames(240,0);observe("east-gate-lower");need(state[2]==EAST_NUM,"into-east-gate-lower");
+ go(VIOLET,72,55);step(RIGHT);at(VIOLET_NUM,72,55,"east-gate-wall-blocks");
+ go(VIOLET,7,29);at(VIOLET_NUM,7,29,"west-front");shot("west-front");
  step(LEFT);step(LEFT);frames(240,0);observe("west-gate");need(state[2]==WEST_NUM,"into-west-gate");shot("west-gate-inside");
+ go(VIOLET,7,30);at(VIOLET_NUM,7,30,"west-front-lower");
+ step(LEFT);step(LEFT);frames(240,0);observe("west-gate-lower");need(state[2]==WEST_NUM,"into-west-gate-lower");
+ go(VIOLET,7,27);step(LEFT);at(VIOLET_NUM,7,27,"west-gate-wall-blocks");
+ go(VIOLET,8,25);step(LEFT);at(VIOLET_NUM,8,25,"west-gate-trees-block");shot("west-gate-trees");
+ go(VIOLET,73,50);step(RIGHT);at(VIOLET_NUM,73,50,"east-gate-trees-block");shot("east-gate-trees");
+ // the house by the east gate: the paving reaches its door step, the door is solid (no interior yet)
+ go(VIOLET,70,44);step(UP);at(VIOLET_NUM,70,43,"house-door-step");step(UP);at(VIOLET_NUM,70,43,"house-door-solid");shot("house-door");
+ // behind Sprout Tower: two open rows under the top roof, the trees behind them blocking
+ go(VIOLET,35,4);shot("beside-sprout-tower");step(RIGHT);step(RIGHT);step(RIGHT);at(VIOLET_NUM,38,4,"behind-sprout-tower");shot("behind-sprout-tower");
+ step(UP);at(VIOLET_NUM,38,3,"behind-sprout-ridge");shot("behind-sprout-ridge");step(UP);at(VIOLET_NUM,38,3,"trees-behind-tower-block");
+ step(DOWN);step(DOWN);at(VIOLET_NUM,38,4,"tower-blocks-from-behind");
+ step(RIGHT);step(RIGHT);step(RIGHT);step(RIGHT);step(RIGHT);at(VIOLET_NUM,43,4,"out-the-far-side");shot("past-sprout-tower");
  // the north road, both bridges and the landing, south to the main street
  go(VIOLET,39,13);at(VIOLET_NUM,39,13,"north-road");shot("north-road");
  walk(DOWN,30,"south");
@@ -76,7 +90,8 @@ DOOR_TESTS c->deinit(c);return 0;
 
 def generate():
     import doors as D
-    tests = ''.join(f' door({d["cell"][0]},{d["cell"][1]},"{d["name"]}");\n' for d in D.DOORS)
+    tests = ''.join(f' door({d["cell"][0]},{d["cell"][1]},"{d["name"]}");\n' for d in D.DOORS
+                    if d['name'] != 'EastGate')   # the east gate is entered by its stairs now (checked above)
     src = TEMPLATE.replace('RUNTIME_C', str(ROOT / 'tools/gba/maps/runtime.c')).replace('DOOR_TESTS', tests)
     return src.replace('#define RIGHT 16\n', f'#define RIGHT 16\n#define VIOLET {VIOLET}\n#define VIOLET_NUM {VIOLET}\n#define EAST_NUM {EAST_GATE}\n#define WEST_NUM {WEST_GATE}\n', 1)
 
