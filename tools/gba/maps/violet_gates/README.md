@@ -27,12 +27,13 @@ on the base, and rebuilds only the cells whose picture changes.
 What it does, and the rules it follows (AGENTS.md on branch `claude/celadon-city`, "Converting a
 Gen 4 map" and the depth rule):
 
-- **Trees by the gates.** Distances are measured on the finished Route 31 and Route 36 gates: the row
-  behind the gate has its crown top 32 px above the gate art's origin (trunk feet 8 px behind the roof's
-  top edge, trunks showing at the roof corners), and the row in front has its crown top 96 px below the
-  origin (tips 10 px over the ledge). Violet's forest lattice is on even rows, 16 px off both, so the two
-  rows between each of those and the untouched forest sit 40 px apart instead of 32. The column beside the
-  stairs keeps the lattice because the paving's corner is walkable there.
+- **Trees by the gates.** Laid out as at the finished Route 31 gate plus one row under the gate (the
+  owner rule in AGENTS.md, "Trees round a gatehouse"). The row behind has its crown top 32 px above the
+  gate art's origin; the row in front 96 px below it. Violet's forest was 16 px off those rows, so the
+  strips beside each gate (columns 0-7 west, 76-79 above and 74-79 below the east gate) moved half a tree,
+  map edge to map edge. Row spacing is 32 px throughout. The column beside each gate's stairs keeps the old
+  rows because the paving's corner is walkable there. Two earlier tries (40 px rows; plain lattice rows
+  with a lawn strip at the ledge) were rejected.
 - **Painter's order from whole cut-outs.** Ground, trees behind, gate, trees in front. The tree cut-out is
   read from the lone tree's own tiles (never keyed by colour); the gate is `gate15.png`. Each 8x8 tile is
   then split by palette family: lawn below and tree on top; where the gate is in front of a tree, the gate
@@ -47,8 +48,8 @@ Gen 4 map" and the depth rule):
   (684-687) lost their tiles in the earlier gate install, because that install only counted tiles the
   map's cells use. Anything that frees tiles has to count the border block as well.
 
-Budget after the run: 1 tile slot free, no palette slot free in the lawn banks. Two lawn pixels at
-(74, 59) differ by one shade from the plain lawn tile there (a mirrored baked tile is reused).
+Budget after the run: 4 tile slots free. A few lawn pixels in five cells along the ledges differ by one
+shade from the plain lawn tile there (mirrored baked tiles are reused).
 
 Check: `tools/gba/maps/violet_city/runtime.py` (both gates, the tree rows blocking, the house door,
 behind Sprout Tower, every door).
