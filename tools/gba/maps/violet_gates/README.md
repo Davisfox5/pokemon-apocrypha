@@ -53,3 +53,13 @@ shade from the plain lawn tile there (mirrored baked tiles are reused).
 
 Check: `tools/gba/maps/violet_city/runtime.py` (both gates, the tree rows blocking, the house door,
 behind Sprout Tower, every door).
+
+## Interiors (2026-11-27)
+
+- Gates: both Violet gates are back on the shared Johto gate room (fork commit reverting `411a10ed`),
+  with a mat on each side wall. West gate: Route 36 (75,20) on the west mat, Violet (6,29)/(6,30) on the
+  east mat. East gate: Violet (73,57)/(73,58) on the west mat, Route 31 (6,13)/(6,14) on the east mat.
+- House by the east gate: `house_interior.py ENGINE` opens the door at (70,42), appends Violet's warp
+  for it and adds `VioletHouse6` on the plain Violet house layout (`LAYOUT_VIOLET_HOUSE_5`). The door
+  block is the same four metatiles as House 1's, so House 1's door animation plays with no new tile.
+- `violet_city/runtime.py` checks both: through each gate to its route and back, and in and out of the house.

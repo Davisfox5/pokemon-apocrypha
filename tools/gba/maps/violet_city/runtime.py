@@ -4,7 +4,7 @@
     MGBA_FLAGS='-I... -L... -lmgba ...' python3 tools/gba/maps/violet_city/runtime.py ENGINE OUT
 
 Into both gates by both stairs, the gates' walls and the tree rows round them blocking, the house by the east
-gate (door step on the paving, door solid), the two open rows behind Sprout Tower's top roof, a walk down the north road, over the
+gate (door step on the paving, its door and interior), through each gate to Route 31 and Route 36 and back, the two open rows behind Sprout Tower's top roof, a walk down the north road, over the
 north bridge, across the landing and the south bridge to the main street, the lake blocking on foot, the
 hall's front blocking at its door, the back path behind it open, the lawn its old west wing gave back
 walkable, and every door: its opening frames, the interior loaded, back outside below the door on the way out.
@@ -65,8 +65,20 @@ int main(int argc,char**argv){
  go(VIOLET,7,27);step(LEFT);at(VIOLET_NUM,7,27,"west-gate-wall-blocks");
  go(VIOLET,8,25);step(LEFT);at(VIOLET_NUM,8,25,"west-gate-trees-block");shot("west-gate-trees");
  go(VIOLET,73,50);step(RIGHT);at(VIOLET_NUM,73,50,"east-gate-trees-block");shot("east-gate-trees");
- // the house by the east gate: the paving reaches its door step, the door is solid (no interior yet)
- go(VIOLET,70,44);step(UP);at(VIOLET_NUM,70,43,"house-door-step");step(UP);at(VIOLET_NUM,70,43,"house-door-solid");shot("house-door");
+ // through each gate to its route and back: the far mat leads out, the route's stair leads back in
+ go(VIOLET,72,57);step(RIGHT);step(RIGHT);frames(240,0);at(EAST_NUM,1,5,"east-gate-west-mat");
+ for(int i=0;i<10;i++)step(RIGHT);at(EAST_NUM,11,5,"east-gate-east-mat");shot("east-gate-east-mat");
+ step(RIGHT);frames(240,0);at(ROUTE31_NUM,6,13,"east-gate-to-route-31");shot("route-31-from-gate");
+ step(LEFT);frames(240,0);at(EAST_NUM,11,5,"route-31-to-east-gate");
+ for(int i=0;i<10;i++)step(LEFT);step(LEFT);frames(240,0);at(VIOLET_NUM,73,57,"east-gate-to-violet");
+ go(VIOLET,7,29);step(LEFT);step(LEFT);frames(240,0);at(WEST_NUM,11,5,"west-gate-east-mat");
+ for(int i=0;i<10;i++)step(LEFT);at(WEST_NUM,1,5,"west-gate-west-mat");shot("west-gate-west-mat");
+ step(LEFT);frames(240,0);at(ROUTE36_NUM,75,20,"west-gate-to-route-36");shot("route-36-from-gate");
+ step(RIGHT);frames(240,0);at(WEST_NUM,1,5,"route-36-to-west-gate");
+ for(int i=0;i<10;i++)step(RIGHT);step(RIGHT);frames(240,0);at(VIOLET_NUM,6,29,"west-gate-to-violet");
+ // the house by the east gate: the paving reaches its door step, the door opens onto its interior
+ go(VIOLET,70,44);step(UP);at(VIOLET_NUM,70,43,"house-door-step");shot("house-door");
+ door(70,42,"House6");
  // behind Sprout Tower: two open rows under the top roof, the trees behind them blocking
  go(VIOLET,35,4);shot("beside-sprout-tower");step(RIGHT);step(RIGHT);step(RIGHT);at(VIOLET_NUM,38,4,"behind-sprout-tower");shot("behind-sprout-tower");
  step(UP);at(VIOLET_NUM,38,3,"behind-sprout-ridge");shot("behind-sprout-ridge");step(UP);at(VIOLET_NUM,38,3,"trees-behind-tower-block");
@@ -93,7 +105,7 @@ def generate():
     tests = ''.join(f' door({d["cell"][0]},{d["cell"][1]},"{d["name"]}");\n' for d in D.DOORS
                     if d['name'] != 'EastGate')   # the east gate is entered by its stairs now (checked above)
     src = TEMPLATE.replace('RUNTIME_C', str(ROOT / 'tools/gba/maps/runtime.c')).replace('DOOR_TESTS', tests)
-    return src.replace('#define RIGHT 16\n', f'#define RIGHT 16\n#define VIOLET {VIOLET}\n#define VIOLET_NUM {VIOLET}\n#define EAST_NUM {EAST_GATE}\n#define WEST_NUM {WEST_GATE}\n', 1)
+    return src.replace('#define RIGHT 16\n', f'#define RIGHT 16\n#define VIOLET {VIOLET}\n#define VIOLET_NUM {VIOLET}\n#define EAST_NUM {EAST_GATE}\n#define WEST_NUM {WEST_GATE}\n#define ROUTE31_NUM 29\n#define ROUTE36_NUM 44\n', 1)
 
 def parity(engine, outdir, shots):
     img, _, _ = V.decode(engine)
